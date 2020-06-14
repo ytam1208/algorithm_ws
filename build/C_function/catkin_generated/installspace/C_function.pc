@@ -1,0 +1,8 @@
+prefix=/home/cona/algorithm_ws/install
+
+Name: C_function
+Description: Description of C_function
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp

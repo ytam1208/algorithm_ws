@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main(int argv, char **argc)
+{
+    int a, b, c;
+    std::cin >> a >> b >> c;
+    if (2 <= a && c <= 10000)
+    {
+        printf("%d\n", (a + b) % c);
+        printf("%d\n", ((a % c) + (b % c) % c));
+        printf("%d\n", (a * b) % c);
+        printf("%d\n", ((a % c) * (b % c)) % c);
+    }
+    return 0;
+}
