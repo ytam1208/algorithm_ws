@@ -1,2 +1,0 @@
-Backjun:C_function
--DCATKIN_DEVEL_PREFIX=/home/cona/algorithm_ws/devel -DCMAKE_INSTALL_PREFIX=/home/cona/algorithm_ws/install -G Unix Makefiles
