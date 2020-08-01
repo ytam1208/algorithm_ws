@@ -2,37 +2,43 @@
 
 int main()
 {
-    cv::Mat ori_src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/gray.jpg", cv::IMREAD_COLOR);
-    
+    cv::Mat ori_src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/gray.jpg", cv::IMREAD_GRAYSCALE);
     cv::Mat src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/gray.jpg", cv::IMREAD_GRAYSCALE);
-    cv::threshold(src, src, 150, 255, 0);
+    cv::Mat threshold;
+    cv::Mat adaptive;
+    cv::threshold(src, threshold, 150, 255, 0);
+    cv::adaptiveThreshold(src, adaptive, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY, 3, 10);
+    cv::adaptiveThreshold(src, src, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY, 3, 10);
 
     if(!src.data)
     {
         printf ("NO data\n");
         return 0;
     }
-    cv::namedWindow("original_img", cv::WINDOW_AUTOSIZE);
-    cv::imshow("original_img", src);
-    
+    cv::namedWindow("threshold_img", cv::WINDOW_AUTOSIZE);
+    cv::imshow("threshold_img", threshold);
+
+    cv::namedWindow("adaptive_img", cv::WINDOW_AUTOSIZE);
+    cv::imshow("adaptive_img", adaptive);
+
     cv::namedWindow("binary_img", cv::WINDOW_AUTOSIZE);
     cv::imshow("binary_img", src);
 
     //영상 침식
     cv::Mat erode_img;
-    cv::erode(src, erode_img, cv::Mat());
+    cv::erode(ori_src, erode_img, cv::Mat());
     cv::namedWindow("erode_img", cv::WINDOW_AUTOSIZE);
     cv::moveWindow("erode_img", 600, 0);
     cv::imshow("erode_img", erode_img);
 
     //영상 팽창
     cv::Mat dilated;
-    cv::dilate(src, dilated, cv::Mat());
+    cv::dilate(ori_src, dilated, cv::Mat());
     cv::namedWindow("dilated_img", cv::WINDOW_AUTOSIZE);
     cv::moveWindow("dilated_img", 0, 600);
     cv::imshow("dilated_img", dilated);
 
-    cv::Mat element5(3, 3, CV_8U, cv::Scalar(1));
+    cv::Mat element5(5, 5, CV_8U, cv::Scalar(1));
     //모폴로지 close
     cv::Mat morph;
     cv::morphologyEx(src, morph, cv::MORPH_CLOSE, element5);
