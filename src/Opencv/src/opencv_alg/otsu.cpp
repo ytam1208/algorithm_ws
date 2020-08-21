@@ -1,4 +1,4 @@
-nclude "opencv2/opencv.hpp"
+#include "opencv2/opencv.hpp"
 #include <iostream>
 #include <math.h>
 
@@ -28,7 +28,7 @@ public:
 
     void intValue(Otsu *otsu)
     {
-        otsu->src = cv::imread("../data/corner.png");
+        otsu->src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/test2.jpg");
         cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);
         width = gray.rows;
         height = gray.cols;
