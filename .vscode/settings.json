@@ -52,6 +52,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "algorithm": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "random": "cpp"
     }
 }
