@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cona/algorithm_ws/src/Opencv/src/opencv_alg/k.cpp
+opencv2/opencv.hpp
+/home/cona/algorithm_ws/src/Opencv/src/opencv_alg/opencv2/opencv.hpp
+opencv2/imgproc.hpp
+-
+opencv2/highgui.hpp
+-
+iostream
+-
+stdio.h
+-
+math.h
+-
+vector
+-
+

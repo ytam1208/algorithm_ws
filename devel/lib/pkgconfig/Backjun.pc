@@ -1,0 +1,8 @@
+prefix=/home/cona/algorithm_ws/devel
+
+Name: Backjun
+Description: Description of Backjun
+Version: 0.0.0
+Cflags: -I/home/cona/algorithm_ws/src/Backjun/include
+Libs: -L${prefix}/lib -lBackjun
+Requires: roscpp
