@@ -26,6 +26,7 @@ class K_means
         };
         lable_ param;
         std::vector<lable_> tmp_clu_points;      //개별 군집과 가까운 RGB컨테이너 배열의 위치를 lable 별로 저장
+        std::vector<lable_> tmp_clu2_points;
 
         struct mean_struct
         {
@@ -48,16 +49,16 @@ class K_means
             IGG();
             runloop();
             make_kmeans();
-
         }
         ~K_means()
         {
-
         }
         void make_kmeans()
         {
             int point_size = 0;
             int k_ = 0;
+            while(1)
+            {
                 for(int j = 0; j < width; j++)
                     for(int i = 0; i < height; i++)
                     {
@@ -65,23 +66,23 @@ class K_means
                             k_ = 0;
                         if(point_size > pixel_size)
                         {
-                            printf("point_size = %d", point_size);
-                            printf("out!\n");
                             goto EXIT;
                         }
                         if(k_ == tmp_clu_points[point_size].lable1)
                         {
                             // printf("go\n");
-                            int r1 = tmp_clu_points[point_size].r;
-                            int g1 = tmp_clu_points[point_size].g;
-                            int b1 = tmp_clu_points[point_size].b;
+                            int r1 = tmp_clu2_points[point_size].r;
+                            int g1 = tmp_clu2_points[point_size].b;
+                            int b1 = tmp_clu2_points[point_size].g;
                             dst.at<cv::Vec3b>(j,i)[0] = r1;
                             dst.at<cv::Vec3b>(j,i)[1] = g1;
                             dst.at<cv::Vec3b>(j,i)[2] = b1;
+                            printf("r1 = %d, b1 = %d, g1 = %d\n", r1, b1, g1);
                         }
                         point_size++;
                         k_++;
                     }
+            }
             EXIT:
                 cv::imshow("Result_img", dst);
                 cv::waitKey(0);
@@ -90,8 +91,6 @@ class K_means
         {
             bool first_check = true;
             int distance;
-            int min_dist = 500000;
-            int complete_k = -1;
 
             while(true)
             {
@@ -99,22 +98,25 @@ class K_means
                 bool check_distane = false;
                 for(int j = 0; j < pixel_size; j++)
                 {
+                    int min_dist = 500000;
+                    int complete_k = -1;
                     tmp_clu_points.push_back(param);
+                    tmp_clu2_points.push_back(param);
                     for(int i = 0; i < k; i++)
                     {
-                        cr = clu_points[i].x;
-                        cg = clu_points[i].y;
-                        cb = clu_points[i].z;
-
                         r = src_points[j].x;
                         g = src_points[j].y;
                         b = src_points[j].z;
+
+                        cr = clu_points[i].x;
+                        cg = clu_points[i].y;
+                        cb = clu_points[i].z;
 
                         distance = sqrt(pow(r - cr, 2) + pow(g - cg, 2) + pow(b - cb, 2));
                         if(distance < min_dist)
                         {
                             min_dist = distance;
-                            complete_k = i;
+                            complete_k = i; //가장 가까운 군집 k를 기억
                             check_distane = true;
                         }
                     }
@@ -124,38 +126,15 @@ class K_means
                         tmp_clu_points[j].r = r;
                         tmp_clu_points[j].g = g;
                         tmp_clu_points[j].b = b;
+                        //printf("r = %d, g = %d, b = %d \n", r, g, b);
                     }
                 }
-                // int count0 = 0, count1 = 0, count2 = 0;
-                // for(int i = 0; i < pixel_size; i++)
-                // {
-                //     printf("i = %d\n", i);
-                //     printf("tmp_clu_points.lable = %d\n", tmp_clu_points[i].lable1);
-                //     if(tmp_clu_points[i].lable1 == 0)
-                //     {
-                //         count0++;
-                //     }
-                //     else if(tmp_clu_points[i].lable1 == 1)
-                //     {
-                //         count1++;
-                //     }
-                //     else if(tmp_clu_points[i].lable1 == 2)
-                //     {
-                //         count2++;
-                //     }
-                // }
-                // printf("pixel_size = %d\n",pixel_size);
-                // printf("count0 = %d, count1 = %d, count2 = %d \n", count0, count1, count2);
-                if(first_check == false)
-                    break;
-                else if(first_check == true)
-                    first_check = false;
 
                 //4. 군집들 중에 가장 가까운 src_points들의 평균을 구한다.
                 mean_value.push_back(mean);
+                int tmp_r = 0, tmp_g = 0, tmp_b = 0;
                 for(int j = 0; j < k; j++)
                 {
-                    int tmp_r = 0, tmp_g = 0, tmp_b = 0;
                     for(int i = 0; i < pixel_size; i++)
                     {
                         if(j == tmp_clu_points[i].lable1) 
@@ -165,29 +144,83 @@ class K_means
                             tmp_b += tmp_clu_points[i].b;                            
                         }
                     }
-                    if(tmp_r == 0)
-                        tmp_r = 0;
-                    else if(tmp_g == 0)
-                        tmp_g = 0;
-                    else if(tmp_b == 0)
-                        tmp_b = 0; 
-                    else{
-                        tmp_r = tmp_r/pixel_size;
-                        tmp_g = tmp_g/pixel_size;
-                        tmp_b = tmp_b/pixel_size;
-                    }
+                    tmp_r /= (pixel_size);
+                    tmp_g /= (pixel_size);
+                    tmp_b /= (pixel_size);  
+
                     mean_value[j].mean_r = tmp_r;
                     mean_value[j].mean_g = tmp_g;
                     mean_value[j].mean_b = tmp_b;
                 }
-                for(int i = 0; i < k; i++)
-                    for(int j = 0; j < pixel_size; j++)
+                for(int j = 0; j < k; j++)
+                {
+                    for(int i = 0; i < pixel_size; i++)
                     {
-                        tmp_clu_points[j].r = mean_value[i].mean_r;
-                        tmp_clu_points[j].g = mean_value[i].mean_g;
-                        tmp_clu_points[j].b = mean_value[i].mean_b;                            
+                        if(j == tmp_clu_points[i].lable1)
+                        {
+                            tmp_clu2_points[i].r = mean_value[j].mean_r;
+                            tmp_clu2_points[i].g = mean_value[j].mean_g;
+                            tmp_clu2_points[i].b = mean_value[j].mean_b;
+                            // printf("tmp_clu2_point[%d].r = %d\n", i, tmp_clu2_points[i].r);
+                            // printf("tmp_clu2_point[%d].r = %d\n", i, tmp_clu2_points[i].g);
+                            // printf("tmp_clu2_point[%d].r = %d\n", i, tmp_clu2_points[i].b);
+                        }
                     }
+                }
+
+                //여기까지가 첫번째 랜덤으로 주어진 군집에서 가까운 RGB들의 평균
+                //두번째부터 새로운 중심점들인 tmp_clu2_points와 거리 차이를 계산해준다.
+                // int magchage = 0;
+                // bool threshold = false;
+                //     for(int i = 0; i < pixel_size; i++)
+                //     {
+                //         magchage = sqrt(
+                //         pow(tmp_clu2_points[i].r - tmp_clu_points[i].r, 2) + 
+                //         pow(tmp_clu2_points[i].g - tmp_clu_points[i].g, 2) +
+                //         pow(tmp_clu2_points[i].b - tmp_clu_points[i].b, 2));
+                //         if(magchage > 5)
+                //         {   
+                //             threshold = true;
+                //             break;
+                //         }
+                //     }
+                //중심점들끼리의 거리가 똑같을수가 있다 너무 가까우면 다시 루프를 돌게한다.
+                // bool is_same = false;
+                // for(int k1 = 0; k1 < k -1; k1++)
+                //     for(int k2 = k1+1; k2 < k; k2++)
+                //     {
+                //         if(sqrt(pow(tmp_clu_points[k1].r - tmp_clu_points[k2].r, 2) + pow(tmp_clu_points[k1].r - tmp_clu_points[k2].r, 2) + 
+                //         pow(tmp_clu_points[k1].r - tmp_clu_points[k2].r, 2)) <= 5)
+                //         {
+                //             k1 = pixel_size;
+                //             is_same = true;
+                //             break;
+                //         }
+
+                //     }
+                if(first_check == true)
+                {
+                    first_check = false;
+                    continue;
+                }
+                else if(first_check == false)//threshold == false)// && is_same == false)
+                {
+                    //현재 중심점들과의 이전 중심점들과의 거리 차이가 5 이하이면 종료한다.
+                    break;
+                }
+                // else
+                // {
+                //     for(int i = 0; i < pixel_size; i++)
+                //     {
+                //         clu_points[i].x = tmp_clu2_points[i].r;
+                //         clu_points[i].y = tmp_clu2_points[i].g;
+                //         clu_points[i].z = tmp_clu2_points[i].b;
+                //     }
+                // }
             }
+            // for (int k = 0; k < pixel_size; k++)
+    		//     std::cout << "Final Ks : " << clu_points[k].x << " " << clu_points[k].y << " " << clu_points[k].z << std::endl;
+
         }
         void IGG() //Make Clu group    2.k개의 군집 중심을 초기화한다.(랜덤으로 k개의 좌표를 생성해준다)
         {
@@ -205,9 +238,9 @@ class K_means
             for(int j = 0; j < width; j++)
                 for(int i = 0; i < height; i++)
                 {
-                    uchar r_ = src.at<cv::Vec3b>(j,i)[0];
-                    uchar g_ = src.at<cv::Vec3b>(j,i)[1];
-                    uchar b_ = src.at<cv::Vec3b>(j,i)[2];
+                    int r_ = src.at<cv::Vec3b>(j,i)[0];
+                    int g_ = src.at<cv::Vec3b>(j,i)[1];
+                    int b_ = src.at<cv::Vec3b>(j,i)[2];
 
                     src_points.push_back(cv::Point3f(r_, g_, b_));
                 }
