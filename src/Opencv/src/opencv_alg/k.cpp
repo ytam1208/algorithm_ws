@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <vector>
-
+//https://ottuging.tistory.com/15
 class K_means
 {
     public:
