@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cona/algorithm_ws/src/Opencv/src/opencv_alg/k.cpp" "/home/cona/algorithm_ws/build/Opencv/CMakeFiles/Opencv.dir/src/opencv_alg/k.cpp.o"
+  "/home/cona/algorithm_ws/src/Opencv/src/opencv_alg/k-means.cpp" "/home/cona/algorithm_ws/build/Opencv/CMakeFiles/Opencv.dir/src/opencv_alg/k-means.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,7 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/cona/algorithm_ws/src/Opencv/include"
-  "/usr/include/opencv"
+  "/opt/ros/kinetic/include/opencv-3.3.1-dev"
+  "/opt/ros/kinetic/include/opencv-3.3.1-dev/opencv"
   "/home/cona/algorithm_ws/src/Opencv/include/Opencv"
   )
 

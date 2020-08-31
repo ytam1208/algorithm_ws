@@ -1,165 +1,174 @@
-#include <iostream>
-#include <vector>
-#include <ctime>
-
 #include "opencv2/opencv.hpp"
-#include <opencv2/imgproc.hpp>
-#include <opencv2/highgui.hpp>
+#include "opencv2/core.hpp"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <math.h>
+#include <vector>
 
-using namespace std;
 
-#define MAX_DIST 50000
-
-cv::Mat KMeans_Cluster(cv::Mat, int, int);
-
-int main()
+class Kmeans
 {
-	// Input 이미지들 파일명이다.
-    // 사용자에게 알맞는 이미지 파일로 이미지를 읽어드리면 된다.
-	string CLUSTER[5] = { "/home/cona/algorithm_ws/src/Opencv/data/home.jpg", "/home/cona/algorithm_ws/src/Opencv/data/test1.jpg",
-     "/home/cona/algorithm_ws/src/Opencv/data/test2.jpg", "/home/cona/algorithm_ws/src/Opencv/data/test3.jpg", "/home/cona/algorithm_ws/src/Opencv/data/test4.jpg" };
-	string path = "/home/cona/algorithm_ws/src/Opencv/";
+    public:
+        int k; //군집의 갯수
+        int width, height;
+        int pixel_size;
+        int MAX_ = 500000;
+        int mean_r, mean_g, mean_b;
 
-	// KMeans Clustering
-	for (int i = 0; i < 5; i++) {
-		cv::Mat img = cv::imread(CLUSTER[i]);
-		cv::Mat result;
-		int k = 8;
-		result = KMeans_Cluster(img, k, 5);
-		cv::imwrite(path + "Test_Result_KMeans/" + CLUSTER[i], result);
-	}
+        struct clu_struct
+        {
+            cv::Point3f tmp_clu;
+            int lable;
+        };
+        clu_struct param;
+        struct mean
+        {
+            int mean_r = 0;
+            int mean_g = 0;
+            int mean_b = 0;
+        };
+        mean mean_param;
 
-	return 0;
-}
+        std::vector<cv::Point3f> src_points;
+        std::vector<cv::Point3f> clu_center;
+        std::vector<clu_struct> tmp_points;
+        std::vector<mean> mean_index;
 
-cv::Mat KMeans_Cluster(cv::Mat src, int n_Cluster, int D = 5) {
-	cv::Mat result = cv::Mat::zeros(src.size(), CV_8UC3);
+        cv::Mat src, res;
+        
+        void initValue(Kmeans *kmeans_)
+        {
+            kmeans_->src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/fruits.jpg");
+            width = src.rows;
+            height = src.cols;
+            pixel_size = width*height;
 
-	// Step1. 화소를 (b, g, r) 3차원 형태로 변환 시킴.
-	uchar* sImage = src.data;
-	vector <cv::Point3f> point;
-	for (int r = 0; r < src.rows; r++) {
-		for (int c = 0; c < src.cols; c++) {
-			int offset = r * src.cols * 3 + c * 3;
-			point.push_back(cv::Point3f(sImage[offset + 0], sImage[offset + 1], sImage[offset + 2]));
-		}
-	}
+            res.create(height, width, src.type());
+        }
 
-	// Step2. 초기 군집 중심 k를 설정
-	// 2 가지 방법이 있는데, 초기화를 랜덤하게 하는 방법이 있고, 
-	vector<cv::Point3f> center_point;
-	srand((unsigned int)time(NULL));
-	/*for (int i = 0; i < n_Cluster; i++) {
-		int rand1, rand2, rand3;
-		rand1 = rand() % 255, rand2 = rand() % 255, rand3 = rand() % 255;
-		center_point.push_back(cv::Point3f(rand1, rand2, rand3));
-		cout << rand1 << " " << rand2 << " " << rand3 << endl;
-	}*/
-	center_point.push_back(cv::Point3f(0, 0, 0));
-	center_point.push_back(cv::Point3f(0, 0, 255));
-	center_point.push_back(cv::Point3f(0, 255, 0));
-	center_point.push_back(cv::Point3f(0, 255, 255));
-	center_point.push_back(cv::Point3f(255, 0, 0));
-	center_point.push_back(cv::Point3f(255, 0, 255));
-	center_point.push_back(cv::Point3f(255, 255, 0));
-	center_point.push_back(cv::Point3f(255, 255, 255));
+        void Kmeans_fun()
+        {
+            std::cout << "Insert Cluster?" << std::endl;
+            std::cin >> k;
+            for(int j = 0; j < width; j++)
+                for(int i = 0; i <height; i++)                            //1. 모든 픽셀을 하나의 샘플 집합 X로 변환
+                {
+                    float x = src.at<cv::Vec3b>(j, i)[0];
+                    float y = src.at<cv::Vec3b>(j, i)[1];
+                    float z = src.at<cv::Vec3b>(j, i)[2];
+                    src_points.push_back(cv::Point3f(x, y, z));
+                }
+            
+            std::srand((unsigned int)time(NULL));
+            for(int i = 0; i < k; i++)
+            {
+                int rand1, rand2, rand3;
+                rand1 = rand() % 255;
+                rand2 = rand() % 255;
+                rand3 = rand() % 255;
+                clu_center.push_back(cv::Point3f(rand1, rand2, rand3));    //2. clu center에 랜덤한 좌표
+            }
 
-	cout << center_point.size() << endl;
+            mean_index.push_back(mean_param);
+            tmp_points.push_back(param);
+            bool first_check = true;
+            while(true)
+            {
 
-	// 군집에 속하는 포인트들을 누적합 하기 위한 vector 선언
-	vector<vector<int>> calc(center_point.size());
-	bool is_first = true;
-	while (true) {
-		bool is_changed = true;
+                for(int i = 0; i < pixel_size; i++)
+                {
+                    int distance;
+                    int min_dist = MAX_;
+                    int min_center = -1;
 
-		// Step3. 모든 point들을 한 바퀴 돌면서 가장 가까운 군집 중심에 배정
-		for (int i = 0; i < point.size(); i++) {
-			int min_dist = MAX_DIST;
-			int min_center = -1;
-			for (int k = 0; k < center_point.size(); k++) {
-				int distance;
-				distance = sqrt(pow(point[i].x - center_point[k].x, 2) + pow(point[i].y - center_point[k].y, 2) + pow(point[i].z - center_point[k].z, 2));
-				if (distance < min_dist) {
-					min_dist = distance;
-					min_center = k; // 가장 가까운 군집 k를 기억
-				}
-			}
-			calc[min_center].push_back(i); // 하나의 point에서 모든 군집 중심중에 가장 가까운 군집 중심에 point[i]가 속하게 된다.
-		}
+                    int x, y, z;
+                    int xc, yc, zc;
+                    for(int j = 0; j < k; j++)
+                    {
+                        x = src_points[i].x;
+                        y = src_points[i].y;
+                        z = src_points[i].z;
+                        
+                        xc = clu_center[j].x;
+                        yc = clu_center[j].y;
+                        zc = clu_center[j].z;
 
-		// 현재 배정된 point들의 중점을 구하여 임시 중심점으로 저장
-		vector<cv::Point3f> temp_center_point(center_point.size());
-		for (int k = 0; k < calc.size(); k++) {
-			int b = 0, g = 0, r = 0;
-			for (int j = 0; j < calc[k].size(); j++) {
-				b += point[calc[k][j]].x;
-				g += point[calc[k][j]].y;
-				r += point[calc[k][j]].z;
-			}
-			if (b == 0)
-				b = 0;
-			else if (g == 0)
-				g = 0;
-			else if (r == 0)
-				r = 0;
-			else {
-				b /= calc[k].size();
-				g /= calc[k].size();
-				r /= calc[k].size();
-			}
+                        distance = sqrt(pow(x - xc, 2) + pow(y - yc, 2) + pow(z - zc, 2));
+                        if(distance < min_dist)
+                        {
+                            min_dist = distance;
+                            min_center = j;
+                        }
+                    }
+                    tmp_points[i].lable = min_center;
+                    tmp_points[i].tmp_clu = src_points[i];                              
+                }
+                if(first_check == true)
+                {
+                    first_check = false;
+                    continue;
+                }
+                else if(first_check == false)
+                    break;
 
-			temp_center_point[k].x = b;
-			temp_center_point[k].y = g;
-			temp_center_point[k].z = r;
-		}
+                for(int i = 0; i < pixel_size; i++)
+                {
+                    for(int j = 0; j < k; j++)
+                    {
+                        if(tmp_points[i].lable == j)
+                        {
+                            mean_index[j].mean_r += tmp_points[i].tmp_clu.x;
+                            mean_index[j].mean_g += tmp_points[i].tmp_clu.y;
+                            mean_index[j].mean_b += tmp_points[i].tmp_clu.z;
+                        }
+                    }
+                }
+                for(int j = 0; j < k; j++)
+                {
+                    mean_index[j].mean_r = mean_index[j].mean_r / (pixel_size/3);
+                    mean_index[j].mean_b = mean_index[j].mean_b / (pixel_size/3);
+                    mean_index[j].mean_g = mean_index[j].mean_g / (pixel_size/3);
+                }
+            }
+            for(int j = 0; j < pixel_size; j++)
+            {
+                for(int i = 0; i < k; i++)
+                {
+                    if(tmp_points[j].lable == i)
+                    {
 
-		// 만약 첫 번째 계산이었다면, center_point들은 랜덤이다.
-		// 두 번째 계산 이상부터는 center_point와 현재 새롭게 계산된 새로운 중심점들인 temp_center_point 와 거리 차이를 계산해준다.
-		int magChange = 0;
-		for (int k = 0; k < calc.size(); k++) {
-			magChange += sqrt(pow(temp_center_point[k].x - center_point[k].x, 2) + pow(temp_center_point[k].y - center_point[k].y, 2) + pow(temp_center_point[k].z - center_point[k].z, 2));
-		}
+                    }
+                }
+            }
+            
+            // uchar *rimage = res.data;
+            // for(int j = 0; j < clu_center.size(); j++)
+            //     for(int i = 0; i < clu_center[j].size(); i++)
+            //     {
+            //         rimage[calc[j][i] * 3 + 0] = clu_cent[j].x;
+            //         rimage[calc[j][i] * 3 + 1] = clu_cent[j].y;
+            //         rimage[calc[j][i] * 3 + 2] = clu_cent[j].z;
+            //     }
 
-		// 근데 중심점들끼리의 거리가 같을 수도 있다. 어느 정도 가까운 건 상관없지만, 너무 가깝거나 같은 경우에는 다시 루프를 돌게 해야한다.
-		bool is_same = false;
-		for (int k1 = 0; k1 < calc.size() - 1; k1++) {
-			for (int k2 = k1 + 1; k2 < calc.size(); k2++) {
-				if (sqrt(pow(temp_center_point[k1].x - temp_center_point[k2].x, 2) + pow(temp_center_point[k1].y - temp_center_point[k2].y, 2) + pow(temp_center_point[k1].z - temp_center_point[k2].z, 2)) <= 5) {
-					k1 = calc.size();
-					is_same = true;
-					break;
-				}					
-			}
-		}
 
-		// Step4. 여기서 첫 배정이면 다음으로 패쓰, 첫 배정이 아니면 이전 루프의 배정과 같은지 비교
-		if (is_first == true) {
-			is_first = false;
-			continue;
-		}
-		else if(magChange <= D &&  is_same == false){ // 현재 중심점들과 이전 중심점들과의 거리 차이가 D 이하면 종료한다.
-			break;
-		}
-		else {
-			for (int k = 0; k < center_point.size(); k++) {
-				center_point[k].x = temp_center_point[k].x;
-				center_point[k].y = temp_center_point[k].y;
-				center_point[k].z = temp_center_point[k].z;
-			}
-		}
-	}
-	for (int k = 0; k < center_point.size(); k++)
-		cout << "Final Ks : " << center_point[k].x << " " << center_point[k].y << " " << center_point[k].z << endl;
-	
-	// 최종 배정된 중심점들을 이용하여 색상 변환
-	uchar* rImage = result.data;
-	for (int k = 0; k < calc.size(); k++) {
-		for (int i = 0; i < calc[k].size(); i++) {
-			rImage[calc[k][i] * 3 + 0] = center_point[k].x;
-			rImage[calc[k][i] * 3 + 1] = center_point[k].y;
-			rImage[calc[k][i] * 3 + 2] = center_point[k].z;
-		}
-	}
 
-	return result;
+
+        }
+
+    Kmeans()
+    {
+        initValue(this);
+        Kmeans_fun();
+    }
+    ~Kmeans()
+    {
+
+    }
+
+};
+
+int main()r
+{
+    Kmeans kmeans_ = Kmeans();
 }

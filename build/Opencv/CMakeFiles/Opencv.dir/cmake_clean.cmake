@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Opencv.dir/src/opencv_alg/k.cpp.o"
+  "CMakeFiles/Opencv.dir/src/opencv_alg/k-means.cpp.o"
   "/home/cona/algorithm_ws/devel/lib/Opencv/Opencv.pdb"
   "/home/cona/algorithm_ws/devel/lib/Opencv/Opencv"
 )

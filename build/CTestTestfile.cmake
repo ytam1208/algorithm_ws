@@ -4,7 +4,7 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
-subdirs("gtest")
-subdirs("Backjun")
-subdirs("C_function")
-subdirs("Opencv")
+subdirs(gtest)
+subdirs(Backjun)
+subdirs(C_function)
+subdirs(Opencv)
