@@ -28,7 +28,7 @@ public:
 
     void intValue(Otsu *otsu)
     {
-        otsu->src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/test2.jpg");
+        otsu->src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/rubberwhale1.png");
         cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);
         width = gray.rows;
         height = gray.cols;

@@ -44,7 +44,7 @@ class Otsu
         cv::Mat histrogram_grap, histo_equal, otsu_image, otsu_fun_image;
 
         //std::string path_img = "/home/cona/algorithm_ws/src/Opencv/data/detect_blob.png";
-        std::string path_img = "/home/cona/algorithm_ws/src/Opencv/data/test4.png";
+        std::string path_img = "/home/cona/algorithm_ws/src/Opencv/data/test5.png";
 
     Otsu()
     {
@@ -84,6 +84,7 @@ class Otsu
 
         otsu->histo_equal.create(255, 255, CV_8U);
         cv::equalizeHist(gray, histo_equal);
+        cv::imshow("src_img", src);
         cv::imshow("histo_equal", histo_equal);
 
         pixel_size = width * height;
@@ -96,7 +97,8 @@ class Otsu
             for(int i = 0; i < height - 1; i++)
             {
                 int val = gray.at<uchar>(j, i);
-                histo[val]++;
+                printf("val = %d\n", val);
+                histo[val]++; //그레이 스케일에서 값들의 갯수를 저장한다.
                 //printf("histo[%d] = %lf ", i, histo[i]);
             }
         }
@@ -111,77 +113,61 @@ class Otsu
 
     void Otsu_algo()
     {   
-        L = sizeof(histo)/sizeof(double) + 1;       //histo의 갯수
-        //printf("L = %d", L); 256
+        L = sizeof(histo)/sizeof(double);       //histo의 갯수
         int Vbetween = 0;
-    
+
         for(int i = 0; i < L-1; i++)
         {
             ug += i * histo[i];                  //전체평균
         }
-        std::cout << "ug = " << ug << std::endl;
         
         for(int t1 = 1; t1 < L-3; t1++)
         {
             w0 = 0, u0 = 0;
+            float tmp1 = 0;
             for(int i = 0; i <= t1; i++)
             {
-                float tmp;
-                //printf("histo = %lf", histo[i]);
-
                 w0 += histo[i];
-                tmp += i * histo[i]; 
-                u0 = tmp / w0;
+                tmp1 += i * histo[i]; 
             }
             if(w0 == 0)
                 u0 = 0;
             else
-                u0 = u0 / w0;
-            // (w0 = 0) ? (u0 = 0) : (u0 = (u0 / w0));
-            // std::cout << "w0 = " << w0 << " , " << "u0 = " << u0 << std::endl;
+                u0 = tmp1 / w0;
 
             for(int t2 = t1 + 1; t2 < L-2; t2++)
             {
-                u1 = 0, u2 = 0, w1 = 0, w2 = 0;
+                float tmp2 = 0;
+                u1 = 0;
+                u2 = 0;
+                w1 = 0;
+                w2 = 0;
                 for(int i = t1+1; i <= t2; i++)
                 {
-                    float tmp;
                     w1 += histo[i];
-                    tmp += i * histo[i];
-                    u1 = tmp / w1;
+                    tmp2 += i * histo[i];
                 }
                 if(w1 == 0)
                     u1 = 0;
                 else
-                    u1 = u1 / w1;
-                // w1 = 0 ? u1 = 0 : u1 = u1 / w1;
-                // std::cout << "w1 = " << w1 << "u1" << u1 << std::endl;
+                    u1 = tmp2 / w1;
 
+                float tmp3 = 0;
                 for(int i = t2+1; i < L-1; i++)
                 {
-                    float tmp;
-                    //printf("histo[%d] = %lf ", i, histo[i]);
                     w2 = histo[i];
-                    tmp = i * histo[i];
-                    u2 = tmp / w2;
+                    tmp3 += i * histo[i];
                 }
                 if(w2 == 0)
                     u2 = 0;
                 else
-                    u2 = u2 / w2;
-                //w2 = 0 ? u2 = 0 : u2 = u2 / w2;
-                //std::cout << "w2 = " << w2 << " " << "u2 = " << u2 << std::endl;
+                    u2 = tmp3 / w2;
 
                 float Vbetween_tmp = 0;
                 Vbetween_tmp = (w0 * pow(u0 - ug, 2)) + (w1 * pow(u1 - ug, 2)) + (w2 * pow(u2 - ug, 2));
-                //std::cout << "Vbetween_tmp1 = " << Vbetween_tmp << std::endl;
-                // std::cout << "w0 = " << w0 << " " << "u0 = " << u0 << " " <<std::endl;
-                // std::cout << "w1 = " << w1 << " " << "u1 = " << u1 << " " <<std::endl;
-                // std::cout << "w2 = " << w2 << " " << "u2 = " << u2 << " " <<std::endl;
 
                 if(Vbetween < Vbetween_tmp)
                 {
-                    //std::cout << "Vbetween_tmp = " << Vbetween_tmp << std::endl;
                     Vbetween = Vbetween_tmp;
                     t_point.x = t1;
                     t_point.y = t2;
@@ -196,9 +182,9 @@ class Otsu
         for(int j = 0; j < width; j++)
             for(int i = 0; i < height; i++)
             {
-                if(histo_equal.at<uchar>(j, i) > 0 && histo_equal.at<uchar>(j, i) < t_point.x)
+                if(gray.at<uchar>(j, i) <= t_point.x)
                     otsu_image.at<uchar>(j, i) = 0;
-                else if(histo_equal.at<uchar>(j, i) >= t_point.x && histo_equal.at<uchar>(j, i) < t_point.y)
+                else if(t_point.x < gray.at<uchar>(j, i) && gray.at<uchar>(j, i) <= t_point.y)
                     otsu_image.at<uchar>(j, i) = 127;
                 else
                     otsu_image.at<uchar>(j, i) = 255;
