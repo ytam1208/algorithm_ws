@@ -67,9 +67,6 @@ public:
 
             for (int i = 0; i < (int)tmp_clu_points.size(); i++)
             {
-//                cv::circle(t_plot, cv::Point2f(tmp_clu_points[i].r, tmp_clu_points[i].g), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
-//                cv::circle(t_plot2, cv::Point2f(tmp_clu_points[i].g, tmp_clu_points[i].b), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
-//                cv::circle(t_plot3, cv::Point2f(tmp_clu_points[i].r, tmp_clu_points[i].b), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
                 cv::circle(t_plot, cv::Point2f(src_points[i].x, src_points[i].y), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
                 cv::circle(t_plot2, cv::Point2f(src_points[i].y, src_points[i].z), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
                 cv::circle(t_plot3, cv::Point2f(src_points[i].x, src_points[i].z), 3, cv::Scalar(tmp_clu_points[i].r, tmp_clu_points[i].g, tmp_clu_points[i].b));
@@ -88,7 +85,7 @@ public:
 
         while (true)
         {
-            printf("gopgo\n");
+            // printf("gopgo\n");
             tmp_clu_points.clear();
             for (int j = 0; j < pixel_size; j++)
             {
@@ -136,7 +133,7 @@ public:
                             stop_flag = true;
                     }
                 }
-                printf("count = %d\n",count);
+                // printf("count = %d\n",count);
             }
             else if (is_first == true)
                 is_first = false;
