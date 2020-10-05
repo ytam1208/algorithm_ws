@@ -122,7 +122,7 @@ include_directories(
  ${catkin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
  ${OpenCV_INCLUDE_DIRS}
- ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
+ ##${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
 
 ## Declare a C++ library
