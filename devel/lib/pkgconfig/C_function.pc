@@ -1,0 +1,8 @@
+prefix=/home/cona/algorithm_ws/devel
+
+Name: C_function
+Description: Description of C_function
+Version: 0.0.0
+Cflags: -I/home/cona/algorithm_ws/src/C_function/include
+Libs: -L${prefix}/lib 
+Requires: roscpp

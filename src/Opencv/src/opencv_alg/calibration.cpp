@@ -15,21 +15,24 @@ class calibration
         cv::Mat src;        
         cv::Mat gray;
 
+        std::vector<cv::Point3f> objectPoints;            //3d world coordinates
+        std::vector<cv::Point2f> imagePoints;             //2d world coordinates
+
         struct Internal_Cam_Param
         {
-            float fx = 496.321719;
-            float fy = 495.920276;
-            float cx = 314.523890;
-            float cy = 236.862583;
-            float k1 = 0;
-            float k2 = 0;
-            float p1 = 0;
-            float p2 = 0;
+            double fx = 496.321719;
+            double fy = 495.920276;
+            double cx = 314.523890;
+            double cy = 236.862583;
+            double k1 = 0.110288;
+            double k2 = -0.253714;
+            double p1 = -0.001977;
+            double p2 = -0.000023;
         };
         Internal_Cam_Param Inter_cam;
 
-        int img_rows, img_cols;
         bool object_flag;
+        int img_rows, img_cols;
         calibration()
         {            
             object_flag = false;
@@ -43,10 +46,29 @@ class calibration
         {
 
         }
+    public:
+        std::vector<cv::Point3f> Generate3DPoints(bool &_object_flag, std::vector<cv::Point2f> &_corners);
         int videocapture();
         void SolvePnP(cv::Mat &_src);
-
 };
+
+std::vector<cv::Point3f> calibration::Generate3DPoints(bool &_object_flag, std::vector<cv::Point2f> &_corners)
+{
+    std::vector<cv::Point3f> points;
+    if(_object_flag == false)
+    {
+        int corner_size = _corners.size();
+        for(int i = 0; i < corner_size; i++)
+        {
+            points.push_back(cv::Point3f(_corners[i].x, _corners[i].y, 30));
+            printf("x = %f, y = %f\n", _corners[i].x, _corners[i].y);
+        }
+
+        _object_flag = true;
+        std::cout << "init_corners" << std::endl;
+    }
+    return points;
+}
 
 int calibration::videocapture()
 {
@@ -98,48 +120,33 @@ void calibration::SolvePnP(cv::Mat &_src)
     }
     else if(found)
     {
-        cv::cornerSubPix(gray, corners, cv::Size(5, 5), cv::Size(-1, -1),
-        cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
-
+        // cv::cornerSubPix(gray, corners, cv::Size(29, 29), cv::Size(-1, -1),
+        // cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
         cv::drawChessboardCorners(gray, chess_size, corners, found);
 
         cv::imshow("gray_img", gray);
 
-        std::vector<cv::Point3f> objectPoints;            //3d world coordinates
-        std::vector<cv::Point2f> imagePoints = corners;   //2d world coordinates
+        imagePoints = corners;   //2d world coordinates
+
         if(object_flag == false)
-        {
-            objectPoints.clear();
-            int corner_size = corners.size();
-            for(int i = 0; i < corner_size; i++)
-            {
-                objectPoints.push_back(cv::Point3f(corners[i].x, corners[i].y, 0));
-                // printf("objectPoints[i].x = %lf, objectPoints[i].y = %lf, objectPoints[i].z = %lf\n",
-                //objectPoints[i].x, objectPoints[i].y, objectPoints[i].z);
-            }
-            // for(int j = 0; j < img_rows; j++)
-            //     for(int i = 0; i < img_cols; i++)
-            //     {
-                    
-            //     }
-            object_flag = true;
-        }
+            objectPoints = Generate3DPoints(object_flag, corners);
+
         else if(object_flag == true)
         {
             //카메라 내부파라미터
-            float cam_inParam[9] = {
+            double cam_inParam[9] = {
                 Inter_cam.fx, 0, Inter_cam.cx, 0, Inter_cam.fy, Inter_cam.cy, 0, 0, 1
             };
             cv::Mat A(3,3, CV_64FC1, cam_inParam);
             
             //카메라 왜곡계수
-            float cam_disCoeffs[4] = { //k1, k2 = 상의 일그러짐, p1, p2 = 접선 왜곡
+            double cam_disCoeffs[4] = { //k1, k2 = 상의 일그러짐, p1, p2 = 접선 왜곡
                 Inter_cam.k1, Inter_cam.k2, Inter_cam.p1, Inter_cam.p2
             };
             cv::Mat distCoeffs(4, 1, CV_64FC1, cam_disCoeffs);
 
-            cv::Mat rvec, tvec; //rotation & translation vectors
-
+            cv::Mat rvec(3, 1, CV_64FC1);
+            cv::Mat tvec(3, 1, CV_64FC1); //rotation & translation vectors
             cv::solvePnP(
                 objectPoints,
                 imagePoints,
@@ -147,6 +154,17 @@ void calibration::SolvePnP(cv::Mat &_src)
                 distCoeffs,
                 rvec, tvec
             );
+
+            // std::cout << "rvec: " << rvec << std::endl;
+            // std::cout << "tvec: " << tvec << std::endl;
+            double a = rvec.at<double>(0,0);
+            double b = rvec.at<double>(0,1);
+            double c = rvec.at<double>(0,2);
+
+            double tmp = pow(a , 2) + pow(b , 2) + pow(c , 2);
+            double degree = sqrt(tmp);
+            printf("degree = %lf\n", degree);
+            
             cv::Mat R;
             cv::Rodrigues(rvec, R);
             cv::Mat R_inv = R.inv();
@@ -154,10 +172,9 @@ void calibration::SolvePnP(cv::Mat &_src)
             cv::Mat P = -R_inv * tvec;
             double* p = (double *)P.data;
 
-            printf("x = %lf, y = %lf, z = %lf\n", p[0], p[1], p[2]);
         }
-
     }
+
     
 
     
