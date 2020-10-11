@@ -1,7 +1,7 @@
 # algorithm_ws
-|Ubuntu|ROS.ver|Languge|Cpu|Gpu|Memory|Device|
+|Ubuntu|ROS.ver|Language|Cpu|Gpu|Memory|Device|
 |------|---|---|---|---|---|---|
-|16.04|kinetic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
+|18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
 
 ### Backjun
 ##### 2020-06-14 [1000, 1001, 1008, 1100, 1330, 2588, 2753, 2884, 9498, 10171, 10430, 10718, 10869, 14681]
