@@ -1,5 +1,5 @@
 # algorithm_ws
-|Ubuntu|ROS.ver|Language|Cpu|Gpu|Memory|Device|
+|Ubuntu|ROS.ver|Compiler|Cpu|Gpu|Memory|Device|
 |------|---|---|---|---|---|---|
 |18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
 
