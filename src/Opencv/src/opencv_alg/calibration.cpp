@@ -13,10 +13,10 @@ class calibration
 {
 public:
     cv::Mat src;
-    cv::Mat gray;
-
     cv::Mat src2;
-    cv::Mat gray2;
+
+    cv::Mat l_gray;
+    cv::Mat r_gray;
 
     std::vector<cv::Point3f> objectPoints; //3d world coordinates
     std::vector<cv::Point2f> imagePoints;  //2d world coordinates
@@ -77,6 +77,7 @@ public:
     void CameraAngle(cv::Mat &_R_inv, double _px, double _pz);
     void SolvePnP(cv::Mat &_src, cv::Mat &_src2);
     void timecheck();
+    void SSD(cv::Mat &r_src, cv::Mat &l_src);
 };
 
 void calibration::CameraAngle(cv::Mat &_R_inv, double _px, double _pz)
@@ -155,8 +156,78 @@ int calibration::videocapture()
         // cv::imshow("input_img", src);
         if (cv::waitKey(1) == 27)
             return 0;
-        SolvePnP(src, src2);
+        //SolvePnP(src, src2); //카메라 RT를 구하는 함수
+        SSD(src, src2);
     }
+}
+void calibration::SSD(cv::Mat &r_src, cv::Mat &l_src)
+{
+    //기준 영상은 l_src 영상!!!
+    int CHESS_ROWS = 7;
+    int CHESS_COLS = 4;
+    cv::Size chess_size(CHESS_ROWS, CHESS_COLS);
+
+    std::vector<cv::Point2f> r_corners;
+    std::vector<cv::Point2f> l_corners;
+
+    bool l_found = cv::findChessboardCorners(
+        l_src,
+        chess_size,
+        l_corners,
+        CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_NORMALIZE_IMAGE); //이미지, 패턴사이즈, 코너들, 플래그
+
+    bool r_found = cv::findChessboardCorners(
+        r_src,
+        chess_size,
+        r_corners,
+        CV_CALIB_CB_ADAPTIVE_THRESH | CV_CALIB_CB_NORMALIZE_IMAGE); //이미지, 패턴사이즈, 코너들, 플래그
+
+    if (!l_found && !r_found)
+    {
+        timecheck();
+    }
+    else if(l_found && r_found)
+    {
+        cv::cvtColor(r_src, r_gray, CV_BGR2GRAY);
+        cv::cvtColor(l_src, l_gray, CV_BGR2GRAY);
+
+        cv::cornerSubPix(l_gray, l_corners, cv::Size(7, 7), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
+        cv::cornerSubPix(r_gray, r_corners, cv::Size(7, 7), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
+
+        cv::drawChessboardCorners(r_src, chess_size, r_corners, r_found);
+        cv::drawChessboardCorners(l_src, chess_size, l_corners, l_found);
+
+        cv::namedWindow("left_board");
+        cv::namedWindow("right_board");
+        cv::imshow("left_board", r_src);
+        cv::imshow("right_board", l_src);
+        
+
+        std::pair<cv::Point2f, cv::Mat> win_pair;
+        std::vector<std::pair<cv::Point2f, cv::Mat>> win_vec;
+        
+        win_vec.push_back(win_pair);
+
+        for(int i = 0; i <= r_corners.size(); i++) //코너 좌표와 코너 픽셀 값 저장
+        {
+            win_vec[i].first.x = r_corners[i].x;
+            win_vec[i].first.y = r_corners[i].y;
+
+            win_vec[i].second.at<cv::Vec3b>(1,1)[0] = r_src.at<cv::Vec3b>(r_corners[i].y, r_corners[i].x)[0];
+            win_vec[i].second.at<cv::Vec3b>(1,1)[1] = r_src.at<cv::Vec3b>(r_corners[i].y, r_corners[i].x)[1];
+            win_vec[i].second.at<cv::Vec3b>(1,1)[2] = r_src.at<cv::Vec3b>(r_corners[i].y, r_corners[i].x)[2];
+        }
+        //코너 주변에 있는 3x3 크기의 픽셀 값 저장
+        for(int k = 0; k <= r_corners.size(); k++)
+            for(int j = 0; j < img_rows; j++)
+                for(int i = 0; i < img_cols; i++)
+                {
+                    
+                }        
+
+
+    }
+
 }
 
 void calibration::SolvePnP(cv::Mat &_src, cv::Mat &_src2)
@@ -164,8 +235,8 @@ void calibration::SolvePnP(cv::Mat &_src, cv::Mat &_src2)
     int CHESS_ROWS = 7;
     int CHESS_COLS = 4;
 
-    cv::cvtColor(_src, gray, CV_BGR2GRAY);
-    cv::cvtColor(_src2, gray2, CV_BGR2GRAY);
+    cv::cvtColor(_src, l_gray, CV_BGR2GRAY);
+    cv::cvtColor(_src2, r_gray, CV_BGR2GRAY);
     cv::Size chess_size(CHESS_ROWS, CHESS_COLS);
 
     std::vector<cv::Point2f> corners;
@@ -188,12 +259,12 @@ void calibration::SolvePnP(cv::Mat &_src, cv::Mat &_src2)
     }
     else if (found && found2)
     {
-        cv::cornerSubPix(gray, corners, cv::Size(7, 7), cv::Size(-1, -1),
+        cv::cornerSubPix(l_gray, corners, cv::Size(7, 7), cv::Size(-1, -1),
                          cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
         //cornerSubPix = 보다 정확한 코너 위치를 알려주기 위해서...
         cv::drawChessboardCorners(_src, chess_size, corners, found);
 
-        cv::cornerSubPix(gray2, corners2, cv::Size(7, 7), cv::Size(-1, -1),
+        cv::cornerSubPix(r_gray, corners2, cv::Size(7, 7), cv::Size(-1, -1),
                          cv::TermCriteria(CV_TERMCRIT_EPS | CV_TERMCRIT_ITER, 30, 0.1));
         cv::drawChessboardCorners(_src2, chess_size, corners2, found2);
         //이미지, 패턴사이즈, 코너들, 플래그
