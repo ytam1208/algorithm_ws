@@ -203,9 +203,13 @@ void calibration::SSD(cv::Mat &r_src, cv::Mat &l_src)
         cv::imshow("right_board", l_src);
         
 
+        cv::Point2f point_corner;
+        cv::Mat win(3, 3, CV_64FC3);
+
         std::pair<cv::Point2f, cv::Mat> win_pair;
+        win_pair = std::make_pair(point_corner, win);
+
         std::vector<std::pair<cv::Point2f, cv::Mat>> win_vec;
-        
         win_vec.push_back(win_pair);
 
         for(int i = 0; i <= r_corners.size(); i++) //코너 좌표와 코너 픽셀 값 저장
@@ -217,13 +221,27 @@ void calibration::SSD(cv::Mat &r_src, cv::Mat &l_src)
             win_vec[i].second.at<cv::Vec3b>(1,1)[1] = r_src.at<cv::Vec3b>(r_corners[i].y, r_corners[i].x)[1];
             win_vec[i].second.at<cv::Vec3b>(1,1)[2] = r_src.at<cv::Vec3b>(r_corners[i].y, r_corners[i].x)[2];
         }
+
+        for(int q = 0; q <= r_corners.size(); q++)
+            for(int k = 0; k < 3; k++)
+                for(int z = 0; z < 3; z++)
+                    for(int j = 0; j < img_rows; j++)
+                        for(int i = 0; i < img_cols; i++)
+                        {
+                            if(k == 1 && z == 1)
+                            {
+                                continue;
+                            }
+                            else if(win_vec[i].first.x == j && win_vec[i].first.y == i)
+                            {
+                            = r_src.at<cv::Vec3b>(j,i)[0];
+                            = r_src.at<cv::Vec3b>(j,i)[1];
+                            = r_src.at<cv::Vec3b>(j,i)[2];
+
+                            }
+                            
+                        }
         //코너 주변에 있는 3x3 크기의 픽셀 값 저장
-        for(int k = 0; k <= r_corners.size(); k++)
-            for(int j = 0; j < img_rows; j++)
-                for(int i = 0; i < img_cols; i++)
-                {
-                    
-                }        
 
 
     }
