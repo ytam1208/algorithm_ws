@@ -31,3 +31,8 @@
 7. Overloading
 8. thread_es
 9. templete
+
+### Ros_Python [Basic Python Study]
+0. ROS_msg [talker]
+1. variable
+2. String...[slide, replace, strip..]
