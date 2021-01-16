@@ -1,0 +1,8 @@
+prefix=/home/cona/algorithm_ws/devel
+
+Name: rossub
+Description: Description of rossub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -lrossub
+Requires: roscpp std_msgs
