@@ -1,0 +1,2 @@
+Opencv:Practice/Backjun:Practice/C_function:ROS/C++/rospub:ROS/C++/rossub:ROS/Python/Ros_Python
+-DCATKIN_DEVEL_PREFIX=/home/cona/algorithm_ws/devel -DCMAKE_INSTALL_PREFIX=/home/cona/algorithm_ws/install -G Unix Makefiles
