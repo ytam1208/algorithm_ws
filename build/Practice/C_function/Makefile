@@ -405,32 +405,32 @@ C_function/fast:
 	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/build
 .PHONY : C_function/fast
 
-src/TryCatch.o: src/TryCatch.cpp.o
+src/map.o: src/map.cpp.o
 
-.PHONY : src/TryCatch.o
+.PHONY : src/map.o
 
 # target to build an object file
-src/TryCatch.cpp.o:
-	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/TryCatch.cpp.o
-.PHONY : src/TryCatch.cpp.o
+src/map.cpp.o:
+	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/map.cpp.o
+.PHONY : src/map.cpp.o
 
-src/TryCatch.i: src/TryCatch.cpp.i
+src/map.i: src/map.cpp.i
 
-.PHONY : src/TryCatch.i
+.PHONY : src/map.i
 
 # target to preprocess a source file
-src/TryCatch.cpp.i:
-	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/TryCatch.cpp.i
-.PHONY : src/TryCatch.cpp.i
+src/map.cpp.i:
+	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/map.cpp.i
+.PHONY : src/map.cpp.i
 
-src/TryCatch.s: src/TryCatch.cpp.s
+src/map.s: src/map.cpp.s
 
-.PHONY : src/TryCatch.s
+.PHONY : src/map.s
 
 # target to generate assembly for a file
-src/TryCatch.cpp.s:
-	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/TryCatch.cpp.s
-.PHONY : src/TryCatch.cpp.s
+src/map.cpp.s:
+	cd /home/cona/algorithm_ws/build && $(MAKE) -f Practice/C_function/CMakeFiles/C_function.dir/build.make Practice/C_function/CMakeFiles/C_function.dir/src/map.cpp.s
+.PHONY : src/map.cpp.s
 
 # Help Target
 help:
@@ -461,9 +461,9 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
-	@echo "... src/TryCatch.o"
-	@echo "... src/TryCatch.i"
-	@echo "... src/TryCatch.s"
+	@echo "... src/map.o"
+	@echo "... src/map.i"
+	@echo "... src/map.s"
 .PHONY : help
 
 
