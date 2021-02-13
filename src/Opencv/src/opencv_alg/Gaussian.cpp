@@ -31,7 +31,11 @@ double makegaussianRandom()
     std::mt19937 gen(rd());
     std::normal_distribution<double> dist(0, 1);
     std::map<int, int> hist{};
+    
+    std::map<int, int> test{};
 
+    std::cout << hist.size() << std::endl;
+    
     for(int i = 0; i < 1000; i++)
         ++hist[std::round(dist(gen))];
 
@@ -39,10 +43,24 @@ double makegaussianRandom()
         std::cout << std::setw(2) << p.first << ' '
                 << std::string(p.second / 100, '*') << " " << p.second << '\n';
     }
-    
+
     // std::cout << std::round(dist(gen)) << std::endl;
 
 }
+
+
+    double GaussianRandom() //make Gaussian normal distribution
+    {
+        int average = 0;
+        double segma = 10.0;
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::normal_distribution<double> dist(average, segma);
+        double result = std::round(dist(gen));
+        
+        return result;
+    }
 
 
 int main(void)
