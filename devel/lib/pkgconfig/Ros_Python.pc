@@ -1,8 +1,0 @@
-prefix=/home/cona/algorithm_ws/devel
-
-Name: Ros_Python
-Description: Description of Ros_Python
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
