@@ -1,0 +1,8 @@
+prefix=/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun
+
+Name: Backjun
+Description: Description of Backjun
+Version: 0.0.0
+Cflags: -I/Users/yeontaemin/github/algorithm_ws/src/Practice/Backjun/include
+Libs: -L${prefix}/lib -lBackjun
+Requires: roscpp

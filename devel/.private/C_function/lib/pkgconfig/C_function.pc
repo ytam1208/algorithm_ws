@@ -1,0 +1,8 @@
+prefix=/Users/yeontaemin/github/algorithm_ws/devel/.private/C_function
+
+Name: C_function
+Description: Description of C_function
+Version: 0.0.0
+Cflags: -I/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/include
+Libs: -L${prefix}/lib 
+Requires: roscpp

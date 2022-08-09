@@ -1,0 +1,1 @@
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/share/Opencv/cmake/OpencvConfig.cmake

@@ -1,0 +1,6 @@
+Opencv
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/cmake.lock /Users/yeontaemin/github/algorithm_ws/devel/./cmake.lock
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/lib/pkgconfig/Opencv.pc /Users/yeontaemin/github/algorithm_ws/devel/lib/pkgconfig/Opencv.pc
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/lib/Opencv/Opencv /Users/yeontaemin/github/algorithm_ws/devel/lib/Opencv/Opencv
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/share/Opencv/cmake/OpencvConfig-version.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Opencv/cmake/OpencvConfig-version.cmake
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/share/Opencv/cmake/OpencvConfig.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Opencv/cmake/OpencvConfig.cmake

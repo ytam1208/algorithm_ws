@@ -1,0 +1,1 @@
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Algorithm_practice/lib/pkgconfig/Algorithm_practice.pc

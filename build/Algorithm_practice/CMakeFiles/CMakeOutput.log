@@ -1,0 +1,330 @@
+The system is: Darwin - 21.5.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe;-isystem;/Users/yeontaemin/opt/miniconda3/envs/ros/include
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/3.24.0/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang++ 
+Build flags: -march=core2;-mtune=haswell;-mssse3;-ftree-vectorize;-fPIC;-fPIE;-fstack-protector-strong;-O2;-pipe;-stdlib=libc++;-fvisibility-inlines-hidden;-fmessage-length=0;-isystem;/Users/yeontaemin/opt/miniconda3/envs/ros/include
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is Clang, found in "/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/3.24.0/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Users/yeontaemin/opt/miniconda3/envs/ros/bin/make -f Makefile cmTC_a5e39/fast && /Users/yeontaemin/opt/miniconda3/envs/ros/bin/make  -f CMakeFiles/cmTC_a5e39.dir/build.make CMakeFiles/cmTC_a5e39.dir/build
+make[1]: Entering directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk   -v -Wl,-v -MD -MT CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCCompilerABI.c
+clang version 13.0.1
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin
+clang-13: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
+ (in-process)
+ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_OSX -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.3 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu core2 -target-feature +ssse3 -tune-cpu haswell -debugger-tuning=lldb -target-linker-version 609 -v -fcoverage-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -resource-dir /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1 -dependency-file CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -sys-header-deps -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -O2 -fdebug-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -x c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCCompilerABI.c
+clang -cc1 version 13.0.1 based upon LLVM 13.0.1 default target x86_64-apple-darwin21.5.0
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Users/yeontaemin/opt/miniconda3/envs/ros/include
+ /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+Linking C executable cmTC_a5e39
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5e39.dir/link.txt --verbose=1
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/Users/yeontaemin/opt/miniconda3/envs/ros/lib -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -v -Wl,-v CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -o cmTC_a5e39 
+clang version 13.0.1
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin
+ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld" -demangle -lto_library /Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.3 -pie -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -o cmTC_a5e39 -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -search_paths_first -headerpad_max_install_names -pie -headerpad_max_install_names -dead_strip_dylibs -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -v CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -lSystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-609
+BUILD 21:56:10 May 21 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/Users/yeontaemin/opt/miniconda3/envs/ros/lib
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/
+make[1]: Leaving directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/Users/yeontaemin/opt/miniconda3/envs/ros/include]
+    add: [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  end of search list found
+  collapse include dir [/Users/yeontaemin/opt/miniconda3/envs/ros/include] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/include]
+  collapse include dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  implicit include dirs: [/Users/yeontaemin/opt/miniconda3/envs/ros/include;/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(x86_64-apple-darwin13\.4\.0-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/Users/yeontaemin/opt/miniconda3/envs/ros/bin/make -f Makefile cmTC_a5e39/fast && /Users/yeontaemin/opt/miniconda3/envs/ros/bin/make  -f CMakeFiles/cmTC_a5e39.dir/build.make CMakeFiles/cmTC_a5e39.dir/build]
+  ignore line: [make[1]: Entering directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk   -v -Wl -v -MD -MT CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang version 13.0.1]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin]
+  ignore line: [clang-13: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
+  ignore line: [ (in-process)]
+  ignore line: [ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_OSX -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.3 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu core2 -target-feature +ssse3 -tune-cpu haswell -debugger-tuning=lldb -target-linker-version 609 -v -fcoverage-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -resource-dir /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1 -dependency-file CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -sys-header-deps -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -O2 -fdebug-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -ferror-limit 19 -stack-protector 2 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fmax-type-align=16 -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -x c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCCompilerABI.c]
+  ignore line: [clang -cc1 version 13.0.1 based upon LLVM 13.0.1 default target x86_64-apple-darwin21.5.0]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /Users/yeontaemin/opt/miniconda3/envs/ros/include]
+  ignore line: [ /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [End of search list.]
+  ignore line: [Linking C executable cmTC_a5e39]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5e39.dir/link.txt --verbose=1]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names -Wl -pie -Wl -headerpad_max_install_names -Wl -dead_strip_dylibs -Wl -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -v -Wl -v CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -o cmTC_a5e39 ]
+  ignore line: [clang version 13.0.1]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin]
+  link line: [ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld" -demangle -lto_library /Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.3 -pie -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -o cmTC_a5e39 -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -search_paths_first -headerpad_max_install_names -pie -headerpad_max_install_names -dead_strip_dylibs -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -v CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o -lSystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-platform_version] ==> ignore
+    arg [macos] ==> ignore
+    arg [12.0.0] ==> ignore
+    arg [12.3] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a5e39] ==> ignore
+    arg [-L/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-dead_strip_dylibs] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTC_a5e39.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a] ==> lib [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/Users/yeontaemin/opt/miniconda3/envs/ros/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  Framework search paths: [;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+  collapse library dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+  collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  collapse framework dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+  implicit libs: []
+  implicit objs: []
+  implicit dirs: [/Users/yeontaemin/opt/miniconda3/envs/ros/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Users/yeontaemin/opt/miniconda3/envs/ros/bin/make -f Makefile cmTC_3d8e0/fast && /Users/yeontaemin/opt/miniconda3/envs/ros/bin/make  -f CMakeFiles/cmTC_3d8e0.dir/build.make CMakeFiles/cmTC_3d8e0.dir/build
+make[1]: Entering directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang++   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk   -v -Wl,-v -MD -MT CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp
+clang version 13.0.1
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin
+clang-13: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
+ (in-process)
+ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_OSX -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.3 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu core2 -target-feature +ssse3 -tune-cpu haswell -debugger-tuning=lldb -target-linker-version 609 -v -fcoverage-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -resource-dir /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1 -dependency-file CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -stdlib=libc++ -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -ferror-limit 19 -fvisibility-inlines-hidden -stack-protector 2 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp
+clang -cc1 version 13.0.1 based upon LLVM 13.0.1 default target x86_64-apple-darwin21.5.0
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"
+ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Users/yeontaemin/opt/miniconda3/envs/ros/include
+ /Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1
+ /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+Linking CXX executable cmTC_3d8e0
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d8e0.dir/link.txt --verbose=1
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang++ -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/Users/yeontaemin/opt/miniconda3/envs/ros/lib -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -v -Wl,-v CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_3d8e0 
+clang version 13.0.1
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin
+ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld" -demangle -lto_library /Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.3 -pie -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -o cmTC_3d8e0 -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -search_paths_first -headerpad_max_install_names -pie -headerpad_max_install_names -dead_strip_dylibs -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -v CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-609
+BUILD 21:56:10 May 21 2022
+configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/Users/yeontaemin/opt/miniconda3/envs/ros/lib
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib
+Framework search paths:
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/
+make[1]: Leaving directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/Users/yeontaemin/opt/miniconda3/envs/ros/include]
+    add: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1]
+    add: [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+    add: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  end of search list found
+  collapse include dir [/Users/yeontaemin/opt/miniconda3/envs/ros/include] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/include]
+  collapse include dir [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/include/c++/v1]
+  collapse include dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+  collapse include dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  implicit include dirs: [/Users/yeontaemin/opt/miniconda3/envs/ros/include;/Users/yeontaemin/opt/miniconda3/envs/ros/include/c++/v1;/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(x86_64-apple-darwin13\.4\.0-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/Users/yeontaemin/opt/miniconda3/envs/ros/bin/make -f Makefile cmTC_3d8e0/fast && /Users/yeontaemin/opt/miniconda3/envs/ros/bin/make  -f CMakeFiles/cmTC_3d8e0.dir/build.make CMakeFiles/cmTC_3d8e0.dir/build]
+  ignore line: [make[1]: Entering directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang++   -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk   -v -Wl -v -MD -MT CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -c /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang version 13.0.1]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin]
+  ignore line: [clang-13: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
+  ignore line: [ (in-process)]
+  ignore line: [ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/clang-13" -cc1 -triple x86_64-apple-macosx12.0.0 -Wundef-prefix=TARGET_OS_OSX -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -fno-rounding-math -munwind-tables -target-sdk-version=12.3 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu core2 -target-feature +ssse3 -tune-cpu haswell -debugger-tuning=lldb -target-linker-version 609 -v -fcoverage-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -resource-dir /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1 -dependency-file CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -stdlib=libc++ -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1 -internal-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include -internal-externc-isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include -O2 -fdeprecated-macro -fdebug-compilation-dir=/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp -ferror-limit 19 -fvisibility-inlines-hidden -stack-protector 2 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -vectorize-loops -vectorize-slp -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -x c++ /Users/yeontaemin/opt/miniconda3/envs/ros/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [clang -cc1 version 13.0.1 based upon LLVM 13.0.1 default target x86_64-apple-darwin21.5.0]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/local/include"]
+  ignore line: [ignoring nonexistent directory "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/Library/Frameworks"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /Users/yeontaemin/opt/miniconda3/envs/ros/include]
+  ignore line: [ /Users/yeontaemin/opt/miniconda3/envs/ros/bin/../include/c++/v1]
+  ignore line: [ /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include]
+  ignore line: [ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)]
+  ignore line: [End of search list.]
+  ignore line: [Linking CXX executable cmTC_3d8e0]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d8e0.dir/link.txt --verbose=1]
+  ignore line: [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang++ -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -stdlib=libc++ -fvisibility-inlines-hidden -fmessage-length=0 -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -Wl -search_paths_first -Wl -headerpad_max_install_names -Wl -pie -Wl -headerpad_max_install_names -Wl -dead_strip_dylibs -Wl -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -v -Wl -v CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_3d8e0 ]
+  ignore line: [clang version 13.0.1]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Users/yeontaemin/opt/miniconda3/envs/ros/bin]
+  link line: [ "/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld" -demangle -lto_library /Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib -dynamic -arch x86_64 -platform_version macos 12.0.0 12.3 -pie -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -o cmTC_3d8e0 -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib -search_paths_first -headerpad_max_install_names -pie -headerpad_max_install_names -dead_strip_dylibs -rpath /Users/yeontaemin/opt/miniconda3/envs/ros/lib -v CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/libLTO.13.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-platform_version] ==> ignore
+    arg [macos] ==> ignore
+    arg [12.0.0] ==> ignore
+    arg [12.3] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-syslibroot] ==> ignore
+    arg [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_3d8e0] ==> ignore
+    arg [-L/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-dead_strip_dylibs] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTC_3d8e0.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a] ==> lib [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/Users/yeontaemin/opt/miniconda3/envs/ros/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  Framework search paths: [;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Users/yeontaemin/opt/miniconda3/envs/ros/lib/clang/13.0.1/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+  collapse library dir [/Users/yeontaemin/opt/miniconda3/envs/ros/lib] ==> [/Users/yeontaemin/opt/miniconda3/envs/ros/lib]
+  collapse library dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  collapse framework dir [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/] ==> [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+  implicit libs: [c++]
+  implicit objs: []
+  implicit dirs: [/Users/yeontaemin/opt/miniconda3/envs/ros/lib;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib]
+  implicit fwks: [/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks]
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/Users/yeontaemin/opt/miniconda3/envs/ros/bin/make -f Makefile cmTC_c8fb9/fast && /Users/yeontaemin/opt/miniconda3/envs/ros/bin/make  -f CMakeFiles/cmTC_c8fb9.dir/build.make CMakeFiles/cmTC_c8fb9.dir/build
+make[1]: Entering directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8fb9.dir/src.c.o
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang -DCMAKE_HAVE_LIBC_PTHREAD  -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -MD -MT CMakeFiles/cmTC_c8fb9.dir/src.c.o -MF CMakeFiles/cmTC_c8fb9.dir/src.c.o.d -o CMakeFiles/cmTC_c8fb9.dir/src.c.o -c /Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_c8fb9
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8fb9.dir/link.txt --verbose=1
+/Users/yeontaemin/opt/miniconda3/envs/ros/bin/x86_64-apple-darwin13.4.0-clang -march=core2 -mtune=haswell -mssse3 -ftree-vectorize -fPIC -fPIE -fstack-protector-strong -O2 -pipe -isystem /Users/yeontaemin/opt/miniconda3/envs/ros/include  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/Users/yeontaemin/opt/miniconda3/envs/ros/lib -L/Users/yeontaemin/opt/miniconda3/envs/ros/lib  CMakeFiles/cmTC_c8fb9.dir/src.c.o -o cmTC_c8fb9 
+make[1]: Leaving directory '/Users/yeontaemin/github/algorithm_ws/build/Algorithm_practice/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
