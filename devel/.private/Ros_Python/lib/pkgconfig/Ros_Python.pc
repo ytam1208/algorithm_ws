@@ -1,8 +1,0 @@
-prefix=/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python
-
-Name: Ros_Python
-Description: Description of Ros_Python
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

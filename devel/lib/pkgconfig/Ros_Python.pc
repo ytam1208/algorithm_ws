@@ -1,1 +1,8 @@
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python/lib/pkgconfig/Ros_Python.pc
+prefix=/home/cona/algorithm_ws/devel
+
+Name: Ros_Python
+Description: Description of Ros_Python
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

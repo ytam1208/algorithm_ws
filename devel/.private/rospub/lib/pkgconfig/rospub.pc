@@ -1,8 +1,0 @@
-prefix=/Users/yeontaemin/github/algorithm_ws/devel/.private/rospub
-
-Name: rospub
-Description: Description of rospub
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib -lrospub
-Requires: roscpp std_msgs
