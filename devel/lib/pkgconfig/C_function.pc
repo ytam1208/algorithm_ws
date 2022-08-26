@@ -1,8 +1,1 @@
-prefix=/home/cona/algorithm_ws/devel
-
-Name: C_function
-Description: Description of C_function
-Version: 0.0.0
-Cflags: -I/home/cona/algorithm_ws/src/Practice/C_function/include
-Libs: -L${prefix}/lib 
-Requires: roscpp
+/Users/yeontaemin/github/algorithm_ws/devel/.private/C_function/lib/pkgconfig/C_function.pc

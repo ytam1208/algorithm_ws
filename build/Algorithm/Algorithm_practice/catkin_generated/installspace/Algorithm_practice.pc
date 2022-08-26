@@ -1,8 +1,0 @@
-prefix=/home/cona/algorithm_ws/install
-
-Name: Algorithm_practice
-Description: Description of Algorithm_practice
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

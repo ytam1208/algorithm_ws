@@ -1,8 +1,1 @@
-prefix=/home/cona/algorithm_ws/devel
-
-Name: Opencv
-Description: Description of Opencv
-Version: 0.0.0
-Cflags: -I/home/cona/algorithm_ws/src/Opencv/include
-Libs: -L${prefix}/lib 
-Requires: roscpp
+/Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/lib/pkgconfig/Opencv.pc

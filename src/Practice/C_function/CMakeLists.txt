@@ -28,7 +28,7 @@ include_directories(
  ${PROJECT_SOURCE_DIR}/include/
 )
 
-add_executable(${PROJECT_NAME} src/map.cpp)
+add_executable(${PROJECT_NAME} src/multi_thread.cpp)
 
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 

@@ -1,4 +1,4 @@
-prefix=/home/cona/algorithm_ws/install
+prefix=/Users/yeontaemin/github/algorithm_ws/install
 
 Name: Opencv
 Description: Description of Opencv

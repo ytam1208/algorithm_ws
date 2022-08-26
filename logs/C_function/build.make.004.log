@@ -1,0 +1,23 @@
+[  0%] Built target roscpp_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[35m[1mConsolidate compiler generated dependencies of target C_function[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/C_function.dir/src/multi_thread.cpp.o[0m
+[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/multi_thread.cpp:23:58: [0m[0;1;35mwarning: [0m[1mcast to 'void *' from smaller integer type 'int' [-Wint-to-void-pointer-cast][0m
+      rc = pthread_create(&threads[i], NULL, PrintHello, (void *)i);
+[0;1;32m                                                         ^~~~~~~~~
+[0m1 warning generated.
+[100%] [32m[1mLinking CXX executable /Users/yeontaemin/github/algorithm_ws/devel/.private/C_function/lib/C_function/C_function[0m
+[100%] Built target C_function
