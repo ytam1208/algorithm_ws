@@ -1,4 +1,0 @@
-[  0%] Built target _catkin_empty_exported_target
-[ 50%] [32mBuilding CXX object CMakeFiles/Backjun.dir/src/C++/main.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/lib/Backjun/Backjun[0m
-[100%] Built target Backjun

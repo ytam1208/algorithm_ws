@@ -1,0 +1,9 @@
+[33mWARNING: Package name "AMCL" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.[0m
+[31mCMake Error at /Users/yeontaemin/opt/miniconda3/envs/robostackenv/share/catkin/cmake/catkin_package.cmake:316 (message):
+  catkin_package() include dir 'include' does not exist relative to
+  '/Users/yeontaemin/github/algorithm_ws/src/ROS/C++/AMCL'
+[36mCall Stack (most recent call first):[0m
+  /Users/yeontaemin/opt/miniconda3/envs/robostackenv/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  CMakeLists.txt:17 (catkin_package)
+
+[0m

@@ -284,7 +284,7 @@ Ros_Python_SOURCE_DIR:STATIC=/Users/yeontaemin/github/algorithm_ws/src/ROS/Pytho
 SETUPTOOLS_DEB_LAYOUT:BOOL=OFF
 
 //Name of the computer/site where compile is being run
-SITE:STRING=TM-MacBookPro-2.local
+SITE:STRING=TM-MacPro.local
 
 //Path to a file.
 _gmock_INCLUDES:FILEPATH=_gmock_INCLUDES-NOTFOUND

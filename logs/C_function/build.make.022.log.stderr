@@ -1,0 +1,4 @@
+[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/multi_thread.cpp:40:1: [0m[0;1;35mwarning: [0m[1mnon-void function does not return a value [-Wreturn-type][0m
+}
+[0;1;32m^
+[0m1 warning generated.
