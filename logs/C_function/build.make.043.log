@@ -1,0 +1,32 @@
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[ 50%] [32mBuilding CXX object CMakeFiles/C_function.dir/src/for_loop.cpp.o[0m
+[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/for_loop.cpp:15:13: [0m[0;1;31merror: [0m[1mredefinition of 'st'[0m
+    clock_t st = clock();
+[0;1;32m            ^
+[0m[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/for_loop.cpp:8:13: [0m[0;1;30mnote: [0mprevious definition is here[0m
+    clock_t st = clock();
+[0;1;32m            ^
+[0m[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/for_loop.cpp:20:13: [0m[0;1;31merror: [0m[1mredefinition of 'end'[0m
+    clock_t end = clock();
+[0;1;32m            ^
+[0m[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/for_loop.cpp:12:13: [0m[0;1;30mnote: [0mprevious definition is here[0m
+    clock_t end = clock();
+[0;1;32m            ^
+[0m2 errors generated.
+make[2]: *** [CMakeFiles/C_function.dir/build.make:76: CMakeFiles/C_function.dir/src/for_loop.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:637: CMakeFiles/C_function.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

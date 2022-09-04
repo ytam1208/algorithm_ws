@@ -91,6 +91,8 @@
         "__functional_base": "cpp",
         "iterator": "cpp",
         "memory_resource": "cpp",
-        "stop_token": "cpp"
+        "stop_token": "cpp",
+        "filesystem": "cpp",
+        "*.ipp": "cpp"
     }
 }

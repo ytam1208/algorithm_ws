@@ -1,0 +1,132 @@
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target roscpp_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_lisp
+[35m[1mConsolidate compiler generated dependencies of target C_function[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/C_function.dir/src/for_loop.cpp.o[0m
+[1m/Users/yeontaemin/github/algorithm_ws/src/Practice/C_function/src/for_loop.cpp:22:44: [0m[0;1;31merror: [0m[1minvalid operands to binary expression ('basic_ostream<char, std::char_traits<char>>' and 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>'))[0m
+    std::cout << DefaultSec.count() << " " << mill << std::endl;
+[0;1;32m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^  ~~~~
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:756:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'char' for 2nd argument[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, char __cn)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:789:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'char' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, char __c)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:796:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'signed char' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, signed char __c)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:803:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'unsigned char' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, unsigned char __c)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:817:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const char *' for 2nd argument[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, const char* __strn)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:863:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const char *' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, const char* __str)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:870:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const signed char *' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, const signed char* __str)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:878:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const unsigned char *' for 2nd argument[0m
+operator<<(basic_ostream<char, _Traits>& __os, const unsigned char* __str)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1063:1: [0m[0;1;30mnote: [0mcandidate function template not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const std::error_code' for 2nd argument[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, const error_code& __ec)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:749:1: [0m[0;1;30mnote: [0mcandidate template ignored: deduced conflicting types for parameter '_CharT' ('char' vs. 'std::chrono::duration<long long, std::ratio<1, 1000>>')[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, _CharT __c)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/__random/uniform_int_distribution.h:256:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'uniform_int_distribution' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:810:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'const _CharT *' against 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>')[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, const _CharT* __str)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1046:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1054:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string_view' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os,
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1071:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'shared_ptr' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1090:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'bitset' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, const bitset<_Size>& __x)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1038:11: [0m[0;1;30mnote: [0mcandidate template ignored: requirement 'integral_constant<bool, false>::value' was not satisfied [with _Stream = std::ostream &, _Tp = std::chrono::duration<long long, std::ratio<1, 1000>>][0m
+_Stream&& operator<<(_Stream&& __os, const _Tp& __x)
+[0;1;32m          ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:1083:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unique_ptr' against 'duration'[0m
+operator<<(basic_ostream<_CharT, _Traits>& __os, unique_ptr<_Yp, _Dp> const& __p)
+[0;1;32m^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:189:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'std::ostream &(*)(std::ostream &)' for 1st argument[0m
+    basic_ostream& operator<<(basic_ostream& (*__pf)(basic_ostream&))
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:193:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'basic_ios<std::basic_ostream<char>::char_type, std::basic_ostream<char>::traits_type> &(*)(basic_ios<std::basic_ostream<char>::char_type, std::basic_ostream<char>::traits_type> &)' (aka 'basic_ios<char, std::char_traits<char>> &(*)(basic_ios<char, std::char_traits<char>> &)') for 1st argument[0m
+    basic_ostream& operator<<(basic_ios<char_type, traits_type>&
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:198:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'std::ios_base &(*)(std::ios_base &)' for 1st argument[0m
+    basic_ostream& operator<<(ios_base& (*__pf)(ios_base&))
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:201:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'bool' for 1st argument[0m
+    basic_ostream& operator<<(bool __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:202:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'short' for 1st argument[0m
+    basic_ostream& operator<<(short __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:203:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'unsigned short' for 1st argument[0m
+    basic_ostream& operator<<(unsigned short __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:204:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'int' for 1st argument[0m
+    basic_ostream& operator<<(int __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:205:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'unsigned int' for 1st argument[0m
+    basic_ostream& operator<<(unsigned int __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:206:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'long' for 1st argument[0m
+    basic_ostream& operator<<(long __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:207:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'unsigned long' for 1st argument[0m
+    basic_ostream& operator<<(unsigned long __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:208:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'long long' for 1st argument[0m
+    basic_ostream& operator<<(long long __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:209:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'unsigned long long' for 1st argument[0m
+    basic_ostream& operator<<(unsigned long long __n);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:210:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'float' for 1st argument[0m
+    basic_ostream& operator<<(float __f);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:211:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'double' for 1st argument[0m
+    basic_ostream& operator<<(double __f);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:212:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'long double' for 1st argument[0m
+    basic_ostream& operator<<(long double __f);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:213:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'const void *' for 1st argument; take the address of the argument with &[0m
+    basic_ostream& operator<<(const void* __p);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:222:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'basic_streambuf<std::basic_ostream<char>::char_type, std::basic_ostream<char>::traits_type> *' (aka 'basic_streambuf<char, std::char_traits<char>> *') for 1st argument[0m
+    basic_ostream& operator<<(basic_streambuf<char_type, traits_type>* __sb);
+[0;1;32m                   ^
+[0m[1m/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/../include/c++/v1/ostream:225:20: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::chrono::milliseconds' (aka 'duration<long long, ratio<1LL, 1000LL>>') to 'std::nullptr_t' (aka 'nullptr_t') for 1st argument[0m
+    basic_ostream& operator<<(nullptr_t)
+[0;1;32m                   ^
+[0m1 error generated.
+make[2]: *** [CMakeFiles/C_function.dir/build.make:76: CMakeFiles/C_function.dir/src/for_loop.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:637: CMakeFiles/C_function.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2

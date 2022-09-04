@@ -618,14 +618,14 @@ CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 # Target rules for target CMakeFiles/Algorithm_practice_node.dir
 
 # All Build rule for target.
-CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_py.dir/all
-CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
-CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_cpp.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_eus.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_lisp.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/roscpp_generate_messages_py.dir/all
+CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 CMakeFiles/Algorithm_practice_node.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
