@@ -34,7 +34,7 @@ void *thread2(void *data)
 
 int main()
 {
-
+   int test;
    int thread_id;
    int status;
    int a = 1;
