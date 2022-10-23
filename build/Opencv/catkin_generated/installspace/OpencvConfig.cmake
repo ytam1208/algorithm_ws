@@ -67,14 +67,14 @@ set(Opencv_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(Opencv_SOURCE_PREFIX /Users/yeontaemin/github/algorithm_ws/src/Opencv)
-  set(Opencv_DEVEL_PREFIX /Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv)
+  set(Opencv_SOURCE_PREFIX /Users/yeontaemin/algorithm_ws/src/Opencv)
+  set(Opencv_DEVEL_PREFIX /Users/yeontaemin/algorithm_ws/devel)
   set(Opencv_INSTALL_PREFIX "")
   set(Opencv_PREFIX ${Opencv_DEVEL_PREFIX})
 else()
   set(Opencv_SOURCE_PREFIX "")
   set(Opencv_DEVEL_PREFIX "")
-  set(Opencv_INSTALL_PREFIX /Users/yeontaemin/github/algorithm_ws/install)
+  set(Opencv_INSTALL_PREFIX /Users/yeontaemin/algorithm_ws/install)
   set(Opencv_PREFIX ${Opencv_INSTALL_PREFIX})
 endif()
 
@@ -156,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /Users/yeontaemin/github/algorithm_ws/install/lib;/Users/yeontaemin/github/algorithm_ws/devel/lib;/Users/yeontaemin/opt/miniconda3/envs/robostackenv/lib)
+    foreach(path /Users/yeontaemin/algorithm_ws/install/lib;/Users/yeontaemin/opt/miniconda3/envs/ros/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

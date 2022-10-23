@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake
+CMAKE_COMMAND = /Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake
 
 # The command to remove a file.
-RM = /Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -E rm -f
+RM = /Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yeontaemin/github/algorithm_ws/src/Opencv
+CMAKE_SOURCE_DIR = /Users/yeontaemin/algorithm_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yeontaemin/github/algorithm_ws/build/Opencv
+CMAKE_BINARY_DIR = /Users/yeontaemin/algorithm_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/yeontaemin/github/algorithm_ws/build/Opencv
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/ctest --force-new-ctest-process $(ARGS)
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -78,7 +78,7 @@ test/fast: test
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -88,7 +88,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -107,49 +107,49 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/Users/yeontaemin/opt/miniconda3/envs/robostackenv/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/Users/yeontaemin/opt/miniconda3/envs/ros/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeontaemin/github/algorithm_ws/build/Opencv/CMakeFiles /Users/yeontaemin/github/algorithm_ws/build/Opencv//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeontaemin/github/algorithm_ws/build/Opencv/CMakeFiles 0
+	cd /Users/yeontaemin/algorithm_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/yeontaemin/algorithm_ws/build/CMakeFiles /Users/yeontaemin/algorithm_ws/build/Opencv//CMakeFiles/progress.marks
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeontaemin/algorithm_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv/clean
 .PHONY : clean
 
 # The main clean target
@@ -158,108 +158,31 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/yeontaemin/algorithm_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named download_extra_data
+# Convenience name for target.
+Opencv/CMakeFiles/Opencv.dir/rule:
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv/CMakeFiles/Opencv.dir/rule
+.PHONY : Opencv/CMakeFiles/Opencv.dir/rule
 
-# Build rule for target.
-download_extra_data: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 download_extra_data
-.PHONY : download_extra_data
-
-# fast build rule for target.
-download_extra_data/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
-.PHONY : download_extra_data/fast
-
-#=============================================================================
-# Target rules for targets named tests
-
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-#=============================================================================
-# Target rules for targets named run_tests
-
-# Build rule for target.
-run_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_tests
-.PHONY : run_tests
-
-# fast build rule for target.
-run_tests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-.PHONY : run_tests/fast
-
-#=============================================================================
-# Target rules for targets named clean_test_results
-
-# Build rule for target.
-clean_test_results: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean_test_results
-.PHONY : clean_test_results
-
-# fast build rule for target.
-clean_test_results/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-.PHONY : clean_test_results/fast
-
-#=============================================================================
-# Target rules for targets named doxygen
-
-# Build rule for target.
-doxygen: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 doxygen
-.PHONY : doxygen
-
-# fast build rule for target.
-doxygen/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-.PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named _catkin_empty_exported_target
-
-# Build rule for target.
-_catkin_empty_exported_target: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/_catkin_empty_exported_target.dir/build.make CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-#=============================================================================
-# Target rules for targets named Opencv
-
-# Build rule for target.
-Opencv: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Opencv
+# Convenience name for target.
+Opencv: Opencv/CMakeFiles/Opencv.dir/rule
 .PHONY : Opencv
 
 # fast build rule for target.
 Opencv/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Opencv.dir/build.make CMakeFiles/Opencv.dir/build
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f Opencv/CMakeFiles/Opencv.dir/build.make Opencv/CMakeFiles/Opencv.dir/build
 .PHONY : Opencv/fast
 
 src/opencv_tuto/Flipmat.o: src/opencv_tuto/Flipmat.cpp.o
@@ -267,7 +190,7 @@ src/opencv_tuto/Flipmat.o: src/opencv_tuto/Flipmat.cpp.o
 
 # target to build an object file
 src/opencv_tuto/Flipmat.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Opencv.dir/build.make CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.o
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f Opencv/CMakeFiles/Opencv.dir/build.make Opencv/CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.o
 .PHONY : src/opencv_tuto/Flipmat.cpp.o
 
 src/opencv_tuto/Flipmat.i: src/opencv_tuto/Flipmat.cpp.i
@@ -275,7 +198,7 @@ src/opencv_tuto/Flipmat.i: src/opencv_tuto/Flipmat.cpp.i
 
 # target to preprocess a source file
 src/opencv_tuto/Flipmat.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Opencv.dir/build.make CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.i
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f Opencv/CMakeFiles/Opencv.dir/build.make Opencv/CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.i
 .PHONY : src/opencv_tuto/Flipmat.cpp.i
 
 src/opencv_tuto/Flipmat.s: src/opencv_tuto/Flipmat.cpp.s
@@ -283,7 +206,7 @@ src/opencv_tuto/Flipmat.s: src/opencv_tuto/Flipmat.cpp.s
 
 # target to generate assembly for a file
 src/opencv_tuto/Flipmat.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Opencv.dir/build.make CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.s
+	cd /Users/yeontaemin/algorithm_ws/build && $(MAKE) $(MAKESILENT) -f Opencv/CMakeFiles/Opencv.dir/build.make Opencv/CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.s
 .PHONY : src/opencv_tuto/Flipmat.cpp.s
 
 # Help Target
@@ -299,12 +222,6 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... clean_test_results"
-	@echo "... download_extra_data"
-	@echo "... doxygen"
-	@echo "... run_tests"
-	@echo "... tests"
 	@echo "... Opencv"
 	@echo "... src/opencv_tuto/Flipmat.o"
 	@echo "... src/opencv_tuto/Flipmat.i"
@@ -320,6 +237,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/yeontaemin/algorithm_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

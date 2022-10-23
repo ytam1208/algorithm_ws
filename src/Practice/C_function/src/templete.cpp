@@ -25,29 +25,47 @@
 // }
 
 //////////////////////////////////클래스 템플릿
-template <typename T>
+// template <typename T>
 class Data
 {
     private:
-        T data;
+        // T data;
     public:
-        Data(T data): data(data){
-
-        }
-        void ShowInfo()
+        // Data(T data): data(data){}
+        // void ShowInfo()
+        // {
+        //     std::cout << data << std::endl;
+        // }
+        template <typename TL>
+        void Go(TL &input, TL &output)
         {
-            std::cout << data << std::endl;
+            TL compare;
+            compare.x = input.x - output.y;
+            std::cout << "compare x = " << compare.x << std::endl;
         }
+        Data(){};
+        ~Data(){};
+};
+
+class A
+{
+    public:
+        int x = 100;
+        int y = 20;
 };
 
 int main()
 {
-    Data<int> data1(50);
-    data1.ShowInfo();
+    // Data<int> data1(50);
+    // data1.ShowInfo();
 
-    Data<char> data2('A');
-    data2.ShowInfo();
+    // Data<char> data2('A');
+    // data2.ShowInfo();
 
-    Data<double> data3(24.377);
-    data3.ShowInfo();
+    // Data<double> data3(24.377);
+    // data3.ShowInfo();
+
+    Data data4;
+    A a;
+    data4.Go(a, a);
 }

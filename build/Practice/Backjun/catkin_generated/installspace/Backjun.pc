@@ -1,0 +1,8 @@
+prefix=/Users/yeontaemin/algorithm_ws/install
+
+Name: Backjun
+Description: Description of Backjun
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lBackjun
+Requires: roscpp

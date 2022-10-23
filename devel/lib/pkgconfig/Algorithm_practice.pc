@@ -1,1 +1,8 @@
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Algorithm_practice/lib/pkgconfig/Algorithm_practice.pc
+prefix=/Users/yeontaemin/algorithm_ws/devel
+
+Name: Algorithm_practice
+Description: Description of Algorithm_practice
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
