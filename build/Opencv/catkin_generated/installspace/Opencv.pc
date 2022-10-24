@@ -1,8 +1,0 @@
-prefix=/Users/yeontaemin/algorithm_ws/install
-
-Name: Opencv
-Description: Description of Opencv
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp

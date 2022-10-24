@@ -36,16 +36,28 @@ class Data
         // {
         //     std::cout << data << std::endl;
         // }
-        template <typename TL>
-        void Go(TL &input, TL &output)
-        {
-            TL compare;
-            compare.x = input.x - output.y;
-            std::cout << "compare x = " << compare.x << std::endl;
-        }
+        template <typename TL> void Go(TL &input, TL &output);
+        template <typename TL> void Turn(TL &input, TL &output);        
+        
         Data(){};
         ~Data(){};
 };
+
+template <typename TL>
+void Data::Go(TL &input, TL &output)
+{
+    TL compare;
+    compare.x = input.x - output.y;
+    std::cout << "compare x = " << compare.x << std::endl;
+}
+
+template <typename TL>
+void Data::Turn(TL &input, TL &output)
+{
+    TL compare;
+    compare.x = input.x + output.y;
+    std::cout << "compare x = " << compare.x << std::endl;
+}
 
 class A
 {
@@ -68,4 +80,5 @@ int main()
     Data data4;
     A a;
     data4.Go(a, a);
+    data4.Turn(a, a);    
 }
