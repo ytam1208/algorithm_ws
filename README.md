@@ -3,6 +3,8 @@
 |------|---|---|---|---|---|---|
 |18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
 
+---
+## ROS_build 
 ### Backjun
 #### Algorithm Classify
 ###### Basic Programing 
@@ -17,7 +19,13 @@
 3. k-means
 4. Otsu
 5. RANSAC
-6. calibration(ing....)
+6. calibration
+7. harris_corner
+8. Gaussian
+9. meanshift
+10. morphology
+11. PerspetiveTopview
+12. QRcode
 ###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
 
 
@@ -31,8 +39,38 @@
 7. Overloading
 8. thread_es
 9. templete
+10. auto
+11. break_event
+12. for_loop
+13. functiokn_pointer
+14. map
+15. multi_map
+16. multi_thread
+17. multi_virtual_function
+18. Overloading
+19. thisClass
+20. TryCatch
+21. typdef_function_pointer
+22. using
 
 ### Ros_Python [Basic Python Study]
 0. ROS_msg [talker]
 1. variable
 2. String...[slide, replace, strip..]
+---
+
+---
+## CMAKE_build
+### Run command ###
+```
+cd ~/algorithm_ws/cmake_build
+mkdir build
+cd build
+cmake .. && make
+```
+0. virtual_class
+1. class_new
+2. inline
+3. shared_ptr
+4. unique_ptr
+5. using_function_pointer
