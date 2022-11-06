@@ -2,6 +2,22 @@
 |Ubuntu|ROS.ver|Compiler|Cpu|Gpu|Memory|Device|
 |------|---|---|---|---|---|---|
 |18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
+|||c++14|Apple Silicon M1||16G|2021MAC-Pro 14|
+---
+## CMAKE_build
+### Run command ###
+```
+cd ~/algorithm_ws/cmake_build
+mkdir build
+cd build
+cmake .. && make
+```
+0. [virtual_class](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/virtual_class.cpp)
+1. [class_new](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/class_new.cpp)
+2. [inline](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/inline.cpp)
+3. [shared_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/shared_ptr.cpp)
+4. [unique_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unique_ptr.cpp)
+5. [using_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/using_function_pointer.cpp)
 
 ---
 ## ROS_build 
@@ -30,28 +46,23 @@
 
 
 ### **C_function** [Study]
-1. break_event
-2. TryCatch
-3. enum
-4. function_Pointer
-5. virtual_function
-6. multi_virtual_funtion
-7. Overloading
-8. thread_es
-9. templete
-10. auto
-11. break_event
-12. for_loop
-13. functiokn_pointer
-14. map
-15. multi_map
-16. multi_thread
-17. multi_virtual_function
-18. Overloading
-19. thisClass
-20. TryCatch
-21. typdef_function_pointer
-22. using
+* [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
+* [virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/virtual_function.cpp)
+* [pthread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thread_ex.cpp)
+* [templete](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/templete.cpp)
+* [auto](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/auto.cpp)
+* [break_event](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/break_event.cpp)
+* [for_loop](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/for_loop.cpp)
+* [function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/function_pointer.cpp)
+* [map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/map.cpp)
+* [multi_map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_map.cpp)
+* [multi_thread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_thread.cpp)
+* [multi_virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_virtual_function.cpp)
+* [Overloading](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Overloading.cpp)
+* [thisClass](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thisClass.cpp)
+* [TryCatch](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/TryCatch.cpp)
+* [typdef_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/typedef_pointer.cpp)
+* [using](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/using.cpp)
 
 ### Ros_Python [Basic Python Study]
 0. ROS_msg [talker]
@@ -59,18 +70,3 @@
 2. String...[slide, replace, strip..]
 ---
 
----
-## CMAKE_build
-### Run command ###
-```
-cd ~/algorithm_ws/cmake_build
-mkdir build
-cd build
-cmake .. && make
-```
-0. virtual_class
-1. class_new
-2. inline
-3. shared_ptr
-4. unique_ptr
-5. using_function_pointer
