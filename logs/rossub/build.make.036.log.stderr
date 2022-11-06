@@ -1,7 +1,0 @@
-[1m/Users/yeontaemin/github/algorithm_ws/src/ROS/C++/rossub/src/main.cpp:1:10: [0m[0;1;31mfatal error: [0m[1m'ros/ros.h' file not found[0m
-#include "ros/ros.h"
-[0;1;32m         ^~~~~~~~~~~
-[0m1 error generated.
-make[2]: *** [CMakeFiles/rossub.dir/build.make:76: CMakeFiles/rossub.dir/src/main.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:637: CMakeFiles/rossub.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2

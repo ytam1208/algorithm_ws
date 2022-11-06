@@ -1,4 +1,0 @@
-[  0%] Built target _catkin_empty_exported_target
-[ 50%] [32mBuilding CXX object CMakeFiles/Opencv.dir/src/opencv_tuto/Flipmat.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /Users/yeontaemin/github/algorithm_ws/devel/.private/Opencv/lib/Opencv/Opencv[0m
-[100%] Built target Opencv
