@@ -18,4 +18,6 @@ add_executable(virtual_class src/virtual_class.cpp)
 
 add_executable(unique_ptr src/unique_ptr.cpp)
 
-# add_executable( src/unique_ptr.cpp)
+add_executable(shared_ptr src/shared_ptr.cpp)
+
+add_executable(using_function_pointer src/using_function_pointer.cpp)
