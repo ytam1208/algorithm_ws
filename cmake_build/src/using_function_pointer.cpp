@@ -5,7 +5,6 @@ class Data
 {
     public:
         using FunctionPointer = T3(Data::*)(T1, T2);
-        
         FunctionPointer My_mode[4];
 
         inline T3 func1(T1 a, T2 b);
@@ -18,13 +17,15 @@ class Data
         void init_mode();
         void runloop(T1 a, T2 b);
 
+        bool operator()(const T1 a, const T2 b, const T3 flag){
+            if(!flag)
+                return false;
+            init_mode();
+            runloop(a, b);
+            return true;
+        }   
+
         Data(){}
-        Data(T1 a, T2 b, T3 flag){
-            if(flag){
-                init_mode();
-                runloop(a, b);
-            }
-        }
         ~Data(){}
 };
 
@@ -56,6 +57,7 @@ inline void Data<T1, T2, T3>::outStream(T1 a, T2 b, T3 mode){
 template <typename T1, typename T2, typename T3> 
 void Data<T1, T2, T3>::init_mode()
 {
+    // My_mode = {&Data::func1, &Data::func1, &Data::func1, &Data::func1};
     My_mode[0] = {&Data::func1};
     My_mode[1] = {&Data::func2};
     My_mode[2] = {&Data::func3};
@@ -85,7 +87,7 @@ class input_data
         }
 };
 
-int main()
+int main(int argc, char** argv)
 {
     int a, b;
 
@@ -94,7 +96,10 @@ int main()
     std::cout << std::endl;
 
     input_data<int, int> i_d;
-    Data<int, int, int> data(a, b, i_d(a, b));
+    Data<int, int, int> data;
+
+    if(!data(a, b, i_d(a, b)))
+        std::cout << "Error" << std::endl;
 
     return 0;
 }
