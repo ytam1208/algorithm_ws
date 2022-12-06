@@ -7,6 +7,7 @@ include_directories(
 )
 
 set(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 add_executable(test src/main.cpp)
 
@@ -21,3 +22,5 @@ add_executable(unique_ptr src/unique_ptr.cpp)
 add_executable(shared_ptr src/shared_ptr.cpp)
 
 add_executable(using_function_pointer src/using_function_pointer.cpp)
+
+add_executable(while_loop src/while_loop_clock_test.cpp)
