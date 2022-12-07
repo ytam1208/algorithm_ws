@@ -9,18 +9,22 @@ include_directories(
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
-add_executable(test src/main.cpp)
+# add_executable(test src/main.cpp)
 
-add_executable(inline src/inline.cpp)
+# add_executable(inline src/inline.cpp)
 
-add_executable(class_new src/class_new.cpp)
+# add_executable(class_new src/class_new.cpp)
 
-add_executable(virtual_class src/virtual_class.cpp)
+# add_executable(virtual_class src/virtual_class.cpp)
 
-add_executable(unique_ptr src/unique_ptr.cpp)
+# add_executable(unique_ptr src/unique_ptr.cpp)
 
-add_executable(shared_ptr src/shared_ptr.cpp)
+# add_executable(shared_ptr src/shared_ptr.cpp)
 
-add_executable(using_function_pointer src/using_function_pointer.cpp)
+# add_executable(using_function_pointer src/using_function_pointer.cpp)
 
-add_executable(while_loop src/while_loop_clock_test.cpp)
+# add_executable(while_loop src/while_loop_clock_test.cpp)
+
+# add_executable(shrink src/shrink_to_fit.cpp)
+
+add_executable(auto src/auto.cpp)
