@@ -1,3 +1,14 @@
+/*
+    Least Mean Square Study [22.12.27]
+
+    White Line = init random line
+    Green Line = Least Mean Square line
+    
+    Reference site
+    [0] https://darkpgmr.tistory.com/56
+    [1] https://teddy0315.tistory.com/3
+    [2] https://mhyun.tistory.com/90
+*/
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <stdio.h>
