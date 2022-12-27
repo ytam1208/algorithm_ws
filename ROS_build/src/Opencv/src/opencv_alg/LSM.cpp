@@ -15,6 +15,10 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+        
+inline bool compare(cv::Point2d first, cv::Point2d second){
+    return ((first.x > second.x) && (first.y > second.y));
+}
 
 template <typename T1>
 class Plot
@@ -28,7 +32,7 @@ class Plot
         void init_val(cv::Mat* init){
             srand(time(NULL));
 
-            for(int i = 0; i < 100; i++){
+            for(int i = 0; i < 50; i++){
                 rand_pt.x = rand() % 800;
                 rand_pt.y = rand() % 300 + 300;
                 rand_pt_v.push_back(rand_pt);
@@ -78,7 +82,7 @@ class Solver
             // std::cout << "Mean = " << Mean_pt.x << ", " << Mean_pt.y << std::endl;
         }
 
-        void compute_slope_a(cv::Mat& draw){
+        void compute_slope_a(cv::Mat* draw){
             double slope_a = 0.0;
             double top = 0.0;
             double bottom = 0.0;
@@ -94,18 +98,23 @@ class Solver
             find_Optimize_line(slope_a, y, draw);
         }
 
-        void find_Optimize_line(double slope, double y, cv::Mat& draw){
+        void find_Optimize_line(double slope, double y, cv::Mat* draw){
             cv::Point2d Op_pt;
+            std::vector<cv::Point2d> Optimize_pt;
             for(auto iter : new_plot.rand_pt_v){
                 Op_pt.x = iter.x;
                 Op_pt.y = slope * iter.x + y;
                 // std::cout << "Op = " << Op_pt.x << ", " << Op_pt.y << std::endl;
-                new_plot.draw_point(Op_pt, &draw, cv::Scalar(0,255,0));
+                new_plot.draw_point(Op_pt, draw, cv::Scalar(0,255,0));
+                Optimize_pt.push_back(Op_pt);
             }
+
+            std::sort(Optimize_pt.begin(), Optimize_pt.end(), compare);
+            new_plot.draw_line(Optimize_pt.front(), Optimize_pt.back(), draw, cv::Scalar(255,0,0));
         }   
 
         Solver(){}
-        Solver(Plot<std::string> init, cv::Mat& draw){
+        Solver(Plot<std::string> init, cv::Mat* draw){
             new_plot.this_name = "Solver_plot";
             new_plot.rand_pt_v = init.rand_pt_v;
             Summation();
@@ -116,16 +125,16 @@ class Solver
 
 int main()
 {
-    cv::Mat init = cv::Mat(800, 800, CV_8UC3);
-    cv::Mat *pt_it = &init;
+    cv::Mat *pt_it = new cv::Mat(800, 800, CV_8UC3);
 
     Plot<std::string> pt_class("init_class", pt_it);
+    Solver sv(pt_class, pt_it);
 
-    Solver sv(pt_class, init);
     pt_class.~Plot();
-
-    cv::imshow("plot_init", init);
+    cv::imshow("plot_init", *pt_it);
     cv::waitKey(0);
-
+    
+    delete(pt_it);
+    
     return 0;
 }
