@@ -42,6 +42,7 @@ cmake .. && make
 10. morphology
 11. PerspetiveTopview
 12. QRcode
+13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/LSM.cpp)
 ###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
 
 
