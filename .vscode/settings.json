@@ -75,6 +75,18 @@
         "algorithm": "cpp",
         "memory_resource": "cpp",
         "filesystem": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "csignal": "cpp",
+        "*.tcc": "cpp",
+        "codecvt": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "set": "cpp",
+        "utility": "cpp",
+        "future": "cpp",
+        "cinttypes": "cpp",
+        "typeindex": "cpp",
+        "bit": "cpp",
+        "*.ipp": "cpp"
     }
 }

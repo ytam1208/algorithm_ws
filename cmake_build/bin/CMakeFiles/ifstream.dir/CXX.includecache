@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/system.hpp
+iostream
+-
+vector
+-
+math.h
+-
+map
+-
+thread
+-
+mutex
+-
+chrono
+-
+time.h
+-
+string
+-
+fstream
+-
+
+/home/cona/git/algorithm_ws/cmake_build/src/ifstream.cpp
+system.hpp
+/home/cona/git/algorithm_ws/cmake_build/src/system.hpp
+

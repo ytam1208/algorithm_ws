@@ -1,0 +1,1 @@
+/usr/bin/c++   -pthread   CMakeFiles/ifstream.dir/src/ifstream.cpp.o  -o ifstream 

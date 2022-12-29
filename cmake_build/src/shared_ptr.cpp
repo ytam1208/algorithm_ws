@@ -49,5 +49,8 @@ int main()
     // C++14 이후에 나온 make_shared를 사용하여 동적할당이 두번 발생하지 않고 단 한번으로 share tm에 원시 값을 지정해준다.
     std::shared_ptr<TM<std::string, int, double>> make2shart_pt = std::make_shared<TM<std::string, int, double>>("Tm", 20, 80.0);
 
+    TM<std::string, int, double> TM;
+    TM.name = "tam";
+
     return 0;
 }
