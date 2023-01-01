@@ -75,6 +75,12 @@
         "algorithm": "cpp",
         "memory_resource": "cpp",
         "filesystem": "cpp",
-        "version": "cpp"
+        "version": "cpp",
+        "bit": "cpp",
+        "forward_list": "cpp",
+        "set": "cpp",
+        "strstream": "cpp",
+        "typeindex": "cpp",
+        "unordered_set": "cpp"
     }
 }

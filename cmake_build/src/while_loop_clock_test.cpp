@@ -16,14 +16,18 @@ void *thread1(void *data)
     id = *((int *)data);
     int count = 0;
 
-    struct timespec  begin, end;
-    clock_gettime(CLOCK_MONOTONIC, &begin);
-    while(count > test_array.size()){
+    // struct timespec  begin, end;
+    // clock_gettime(CLOCK_MONOTONIC, &begin);
+    clock_t st1 = clock();
+    int size = test_array.size();
+    while(count > size){
         count++;
     }
-    clock_gettime(CLOCK_MONOTONIC, &end);
-    long time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
-    printf("Thread id[%d] Time (Nano): %lf\n", id, (double)time);
+    clock_t end1 = clock();
+    std::cout << end1 - st1 << std::endl;
+    // clock_gettime(CLOCK_MONOTONIC, &end);
+    // long time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
+    // printf("Thread id[%d] Time (Nano): %lf\n", id, (double)time);
 
     pthread_exit(0);
     pthread_detach(p_thread[id]);
@@ -35,15 +39,17 @@ void *thread2(void *data)
     id = *((int *)data);
     int count = 0;
 
-    int size = test_array.size();
-    struct timespec  begin, end;
-    clock_gettime(CLOCK_MONOTONIC, &begin);
-    while(count > size){
+    // struct timespec  begin, end;
+    // clock_gettime(CLOCK_MONOTONIC, &begin);
+    clock_t st2 = clock();
+     while(count > test_array.size()){
         count++;
     }
-    clock_gettime(CLOCK_MONOTONIC, &end);
-    long time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
-    printf("Thread id[%d] Time (Nano): %lf\n", id, (double)time);
+    clock_t end2 = clock();
+    std::cout << end2 - st2 << std::endl;
+    // clock_gettime(CLOCK_MONOTONIC, &end);
+    // long time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
+    // printf("Thread id[%d] Time (Nano): %lf\n", id, (double)time);
 
     pthread_exit(0);
     pthread_detach(p_thread[id]);

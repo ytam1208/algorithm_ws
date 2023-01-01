@@ -22,7 +22,11 @@ cmake .. && make
 ---
 ## ROS_build 
 ### Backjun
-#### Algorithm Classify
+#### Algorithm 
+[Newton Rapshon Method]()
+
+[Newton Rapshon Code]()
+
 ###### Basic Programing 
 [1000, 1001, 1008, 1100, 1330, 2588, 2753, 2884, 9498, 10171, 10430, 10718, 10869, 14681, 2739, 10950, 8393, 15552, 2741, 2742, 11021, 11022, 2438, 2439, 10871, 2839]
 ###### Dynamic Programing 
