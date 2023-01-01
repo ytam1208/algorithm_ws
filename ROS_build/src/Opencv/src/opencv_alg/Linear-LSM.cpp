@@ -52,7 +52,7 @@ class Plot
             cv::circle(*init, init_pt, 2, color, -1, 1);
         }
         inline void draw_line(cv::Point rand_pt1, cv::Point rand_pt2, cv::Mat* init, cv::Scalar color){
-            cv::line(*init, rand_pt1, rand_pt2, color, 2);
+            cv::line(*init, rand_pt1, rand_pt2, color, 1);
         }
 
         Plot(){}
@@ -110,7 +110,7 @@ class Solver
             }
 
             std::sort(Optimize_pt.begin(), Optimize_pt.end(), compare);
-            new_plot.draw_line(Optimize_pt.front(), Optimize_pt.back(), draw, cv::Scalar(255,0,0));
+            new_plot.draw_line(Optimize_pt.front(), Optimize_pt.back(), draw, cv::Scalar(255,255,0));
         }   
 
         Solver(){}
@@ -123,17 +123,74 @@ class Solver
         ~Solver(){}
 };
 
+namespace Pseudo
+{
+    class Solver
+    {
+        cv::Mat X_mat;
+        cv::Mat Y_mat;
+        cv::Mat ref_mat; // slope, y 
+        Plot<std::string> new_plot;
+
+        public:
+            void Vector2Mat(std::vector<cv::Point2f>* Point_v, cv::Mat* input_mat){
+                int size = Point_v->size();
+                cv::Mat A = cv::Mat::zeros(size, 2, CV_32FC1);     //AX = B
+                cv::Mat X = cv::Mat::zeros(2, 1, CV_32FC1);
+                cv::Mat B = cv::Mat::zeros(size, 1, CV_32FC1);
+                std::cout << X << std::endl;
+
+                Get_LSM(&A, &B, &X, Point_v);
+                find_Optimize_line(&X, input_mat, Point_v);
+            }   
+            void Get_LSM(cv::Mat* A, cv::Mat* B, cv::Mat* X, std::vector<cv::Point2f>* Point_v){
+                for(int i = 0; i < Point_v->size(); i++){
+                    (*A).at<float>(i, 0) = (*Point_v)[i].x;   //Point_v->at(i).x;
+                    A->at<float>(i, 1) = 1.0f;
+                    // (*A).at<float>(i, 1) = 1.0f;
+                    (*B).at<float>(i) = (*Point_v)[i].y;   //Point_v->at(i).x;
+                }
+                std::cout << *B << std::endl;
+                *X = (*A).inv(cv::DECOMP_SVD) * (*B);   //pseudo inverse
+                // *X = (((*A).t()) * (*A)).inv() * ((*A).t()) * (*B);
+            }
+            void find_Optimize_line(cv::Mat* X, cv::Mat* draw, std::vector<cv::Point2f>* Point_v){
+                cv::Point2d Op_pt;
+                std::vector<cv::Point2d> Optimize_pt;
+                for(auto iter : (*Point_v)){
+                    Op_pt.x = iter.x;
+                    Op_pt.y = (*X).at<float>(0) * iter.x + (*X).at<float>(1);
+                    // std::cout << "Op = " << Op_pt.x << ", " << Op_pt.y << std::endl;
+                    new_plot.draw_point(Op_pt, draw, cv::Scalar(0,255,0));
+                    Optimize_pt.push_back(Op_pt);
+                }
+                std::sort(Optimize_pt.begin(), Optimize_pt.end(), compare);
+                new_plot.draw_line(Optimize_pt.front(), Optimize_pt.back(), draw, cv::Scalar(255,255,0));
+            }   
+
+            Solver(std::vector<cv::Point2f>* Point_v, cv::Mat* input_mat){
+                Vector2Mat(Point_v, input_mat);
+            }
+            ~Solver(){}
+    };
+}
+
 int main()
 {
     cv::Mat *pt_it = new cv::Mat(800, 800, CV_8UC3);
+    cv::Mat *other_pt_it = new cv::Mat(800, 800, CV_8UC3);
 
     Plot<std::string> pt_class("init_class", pt_it);
-    Solver sv(pt_class, pt_it);
+    *other_pt_it = pt_it->clone();  //(*pt_it).clone()
 
-    pt_class.~Plot();
+    Solver sv(pt_class, pt_it);
+    Pseudo::Solver o_s(&pt_class.rand_pt_v, other_pt_it);
+
     cv::imshow("plot_init", *pt_it);
+    cv::imshow("Other_plot_init", *other_pt_it);
     cv::waitKey(0);
-    
+
+
     delete(pt_it);
     
     return 0;

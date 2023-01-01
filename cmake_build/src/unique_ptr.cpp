@@ -84,6 +84,6 @@ int main()
     std::cout << tmp_t->get_name() << std::endl;
     // std::cout << copy->get_name() << std::endl; // 원시 포인터의 주소 값을 저장하는 std::unique_ptr의 copy는 위 release에 의해 nullptr를 가지게 된다.
     copy.reset();   //원시 포인터를 소멸시킴으로써 unique_ptr copy는 소멸되어 더이상 사용 못함.
-
-    return 0;
+    
+    return 0;   
 }

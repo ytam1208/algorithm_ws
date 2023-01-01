@@ -2,6 +2,10 @@ build/
 devel/
 install/
 
+ROS_build/devel/
+ROS_build/build/
+
 cmake_build/build/*
+cmake_build/bin/
 
 .vscode
