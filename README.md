@@ -23,9 +23,9 @@ cmake .. && make
 ## ROS_build 
 ### Backjun
 #### Algorithm 
-[Newton Rapshon Method]()
+[Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
 
-[Newton Rapshon Code]()
+[Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
 
 ###### Basic Programing 
 [1000, 1001, 1008, 1100, 1330, 2588, 2753, 2884, 9498, 10171, 10430, 10718, 10869, 14681, 2739, 10950, 8393, 15552, 2741, 2742, 11021, 11022, 2438, 2439, 10871, 2839]
