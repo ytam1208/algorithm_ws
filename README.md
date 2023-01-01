@@ -21,18 +21,18 @@ cmake .. && make
 
 ---
 ## ROS_build 
+### Algorithm 
+* [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
+
+* [Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
+---
 ### Backjun
-#### Algorithm 
-[Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
-
-[Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
-
-###### Basic Programing 
+#### Basic Programing 
 [1000, 1001, 1008, 1100, 1330, 2588, 2753, 2884, 9498, 10171, 10430, 10718, 10869, 14681, 2739, 10950, 8393, 15552, 2741, 2742, 11021, 11022, 2438, 2439, 10871, 2839]
-###### Dynamic Programing 
+#### Dynamic Programing 
 [1463]
 ###### Study web https://www.acmicpc.net/problemset
-
+---
 ### __Opencv__ [Computer vision(Algorithms)]
 1. histogram
 2. canny_edge
@@ -48,7 +48,7 @@ cmake .. && make
 12. QRcode
 13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/LSM.cpp)
 ###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
-
+---
 
 ### **C_function** [Study]
 * [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
@@ -68,7 +68,7 @@ cmake .. && make
 * [TryCatch](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/TryCatch.cpp)
 * [typdef_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/typedef_pointer.cpp)
 * [using](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/using.cpp)
-
+---
 ### Ros_Python [Basic Python Study]
 0. ROS_msg [talker]
 1. variable
