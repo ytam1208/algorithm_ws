@@ -1,5 +1,0 @@
-ROS/Python/Ros_Python
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python/cmake.lock /Users/yeontaemin/github/algorithm_ws/devel/./cmake.lock
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python/lib/pkgconfig/Ros_Python.pc /Users/yeontaemin/github/algorithm_ws/devel/lib/pkgconfig/Ros_Python.pc
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python/share/Ros_Python/cmake/Ros_PythonConfig.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Ros_Python/cmake/Ros_PythonConfig.cmake
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Ros_Python/share/Ros_Python/cmake/Ros_PythonConfig-version.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Ros_Python/cmake/Ros_PythonConfig-version.cmake

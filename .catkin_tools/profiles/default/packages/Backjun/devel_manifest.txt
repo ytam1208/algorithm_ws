@@ -1,6 +1,0 @@
-Practice/Backjun
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/cmake.lock /Users/yeontaemin/github/algorithm_ws/devel/./cmake.lock
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/lib/Backjun/Backjun /Users/yeontaemin/github/algorithm_ws/devel/lib/Backjun/Backjun
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/lib/pkgconfig/Backjun.pc /Users/yeontaemin/github/algorithm_ws/devel/lib/pkgconfig/Backjun.pc
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/share/Backjun/cmake/BackjunConfig.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Backjun/cmake/BackjunConfig.cmake
-/Users/yeontaemin/github/algorithm_ws/devel/.private/Backjun/share/Backjun/cmake/BackjunConfig-version.cmake /Users/yeontaemin/github/algorithm_ws/devel/share/Backjun/cmake/BackjunConfig-version.cmake
