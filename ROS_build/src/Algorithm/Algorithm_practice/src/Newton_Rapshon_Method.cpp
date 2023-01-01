@@ -1,7 +1,7 @@
 /*
     [23.01.01]
     Newton-Rapshon Method
-
+    
     [Reference]
     https://wikidocs.net/150448
 */
@@ -40,6 +40,9 @@ class Solver
 
 int main()
 {
+    /*
+        example function --> y = cos(x) - x
+    */
     Solver(0, 0.0001, 20);
     return 0;
 }
