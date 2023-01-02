@@ -12,7 +12,7 @@
 class Solver
 {
     public:        
-        double Newton(double current_x, double input_error, double Max_iter){
+        void Newton(double current_x, double input_error, double Max_iter){
             double y = function(current_x);
             for(int i = 0; i < Max_iter; i++){
                 double Next_x = current_x - (y / diff_function(current_x));
