@@ -22,7 +22,7 @@ class Solver
                     std::cout << "Solution = " << Next_x << std::endl;
                 current_x = Next_x;
             }
-        }
+        } 
 
         inline double function(double input_x){
             return cos(input_x)-input_x;

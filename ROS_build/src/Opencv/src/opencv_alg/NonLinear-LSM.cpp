@@ -5,6 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "stdlib.h"
+#include <unistd.h>
 
 template <typename T1>
 class Plot
@@ -16,12 +17,12 @@ class Plot
 
         void init_val(cv::Mat* init, cv::Mat* convert){
             srand(time(NULL));
-            circle_size = rand() % 300;
-            std::cout << "circle_size = " << circle_size << ", Center(x,y) = (" << (init->rows/2) << ","<< (init->rows/2) << ")" << std::endl;
+            circle_size = rand() % 200;
+            std::cout << "Origin a,b,r = " << circle_size << ", " << init->rows/2 << ", " << init->cols/2 << std::endl;
             cv::circle(*init, cv::Point(init->rows/2, init->rows/2), circle_size, cv::Scalar(255,0,255), 1, 8, 0);
             Check_Point(init);
 
-            for(int i = 0; i < Point_v.size()/2; i++)
+            for(int i = 0; i < Point_v.size(); i++)
                 draw_point(Point_v[i], convert, cv::Scalar(255,255,255));
         }
 
@@ -40,9 +41,8 @@ class Plot
                     int b = input->at<cv::Vec3b>(i, j)[2];
 
                     if(r == 255 && g == 0 && b == 255)
-                        Point_v.push_back(cv::Point(i,j+100));
+                        Point_v.push_back(cv::Point(i,j));
                 }
-            std::cout << "Point = " << Point_v.size() << std::endl;
         }
 
         Plot(){}
@@ -51,19 +51,21 @@ class Plot
             init_val(init, convert);
         }
         ~Plot(){
-            std::cout << "Destroy [" << this_name << "] " << std::endl;
+            // std::cout << "Destroy [" << this_name << "] " << std::endl;
         }
 };
 
 template <typename Param1, typename Param2, typename Param3>
 class Solver : public Plot<std::string>
 {
-    double error = 0.0001;
-    Plot<std::string> pt;
+    private:
+        Plot<std::string> pt;
+        int optimize_iter = 0;
+        double error = 0.001;
 
     public:     
         double function(cv::Point Point, Param1 input_a, Param2 input_b, Param3 input_r){  //(x-a)^2 + (y-b)^2 = r^2
-            return sqrt(pow(Point.x-input_a, 2) + pow(Point.y-input_b, 2)) - input_r;
+            return sqrt(pow(Point.x-input_a, 2) + pow(Point.y-input_b, 2));
         }
         void D_function(std::vector<cv::Point2f>& Point_v, Param1 input_a, Param2 input_b, Param3 input_r, cv::Mat* visual){
             int v_size = Point_v.size();
@@ -73,37 +75,89 @@ class Solver : public Plot<std::string>
             input_x.at<float>(1,0) = (float)input_b;
             input_x.at<float>(2,0) = (float)input_r;
 
-            cv::Mat X = cv::Mat::zeros(3, 1, CV_32FC1);  //a,b,r Parameter
-            cv::Mat Y = cv::Mat::zeros(v_size, 1, CV_32FC1);  //function Metrix
+            cv::Mat New_x = cv::Mat::zeros(3, 1, CV_32FC1);  //a,b,r Parameter
+            cv::Mat F = cv::Mat::zeros(v_size, 1, CV_32FC1);  //function Metrix
             cv::Mat Jacobian = cv::Mat::zeros(v_size, 3, CV_32FC1);   //F`
-
-            for(int k = 0; k < 1000; k++){
+            
+            while(1){
+                optimize_iter++;
                 cv::Mat input = cv::Mat::zeros(800, 800, CV_8UC3);
                 input += *visual;
 
                 for(int i = 0; i < v_size; i++){
-                    Jacobian.at<float>(i,0) = 2 * Point_v[i].x;
-                    Jacobian.at<float>(i,1) = 2 * Point_v[i].y;
+                    Jacobian.at<float>(i,0) = (input_x.at<float>(0,0) - Point_v[i].x)/function(Point_v[i], input_x.at<float>(0,0), input_x.at<float>(1,0), input_x.at<float>(2,0));
+                    Jacobian.at<float>(i,1) = (input_x.at<float>(1,0) - Point_v[i].y)/function(Point_v[i], input_x.at<float>(0,0), input_x.at<float>(1,0), input_x.at<float>(2,0));
                     Jacobian.at<float>(i,2) = -1.0f;
 
-                    Y.at<float>(i,0) = function(Point_v[i], input_x.at<float>(0,0), input_x.at<float>(1,0), input_x.at<float>(2,0));
-                    // Y.at<float>(i,0) = -pow(input_a, 2) - pow(input_b, 2);
+                    F.at<float>(i,0) = function(Point_v[i], input_x.at<float>(0,0), input_x.at<float>(1,0), input_x.at<float>(2,0))-input_x.at<float>(2,0);
                 }
-                // X = ((Jacobian.t() * Jacobian).inv()) * Jacobian.t() * Y;
-                X = Jacobian.inv(cv::DECOMP_SVD) * Y;
-                input_x.at<float>(0,0) -= X.at<float>(0,0);
-                input_x.at<float>(1,0) -= X.at<float>(1,0);
-                input_x.at<float>(2,0) -= X.at<float>(2,0);
 
-                std::cout << input_x << std::endl;
-                cv::Point pt;
-                pt.x = input_x.at<float>(0,0);
-                pt.y = input_x.at<float>(1,0);
-                int radi = fabs(input_x.at<float>(2,0));
-                cv::circle(input, pt, radi, cv::Scalar(0,255,0), 1, 8);
+                New_x = update(Jacobian, F);
+                cv::circle(input, cv::Point(input_x.at<float>(0,0), input_x.at<float>(1,0)), fabs((int)input_x.at<float>(2,0)), cv::Scalar(0,255,0), 1, 8);
+                // cv::imshow("init", *init_visual);
                 cv::imshow("Convert", input);
+
+                if(Check_minimize(&input_x, &New_x)){
+                    std::cout << "["<< optimize_iter << "]Iteration Optimize!!! a,b,r = " << input_x.at<float>(0,0) << ", " << input_x.at<float>(1,0) << ", " << input_x.at<float>(2,0) << std::endl;
+                    cv::waitKey(0);
+                    break;
+                }
+                else
+                    cv::waitKey(1);
             }
         }
+        inline cv::Mat update(cv::Mat& J, cv::Mat& F){
+            return J.inv(cv::DECOMP_SVD) * F;   // ((J.t() * J).inv()) * J.t() * F;
+        }
+        bool Check_minimize(cv::Mat* Origin_x, cv::Mat* New_x){
+            float New_a = New_x->at<float>(0,0);
+            float New_b = New_x->at<float>(1,0);
+            float New_r = New_x->at<float>(2,0);
+
+            if(abs(New_a)<= error)
+                if(abs(New_b) <= error)
+                    if(abs(New_r) <= error)
+                        return true;
+            for(int i = 0; i < 3; i++)
+                Origin_x->at<float>(i,0) = Origin_x->at<float>(i,0) - New_x->at<float>(i,0);
+            return false;
+        }
+
+        // void Make_Jacobian(int i, cv::Mat* J, cv::Mat* init_X_mat, cv::Point2f ob_point){
+        //     J->at<float>(i,0) = (a - ob_point.x)/function(ob_point, init_X_mat->at<float>(0,0), init_X_mat->at<float>(1,0), init_X_mat->at<float>(2,0));
+        //     J->at<float>(i,1) = (b - ob_point.y)/function(ob_point, init_X_mat->at<float>(0,0), init_X_mat->at<float>(1,0), init_X_mat->at<float>(2,0));
+        //     J->at<float>(i,2) = -1.0f;
+        // }
+        // void Gauss_Newton(std::vector<cv::Point2f>& Point_v, Param1 input_a, Param2 input_b, Param3 input_r, cv::Mat* visual){
+        //     cv::Mat input_x = cv::Mat::zeros(3, 1, CV_32FC1);
+        //     input_x.at<float>(0,0) = (float)input_a;
+        //     input_x.at<float>(1,0) = (float)input_b;
+        //     input_x.at<float>(2,0) = (float)input_r;
+
+        //     cv::Mat New_x = cv::Mat::zeros(3, 1, CV_32FC1);  //a,b,r Parameter
+        //     cv::Mat Jacobian = cv::Mat::zeros(Point_v.size(), 3, CV_32FC1);   //F`
+        //     cv::Mat F = cv::Mat::zeros(Point_v.size(), 1, CV_32FC1);  //Parameter function Metrix
+        //     while(1){
+        //         optimize_iter++;
+        //         for(int i = 0; i < Point_v.size(); i++){
+        //             Make_Jacobian(i, &Jacobian, &input_x, Point_v[i]);
+        //             F.at<float>(i,0) = function(Point_v[i], input_x.at<float>(0,0), input_x.at<float>(1,0), input_x.at<float>(2,0)) - input_x.at<float>(2,0);
+        //         }       
+        //         New_x = update(Jacobian, F);
+        //         cv::circle(input, cv::Point(input_x.at<float>(0,0), input_x.at<float>(1,0)), fabs((int)input_x.at<float>(2,0)), cv::Scalar(0,255,0), 1, 8);
+        //         cv::imshow("Convert", input);
+
+        //         if(Check_minimize(&input_x, &New_x)){
+        //             std::cout << "["<< optimize_iter << "]Iteration Optimize!!! a,b,r = " << input_x.at<float>(0,0) << ", " << input_x.at<float>(1,0) << ", " << input_x.at<float>(2,0) << std::endl;
+        //             cv::waitKey(0);
+        //             break;
+        //         }
+
+        //         cv::waitKey(1);
+        //     }
+        // }
+
+
 
         Solver(){}
         Solver(std::vector<cv::Point2f>& Points, Param1 input_a, Param2 input_b, Param3 input_r, cv::Mat* visual){
@@ -119,17 +173,7 @@ int main()
 
     Plot<std::string> pt("init", init_mat, convert_mat);
 
-    while(1){
-        Solver<double, double, double> sv(pt.Point_v, 400.0, 400.0, 100.0, convert_mat);
-
-        if(!init_mat->empty())
-            cv::imshow("Plot", *init_mat);
-        // if(!convert_mat->empty())
-        //     cv::imshow("Convert", *convert_mat);
-
-        cv::waitKey(1);
-    }
-
+    Solver<double, double, double> sv(pt.Point_v, 400.0, 400.0, 1.0, convert_mat);
 
     // delete(init_mat);
     // pt.~Plot();
