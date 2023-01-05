@@ -158,7 +158,7 @@ namespace Pseudo
                 cv::Point2d Op_pt;
                 std::vector<cv::Point2d> Optimize_pt;
                 for(auto iter : (*Point_v)){
-                    Op_pt.x(iter.x);
+                    Op_pt.x = iter.x;
                     Op_pt.y = (*X).at<float>(0) * iter.x + (*X).at<float>(1);
                     // std::cout << "Op = " << Op_pt.x << ", " << Op_pt.y << std::endl;
                     new_plot.draw_point(Op_pt, draw, cv::Scalar(0,255,0));
