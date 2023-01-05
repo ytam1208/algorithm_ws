@@ -25,6 +25,11 @@ cmake .. && make
 * [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
 
 * [Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
+
+* [Gauss Newton Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Gauss-Newton_Method.md)
+
+* [Gauss Newton Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Gauss-Newton_Method.cpp)
+
 ---
 ### Backjun
 #### Basic Programing 
