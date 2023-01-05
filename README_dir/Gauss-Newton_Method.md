@@ -73,9 +73,7 @@ $$model: \sqrt{(x_i-a)^2+(y_i-b)^2}=r$$
 
 $$model \ parameter: a, b, r$$
 
-</br>
-
-$$Goal: a^*, b^*, r^*=argmin_{a,b,r}\sum_{i}^{N}||r-\sqrt{(x_i-a)^2+(y_i-b)^2}||^2$$
+$$Goal: a^{optimize}, b^{optimize}, r^{optimize} =argmin_{a,b,r}\sum_{i}^{N}||r-\sqrt{(x_i-a)^2+(y_i-b)^2}||^2$$
 
 </br>
 
