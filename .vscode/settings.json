@@ -95,5 +95,6 @@
         "hash_set": "cpp",
         "shared_mutex": "cpp",
         "cfenv": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
