@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
 )
 find_package(OpenCV REQUIRED)
-
+find_package(Ceres REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -118,6 +118,7 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${CERES_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -134,12 +135,28 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 
-add_executable(${PROJECT_NAME}_node src/Gauss-Newton_Method.cpp)
-add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME}_node
+add_executable(Gauss-Newton_Method_node src/Gauss-Newton_Method.cpp)
+add_dependencies(Gauss-Newton_Method_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Gauss-Newton_Method_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
+  ${CERES_LIBRARIES}
 )
+add_executable(circle_Gauss-Newton src/circle_Gauss-Newton.cpp)
+add_dependencies(circle_Gauss-Newton ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(circle_Gauss-Newton
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${CERES_LIBRARIES}
+)
+
+# add_executable(ceres_curve_Gauss-Newton_node src/ceres_curve_Gauss-Newton.cpp)
+# add_dependencies(ceres_curve_Gauss-Newton_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(ceres_curve_Gauss-Newton_node
+#   ${catkin_LIBRARIES}
+#   ${OpenCV_LIBRARIES}
+#   ${CERES_LIBRARIES}
+# )
 
 add_executable(line_fitting_node src/Line_fitting.cpp)
 add_dependencies(line_fitting_node ${Line_fitting_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

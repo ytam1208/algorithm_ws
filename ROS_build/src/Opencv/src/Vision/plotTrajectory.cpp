@@ -8,7 +8,7 @@ using namespace std;
 using namespace Eigen;
 
 // path to trajectory file
-string trajectory_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/trajectory.txt";
+string trajectory_file = "/home/cona/github/algorithm_ws/ROS_build/trajectory.txt";
 
 void DrawTrajectory(vector<Isometry3d, Eigen::aligned_allocator<Isometry3d>>);
 

@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include "stdlib.h"
 #include <unistd.h>
+#include <ceres/ceres.h>
 
 template <typename T1>
 class Plot

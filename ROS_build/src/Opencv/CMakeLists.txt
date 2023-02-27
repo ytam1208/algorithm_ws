@@ -12,7 +12,6 @@ find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(Pangolin REQUIRED)
-find_package(sophus REQUIRED)
 find_package(Boost REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -66,7 +65,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME} src/Vision/plotTrajectory.cpp)
+# add_executable(${PROJECT_NAME} src/Vision/stereo_vision.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -76,16 +75,16 @@ add_executable(${PROJECT_NAME} src/Vision/plotTrajectory.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}
-  ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  ${Boost_LIBRARY}
-  ${Pangolin_LIBRARIES}
-)
+# target_link_libraries(${PROJECT_NAME}
+#   ${catkin_LIBRARIES}
+#   ${OpenCV_LIBRARIES}
+#   ${Eigen3_LIBRARIES} 
+#   ${Boost_LIBRARY}
+#   ${Pangolin_LIBRARIES}
+# )
 #############
 ## Install ##
 #############
