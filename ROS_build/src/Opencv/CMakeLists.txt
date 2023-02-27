@@ -9,7 +9,11 @@ add_compile_options(-std=c++11)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED)
 find_package(OpenCV REQUIRED)
-
+find_package(Eigen3 REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(Pangolin REQUIRED)
+find_package(sophus REQUIRED)
+find_package(Boost REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -45,9 +49,12 @@ include_directories(
  include
  ${catkin_INCLUDE_DIRS}
  ${OpenCV_INCLUDE_DIRS}
+ ${EIGEN3_INCLUDE_DIR}
+ ${GLEW_INCLUDE_DIRS}
+ ${Pangolin_INCLUDE_DIRS}
+ ${Boost_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
-
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/Opencv.cpp
@@ -59,7 +66,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME} src/Vision/Epipolar_geometry.cpp)
+add_executable(${PROJECT_NAME} src/Vision/RGB-D-map.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -75,8 +82,10 @@ add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EX
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${Boost_LIBRARY}
+  ${Pangolin_LIBRARIES}
 )
-
 #############
 ## Install ##
 #############
