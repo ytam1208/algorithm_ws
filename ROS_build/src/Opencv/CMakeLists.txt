@@ -14,6 +14,8 @@ find_package(Eigen3 REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(Boost REQUIRED)
+find_package(G2O REQUIRED)
+find_package(Sophus REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -53,6 +55,8 @@ include_directories(
  ${GLEW_INCLUDE_DIRS}
  ${Pangolin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
+ ${G2O_INCLUDE_DIRS}
+ ${Sophus_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
 ## Declare a C++ library
@@ -66,7 +70,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME} src/Vision/pose_estimation_2d2d.cpp)
+add_executable(${PROJECT_NAME} src/Vision/Pose_estimation3D2D.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -85,6 +89,7 @@ target_link_libraries(${PROJECT_NAME}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
   ${Pangolin_LIBRARIES}
+  g2o::g2o_cli_library
 )
 #############
 ## Install ##
