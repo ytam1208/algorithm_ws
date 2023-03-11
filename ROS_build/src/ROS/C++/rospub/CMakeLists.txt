@@ -6,8 +6,8 @@ set(CMAKE_VERBOSE_MAKEFILE yes)
 set(CMAKE_BUILD_TYPE Debug)
 
 #Release mode
-# set(CMAKE_BUILD_TYPE Release)
-# set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++11")
+set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++11")
 
 add_compile_options(-std=c++11)
 

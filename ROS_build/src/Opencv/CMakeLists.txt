@@ -14,7 +14,6 @@ find_package(Eigen3 REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(Boost REQUIRED)
-find_package(G2O REQUIRED)
 find_package(Sophus REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -55,7 +54,6 @@ include_directories(
  ${GLEW_INCLUDE_DIRS}
  ${Pangolin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
- ${G2O_INCLUDE_DIRS}
  ${Sophus_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
@@ -70,27 +68,25 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME} src/Vision/Pose_estimation3D2D.cpp)
-
-## Rename C++ executable without prefix
-## The above recommended prefix causes long target names, the following renames the
-## target back to the shorter version for ease of user use
-## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-# set_target_properties(${PROJECT_NAME}_node PROPERTIES OUTPUT_NAME node PREFIX "")
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}
+add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
+add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Get_disparity
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
   ${Pangolin_LIBRARIES}
-  g2o::g2o_cli_library
 )
+
+# add_executable(${PROJECT_NAME} src/Vision/Pose_estimation3D2D.cpp)
+# add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(${PROJECT_NAME}
+#   ${catkin_LIBRARIES}
+#   ${OpenCV_LIBRARIES}
+#   ${Eigen3_LIBRARIES} 
+#   ${Boost_LIBRARY}
+#   ${Pangolin_LIBRARIES}
+# )
 #############
 ## Install ##
 #############
