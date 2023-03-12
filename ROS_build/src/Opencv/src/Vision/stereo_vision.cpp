@@ -8,8 +8,8 @@
 using namespace std;
 using namespace Eigen;
 
-string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/src/Opencv/data/aloeL.jpg";
-string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/src/Opencv/data/aloeR.jpg";
+string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/left.png";
+string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/right.png";
 
 void showPointCloud(
     const vector<Vector4d, Eigen::aligned_allocator<Vector4d>> &pointcloud);
