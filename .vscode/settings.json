@@ -97,5 +97,10 @@
         "cfenv": "cpp",
         "any": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "python.autoComplete.extraPaths": [
+        "/home/cona/CoNA_Navi/install/lib/python3/dist-packages",
+        "/home/cona/CoNA-Robots/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
 }

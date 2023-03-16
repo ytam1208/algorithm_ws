@@ -7,7 +7,6 @@
 #include <math.h>
 #include <vector>
 #include <thread>
-#include <ros/ros.h>
 
 class calibration
 {

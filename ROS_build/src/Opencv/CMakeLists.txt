@@ -3,8 +3,8 @@ project(Opencv)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 set(CMAKE_BUILD_TYPE Debug)
-add_compile_options(-std=c++11)
-set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++11")
+add_compile_options(-std=c++14)
+set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++14")
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -71,6 +71,16 @@ include_directories(
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_disparity
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${Boost_LIBRARY}
+  ${Pangolin_LIBRARIES}
+)
+
+add_executable(Get_epipolar src/Vision/Stereo/Get_epipolar.cpp)
+add_dependencies(Get_epipolar ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Get_epipolar
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 

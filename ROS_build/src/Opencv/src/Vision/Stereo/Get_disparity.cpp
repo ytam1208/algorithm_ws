@@ -8,8 +8,10 @@ https://github.com/bill2239/stereo_matching/blob/master/stereo_matching.cpp
 https://github.com/luosch/stereo-matching/blob/master/StereoMatching.hpp
 */
 
-std::string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/left.png";
-std::string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/right.png";
+// std::string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/left.png";
+// std::string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/right.png";
+std::string left_file = "/home/cona/github/algorithm_ws/ROS_build/color/left.png";
+std::string right_file = "/home/cona/github/algorithm_ws/ROS_build/color/right.png";
 
 cv::Mat compare_OpenCV(cv::Mat *base, cv::Mat *target)
 {
@@ -54,8 +56,8 @@ cv::Mat SSD(cv::Mat *base, cv::Mat *target)
                     }
                 if(sum_sd <= min_ssd[row][col]){
                     min_ssd[row][col] = sum_sd;
-                    depth.at<uchar>(row, col) = (uchar)off;
-                    // depth.at<uchar>(row, col) = (uchar)(off * (255/adjust));
+                    // depth.at<uchar>(row, col) = (uchar)off;
+                    depth.at<uchar>(row, col) = (uchar)(off * (255/adjust));
                 }
             }
     }
