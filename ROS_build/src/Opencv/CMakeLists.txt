@@ -68,6 +68,16 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+add_executable(Stiching_image src/Vision/Stereo/Stiching_image.cpp)
+add_dependencies(Stiching_image ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Stiching_image
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${Boost_LIBRARY}
+  ${Pangolin_LIBRARIES}
+)
+
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_disparity

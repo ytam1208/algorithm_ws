@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 #include <Opencv/Opencv.hpp>
 #include <Eigen/Core>
 #include <pangolin/pangolin.h>
@@ -62,15 +63,14 @@ class ORB_feature
             double b = 0.573;
             double focal_length = 718.856;			
             cv::Point2d principal_point (607.1928, 185.2157);
-            cv::Mat essential = cv::findEssentialMat (cv::Mat(selPoints1), cv::Mat(selPoints2), focal_length, principal_point );
-            cv::Mat homography_matrix = findHomography (cv::Mat(selPoints1), cv::Mat(selPoints2), cv::RANSAC, 3 );
+            // cv::Mat essential = cv::findEssentialMat(cv::Mat(selPoints1), cv::Mat(selPoints2), focal_length, principal_point );
+            // cv::Mat homography_matrix = findHomography(cv::Mat(selPoints1), cv::Mat(selPoints2), cv::RANSAC, 3 );
 
             std::cout << "F-Matrix = \n" << fundemental << std::endl; 
-    
             // std::cout << "E-Matrix = \n" << essential << std::endl;         
             // std::cout << "H-Matrix = \n" << homography_matrix << std::endl;         
-            compute_fundemental(selPoints1, selPoints2);
-            compute_epilines(fundemental, selPoints1, selPoints2, tmp_left, tmp_right);
+
+            // compute_epilines(fundemental, selPoints1, selPoints2, tmp_left, tmp_right);
             cv::imshow("left", left);
             cv::imshow("right", right);
             cv::imshow("dst", dst);
@@ -96,33 +96,6 @@ class ORB_feature
             }            
             cv::imshow("Left Image", left);
             cv::imshow("Right Image", right);          
-        }
-        void compute_fundemental(std::vector<cv::Point2f>& left_ps, std::vector<cv::Point2f>& right_ps)
-        {
-            cv::Mat M = cv::Mat::zeros(8, 9, CV_32FC1);
-            for(int i = 0; i < 8; i++){
-                cv::Mat curRow =(cv::Mat_<float>(1, 9) <<  left_ps[i].x * right_ps[i].x, 
-                                                            left_ps[i].x * right_ps[i].y,
-                                                            left_ps[i].x,                                                        
-                                                            right_ps[i].x * left_ps[i].y,                                                        
-                                                            left_ps[i].y * right_ps[i].y,                                                        
-                                                            left_ps[i].y,                                                        
-                                                            right_ps[i].x,                                                        
-                                                            right_ps[i].y,                                                        
-                                                            1.0f);
-                curRow.copyTo(M.row(i));
-            }
-            // std::cout << "M-Matrix = \n" << M << std::endl;      
-            // cv::Mat W, U, Vt;
-            // cv::SVD::compute(M, W, U, Vt);
-            // cv::Mat F = Vt.row(8).reshape(1, 3);
-            // std::cout << "My F-Matrix = \n" << F << std::endl;      
-
-            // cv::Mat FW, FU, FVt;
-            // cv::SVD::compute(F, FW, FU, FVt);
-            // FW.ptr<float>(0)[2] = 0;
-            // F = FU * cv::Mat::diag(FW) * FVt;
-
         }
     public:
         ORB_feature(cv::Mat& left, cv::Mat& right){
