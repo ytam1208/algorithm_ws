@@ -1,14 +1,19 @@
 #include <iostream>
 #include <numeric>
 #include <Opencv/Opencv.hpp>
+#include <opencv2/opencv.hpp>
+#include "opencv2/imgcodecs.hpp"
+#include <opencv2/highgui.hpp>
+#include <opencv2/stitching.hpp>
 #include <Eigen/Core>
 #include <pangolin/pangolin.h>
 #include <unistd.h>
 
+// https://docs.opencv.org/4.x/d8/d19/tutorial_stitcher.html
 // std::string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/left.png";
 // std::string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/right.png";
-std::string left_file = "/home/cona/github/algorithm_ws/ROS_build/color/left.png";
-std::string right_file = "/home/cona/github/algorithm_ws/ROS_build/color/right.png";
+std::string left_file = "/home/cona/git/algorithm_ws/ROS_build/color/left.png";
+std::string right_file = "/home/cona/git/algorithm_ws/ROS_build/color/right.png";
 
 class ORB_feature
 {
@@ -47,7 +52,7 @@ class ORB_feature
 
             // cv::imshow("left", left);
             // cv::imshow("right", right);
-            cv::imshow("Matches", dst);
+            // cv::imshow("Matches", dst);
             cv::imshow("Good_Matches", Good_dst);
             cv::waitKey(0);
         }
@@ -60,18 +65,43 @@ class ORB_feature
 
 class Stiching
 {
-    private:
-        void runloop(cv::Mat* left, cv::Mat* right){
-            std::vector<cv::Mat> Mat_v;
+    public:
+        bool runloop(cv::Mat* left, cv::Mat* right){
+            cv::imshow("left", *left);
+            cv::imshow("right", *right);
+            cv::waitKey(0);
 
+            std::vector<cv::Mat> Mat_v;
+            Mat_v.push_back(left->clone());
+            Mat_v.push_back(right->clone());
+
+            cv::Mat pano;
+            cv::Stitcher::Mode mode = cv::Stitcher::PANORAMA;
+            cv::Ptr<cv::Stitcher> sti = cv::Stitcher::create(mode);
+            cv::Stitcher::Status status = sti->stitch(Mat_v, pano);
+            if(status != cv::Stitcher::OK){
+                std::cout << "Can't stitch images, error code = " << int(status) << std::endl;
+                return false;
+            }
+            cv::imshow("Panorama", pano);
+            cv::waitKey(0);
+            return true;
         }
+        Stiching(cv::Mat* left, cv::Mat* right){
+            runloop(left, right);
+        }
+        ~Stiching(){}
 };
 
 int main(int argc, char** argv)
 {
-    cv::Mat left = cv::imread(left_file, cv::IMREAD_GRAYSCALE);
-    cv::Mat right = cv::imread(right_file, cv::IMREAD_GRAYSCALE);
+    cv::Mat left = cv::imread(left_file, cv::IMREAD_COLOR);
+    cv::Mat right = cv::imread(right_file, cv::IMREAD_COLOR);
 
+    if(left.empty() == true || right.empty() == true)
+        return -1;
+    
+    Stiching st(&left, &right);
     ORB_feature ob(left, right);
     return 0;
 }
