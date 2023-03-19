@@ -45,8 +45,7 @@ class ORB_feature
             cv::drawKeypoints(left, L_point, left, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
             cv::drawKeypoints(right, R_point, right, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
 
-            std::vector<int> points1;
-            std::vector<int> points2;
+            std::vector<int> points1, points2;
             for(auto iter = good_matches.begin(); iter != good_matches.end(); ++iter){
                 points1.push_back(iter->queryIdx);
                 points2.push_back(iter->trainIdx);
