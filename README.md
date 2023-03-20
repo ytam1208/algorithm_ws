@@ -33,11 +33,11 @@ cmake .. && make
 ### Stereo Vision
 * [Disparity Map Method](https://opalescent-potato-6fd.notion.site/1-Stereo-Matching-1d3b920783f6471babbde3edcd2c70d9)
   
-* [Disparity Map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_disparity.cpp)
+* [Disparity Map Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_disparity.cpp)
   
 * [Stereo Image Stiching Method](https://opalescent-potato-6fd.notion.site/Image-Stiching-Panorama-566abf7c1049442795eb5fd55da847b0)
   
-* [Stereo Image Stiching](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Stiching_image.cpp)
+* [Stereo Image Stiching Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Stiching_image.cpp)
 
 
 ---
