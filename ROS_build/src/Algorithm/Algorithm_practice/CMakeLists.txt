@@ -150,20 +150,20 @@ target_link_libraries(circle_Gauss-Newton
   ${CERES_LIBRARIES}
 )
 
-# add_executable(ceres_curve_Gauss-Newton_node src/ceres_curve_Gauss-Newton.cpp)
-# add_dependencies(ceres_curve_Gauss-Newton_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-# target_link_libraries(ceres_curve_Gauss-Newton_node
-#   ${catkin_LIBRARIES}
-#   ${OpenCV_LIBRARIES}
-#   ${CERES_LIBRARIES}
-# )
-
-add_executable(line_fitting_node src/Line_fitting.cpp)
-add_dependencies(line_fitting_node ${Line_fitting_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(line_fitting_node
+add_executable(ceres_curve_Gauss-Newton_node src/ceres_curve_Gauss-Newton.cpp)
+add_dependencies(ceres_curve_Gauss-Newton_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(ceres_curve_Gauss-Newton_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
+  ${CERES_LIBRARIES}
 )
+
+# add_executable(LSM_Gradient_descent src/LSM_Gradient_descent.cpp)
+# add_dependencies(LSM_Gradient_descent ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(LSM_Gradient_descent
+#   ${catkin_LIBRARIES}
+#   ${OpenCV_LIBRARIES}
+# )
 #############
 ## Install ##
 #############

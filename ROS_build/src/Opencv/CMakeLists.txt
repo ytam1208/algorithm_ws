@@ -78,15 +78,15 @@ target_link_libraries(Optical_flow
   ${Pangolin_LIBRARIES}
 )
 
-# add_executable(Stiching_image src/Vision/Stereo/Stiching_image.cpp)
-# add_dependencies(Stiching_image ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-# target_link_libraries(Stiching_image
-#   ${catkin_LIBRARIES}
-#   ${OpenCV_LIBRARIES}
-#   ${Eigen3_LIBRARIES} 
-#   ${Boost_LIBRARY}
-#   ${Pangolin_LIBRARIES}
-# )
+add_executable(Stiching_image src/Vision/Stereo/Stiching_image.cpp)
+add_dependencies(Stiching_image ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Stiching_image
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${Boost_LIBRARY}
+  ${Pangolin_LIBRARIES}
+)
 
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
