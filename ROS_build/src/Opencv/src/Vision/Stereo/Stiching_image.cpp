@@ -6,15 +6,15 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/features2d.hpp>
-#include <opencv2/xfeatures2d.hpp>
-#include <opencv2/xfeatures2d/nonfree.hpp>
+// #include <opencv2/xfeatures2d.hpp>
+// #include <opencv2/xfeatures2d/nonfree.hpp>
 #include <Eigen/Core>
 #include <pangolin/pangolin.h>
 #include <unistd.h>
 #include <opencv2/stitching.hpp>
 
 using namespace cv;
-using namespace cv::xfeatures2d;
+// using namespace cv::xfeatures2d;
 
 // https://docs.opencv.org/4.x/d8/d19/tutorial_stitcher.html
 std::string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/L.png";
