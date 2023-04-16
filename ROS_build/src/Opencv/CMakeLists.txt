@@ -3,9 +3,14 @@ project(Opencv)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # set(CMAKE_BUILD_TYPE Debug)
-add_compile_options(-std=c++14)
+# add_compile_options(-std=c++14)
 # set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++14")
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_BUILD_TYPE "Release")
+# set(CMAKE_FIND_DEBUG_MODE 1)
+set(CMAKE_CXX_FLAGS "-std=c++14")
+# list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
+
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -17,11 +22,12 @@ find_package(Pangolin REQUIRED)
 find_package(Boost REQUIRED)
 find_package(Sophus REQUIRED)
 
-find_package(G2O)
-include_directories(${G2O_INCLUDE_DIRS}) 
-set( G2O_LIBRARIES 
-    g2o_core g2o_types_sba g2o_solver_csparse g2o_stuff g2o_csparse_extension 
-)
+# find_package(G2O REQUIRED)
+find_package(g2o REQUIRED)
+# link_directories(${G2O_LIBRARIES})
+# link_libraries(${G2O_LIBRARIES})
+
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -53,6 +59,8 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+include_directories(${G2O_INCLUDE_DIRS})
+include_directories(/usr/local/include/g2o)
 include_directories(
  include
  ${catkin_INCLUDE_DIRS}
@@ -62,7 +70,15 @@ include_directories(
  ${Pangolin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
  ${Sophus_INCLUDE_DIRS}
+ ${g2o_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
+)
+
+# set( G2O_LIBRARIES 
+#     g2o_core g2o_types_sba g2o_solver_csparse g2o_stuff g2o_csparse_extension 
+# )
+set( g2o_LIBRARIES 
+  g2o_core g2o_types_sba g2o_solver_csparse g2o_stuff g2o_csparse_extension 
 )
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -131,7 +147,21 @@ target_link_libraries(Sparse_direct_method
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
-  ${G2O_LIBRARIES}
+  # ${G2O_LIBRARIES}
+  ${g2o_LIBRARIES}
+  g2o_core_d
+  g2o_types_slam3d_d
+  g2o_solver_csparse_d
+  g2o_stuff_d
+  g2o_csparse_extension_d
+  g2o_types_sba_d
+
+  g2o_core
+  g2o_types_slam3d
+  g2o_solver_csparse
+  g2o_stuff
+  g2o_csparse_extension
+  g2o_types_sba
 )
 #############
 ## Install ##

@@ -11,6 +11,8 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/features2d/features2d.hpp>
 
+#include <Eigen/Dense>
+
 #include <g2o/core/base_vertex.h>
 #include <g2o/core/base_unary_edge.h>
 #include <g2o/core/block_solver.h>
@@ -19,6 +21,8 @@
 #include <g2o/core/optimization_algorithm_dogleg.h>
 #include <g2o/solvers/eigen/linear_solver_eigen.h>
 #include <g2o/solvers/dense/linear_solver_dense.h>
+#include <g2o/solvers/csparse/linear_solver_csparse.h>
+
 #include <g2o/core/robust_kernel.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
 
@@ -26,10 +30,10 @@ using namespace std;
 using namespace g2o;
 
 /********************************************
- * 本节演示了RGBD上的稀疏直接法 
+ * 本节演示了RGBD上的半稠密直接法 
  ********************************************/
 
-// 一次测量的值，包括一个世界座标系下三维点与一个灰度值
+// 一次测量的值，包括一个世界坐标系下三维点与一个灰度值
 struct Measurement
 {
     Measurement ( Eigen::Vector3d p, float g ) : pos_world ( p ), grayscale ( g ) {}
@@ -166,7 +170,7 @@ int main ( int argc, char** argv )
         return 1;
     }
     srand ( ( unsigned int ) time ( 0 ) );
-    string path_to_dataset = argv[1];
+    string path_to_dataset = "/Users/yeontaemin/github/algorithm_ws/ROS_build/data";
     string associate_file = path_to_dataset + "/associate.txt";
 
     ifstream fin ( associate_file );
@@ -198,23 +202,25 @@ int main ( int argc, char** argv )
         cv::cvtColor ( color, gray, cv::COLOR_BGR2GRAY );
         if ( index ==0 )
         {
-            // 对第一帧提取FAST特征点
-            vector<cv::KeyPoint> keypoints;
-            cv::Ptr<cv::FastFeatureDetector> detector = cv::FastFeatureDetector::create();
-            detector->detect ( color, keypoints );
-            for ( auto kp:keypoints )
-            {
-                // 去掉邻近边缘处的点
-                if ( kp.pt.x < 20 || kp.pt.y < 20 || ( kp.pt.x+20 ) >color.cols || ( kp.pt.y+20 ) >color.rows )
-                    continue;
-                ushort d = depth.ptr<ushort> ( cvRound ( kp.pt.y ) ) [ cvRound ( kp.pt.x ) ];
-                if ( d==0 )
-                    continue;
-                Eigen::Vector3d p3d = project2Dto3D ( kp.pt.x, kp.pt.y, d, fx, fy, cx, cy, depth_scale );
-                float grayscale = float ( gray.ptr<uchar> ( cvRound ( kp.pt.y ) ) [ cvRound ( kp.pt.x ) ] );
-                measurements.push_back ( Measurement ( p3d, grayscale ) );
-            }
+            // select the pixels with high gradiants 
+            for ( int x=10; x<gray.cols-10; x++ )
+                for ( int y=10; y<gray.rows-10; y++ )
+                {
+                    Eigen::Vector2d delta (
+                        gray.ptr<uchar>(y)[x+1] - gray.ptr<uchar>(y)[x-1], 
+                        gray.ptr<uchar>(y+1)[x] - gray.ptr<uchar>(y-1)[x]
+                    );
+                    if ( delta.norm() < 50 )
+                        continue;
+                    ushort d = depth.ptr<ushort> (y)[x];
+                    if ( d==0 )
+                        continue;
+                    Eigen::Vector3d p3d = project2Dto3D ( x, y, d, fx, fy, cx, cy, depth_scale );
+                    float grayscale = float ( gray.ptr<uchar> (y) [x] );
+                    measurements.push_back ( Measurement ( p3d, grayscale ) );
+                }
             prev_color = color.clone();
+            cout<<"add total "<<measurements.size()<<" measurements."<<endl;
             continue;
         }
         // 使用直接法计算相机运动
@@ -240,12 +246,18 @@ int main ( int argc, char** argv )
             if ( pixel_now(0,0)<0 || pixel_now(0,0)>=color.cols || pixel_now(1,0)<0 || pixel_now(1,0)>=color.rows )
                 continue;
 
-            float b = 255*float ( rand() ) /RAND_MAX;
-            float g = 255*float ( rand() ) /RAND_MAX;
-            float r = 255*float ( rand() ) /RAND_MAX;
-            cv::circle ( img_show, cv::Point2d ( pixel_prev ( 0,0 ), pixel_prev ( 1,0 ) ), 8, cv::Scalar ( b,g,r ), 2 );
-            cv::circle ( img_show, cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), 8, cv::Scalar ( b,g,r ), 2 );
-            cv::line ( img_show, cv::Point2d ( pixel_prev ( 0,0 ), pixel_prev ( 1,0 ) ), cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), cv::Scalar ( b,g,r ), 1 );
+            float b = 0;
+            float g = 250;
+            float r = 0;
+            img_show.ptr<uchar>( pixel_prev(1,0) )[int(pixel_prev(0,0))*3] = b;
+            img_show.ptr<uchar>( pixel_prev(1,0) )[int(pixel_prev(0,0))*3+1] = g;
+            img_show.ptr<uchar>( pixel_prev(1,0) )[int(pixel_prev(0,0))*3+2] = r;
+            
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3] = b;
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+1] = g;
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+2] = r;
+            cv::circle ( img_show, cv::Point2d ( pixel_prev ( 0,0 ), pixel_prev ( 1,0 ) ), 4, cv::Scalar ( b,g,r ), 2 );
+            cv::circle ( img_show, cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), 4, cv::Scalar ( b,g,r ), 2 );
         }
         cv::imshow ( "result", img_show );
         cv::waitKey ( 0 );
@@ -256,16 +268,22 @@ int main ( int argc, char** argv )
 
 bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* gray, Eigen::Matrix3f& K, Eigen::Isometry3d& Tcw )
 {
-    // 初始化g2o
-    //typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
-    //DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
-    //DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
-    // g2o::OptimizationAlgorithmGaussNewton* solver = new g2o::OptimizationAlgorithmGaussNewton( solver_ptr ); // G-N
-    //g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( solver_ptr ); // L-M
-    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> Block;  // 求解的向量是6＊1的
-    Block::LinearSolverType* linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
-    Block* solver_ptr = new Block( unique_ptr<Block::LinearSolverType>(linearSolver) );      // 矩阵块求解器
-    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( unique_ptr<Block>(solver_ptr) );
+    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
+    // DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
+    // DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
+    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr));
+
+    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> Block;  // 求解的向量是6＊1的
+    // Block::LinearSolverType* linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
+    // Block* solver_ptr = new Block( unique_ptr<Block::LinearSolverType>(linearSolver) );      // 矩阵块求解器
+    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( unique_ptr<Block>(solver_ptr) );
+
+    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,3>> Block;  // 求解的向量是6＊1的
+    std::unique_ptr<Block::LinearSolverType> linearSolver (new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
+    std::unique_ptr<Block> solver_ptr (new Block(std::move(linearSolver)));
+    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::move(solver_ptr) );
+
+
     g2o::SparseOptimizer optimizer;
     optimizer.setAlgorithm ( solver );
     optimizer.setVerbose( true );
@@ -294,3 +312,4 @@ bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* 
     optimizer.optimize ( 30 );
     Tcw = pose->estimate();
 }
+
