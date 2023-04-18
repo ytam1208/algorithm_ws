@@ -21,7 +21,7 @@
 #include <g2o/core/optimization_algorithm_dogleg.h>
 #include <g2o/solvers/eigen/linear_solver_eigen.h>
 #include <g2o/solvers/dense/linear_solver_dense.h>
-#include <g2o/solvers/csparse/linear_solver_csparse.h>
+// #include <g2o/solvers/csparse/linear_solver_csparse.h>
 
 #include <g2o/core/robust_kernel.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
@@ -164,13 +164,8 @@ public:
 
 int main ( int argc, char** argv )
 {
-    if ( argc != 2 )
-    {
-        cout<<"usage: useLK path_to_dataset"<<endl;
-        return 1;
-    }
     srand ( ( unsigned int ) time ( 0 ) );
-    string path_to_dataset = "/Users/yeontaemin/github/algorithm_ws/ROS_build/data";
+    string path_to_dataset = "/home/cona/github/algorithm_ws/ROS_build/data";
     string associate_file = path_to_dataset + "/associate.txt";
 
     ifstream fin ( associate_file );
@@ -268,20 +263,20 @@ int main ( int argc, char** argv )
 
 bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* gray, Eigen::Matrix3f& K, Eigen::Isometry3d& Tcw )
 {
-    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
-    // DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
-    // DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr));
+    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
+    DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
+    DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
+    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr));
 
     // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> Block;  // 求解的向量是6＊1的
     // Block::LinearSolverType* linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
     // Block* solver_ptr = new Block( unique_ptr<Block::LinearSolverType>(linearSolver) );      // 矩阵块求解器
     // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( unique_ptr<Block>(solver_ptr) );
 
-    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,3>> Block;  // 求解的向量是6＊1的
-    std::unique_ptr<Block::LinearSolverType> linearSolver (new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
-    std::unique_ptr<Block> solver_ptr (new Block(std::move(linearSolver)));
-    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::move(solver_ptr) );
+    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,3>> Block;  // 求解的向量是6＊1的
+    // std::unique_ptr<Block::LinearSolverType> linearSolver (new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
+    // std::unique_ptr<Block> solver_ptr (new Block(std::move(linearSolver)));
+    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::move(solver_ptr) );
 
 
     g2o::SparseOptimizer optimizer;
@@ -311,5 +306,7 @@ bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* 
     optimizer.initializeOptimization();
     optimizer.optimize ( 30 );
     Tcw = pose->estimate();
+
+    return true;
 }
 

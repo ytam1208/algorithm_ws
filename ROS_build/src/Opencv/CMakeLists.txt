@@ -5,15 +5,18 @@ project(Opencv)
 # set(CMAKE_BUILD_TYPE Debug)
 # add_compile_options(-std=c++14)
 # set(CMAKE_CXX_FLAGS "-O0 -DDEBUG -std=c++14")
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-std=c++14 -O3")
 set(CMAKE_BUILD_TYPE "Release")
 # set(CMAKE_FIND_DEBUG_MODE 1)
-set(CMAKE_CXX_FLAGS "-std=c++14")
+# set(CMAKE_CXX_FLAGS "-std=c++14")
 # list( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
+SET( G2O_ROOT /usr/local/include/g2o )
+
 find_package(catkin REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -23,7 +26,7 @@ find_package(Boost REQUIRED)
 find_package(Sophus REQUIRED)
 
 # find_package(G2O REQUIRED)
-find_package(g2o REQUIRED)
+find_package(G2O REQUIRED)
 # link_directories(${G2O_LIBRARIES})
 # link_libraries(${G2O_LIBRARIES})
 
@@ -60,7 +63,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(${G2O_INCLUDE_DIRS})
-include_directories(/usr/local/include/g2o)
+# include_directories(/usr/local/include/g2o)
 include_directories(
  include
  ${catkin_INCLUDE_DIRS}
@@ -70,7 +73,8 @@ include_directories(
  ${Pangolin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
  ${Sophus_INCLUDE_DIRS}
- ${g2o_INCLUDE_DIRS}
+ ${CSPARSE_INCLUDE_DIRS}
+ ${G2O_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
 
@@ -147,21 +151,8 @@ target_link_libraries(Sparse_direct_method
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
-  # ${G2O_LIBRARIES}
+  ${G2O_LIBRARIES}
   ${g2o_LIBRARIES}
-  g2o_core_d
-  g2o_types_slam3d_d
-  g2o_solver_csparse_d
-  g2o_stuff_d
-  g2o_csparse_extension_d
-  g2o_types_sba_d
-
-  g2o_core
-  g2o_types_slam3d
-  g2o_solver_csparse
-  g2o_stuff
-  g2o_csparse_extension
-  g2o_types_sba
 )
 #############
 ## Install ##
@@ -217,3 +208,4 @@ target_link_libraries(Sparse_direct_method
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+# 
