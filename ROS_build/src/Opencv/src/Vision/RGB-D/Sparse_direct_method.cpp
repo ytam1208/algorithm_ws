@@ -1,15 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include <list>
 #include <vector>
 #include <chrono>
-#include <ctime>
-#include <climits>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <opencv2/features2d/features2d.hpp>
 
 #include <Eigen/Dense>
 
@@ -18,22 +14,10 @@
 #include <g2o/core/block_solver.h>
 #include <g2o/core/optimization_algorithm_levenberg.h>
 #include <g2o/core/optimization_algorithm_gauss_newton.h>
-#include <g2o/core/optimization_algorithm_dogleg.h>
-#include <g2o/solvers/eigen/linear_solver_eigen.h>
 #include <g2o/solvers/dense/linear_solver_dense.h>
-// #include <g2o/solvers/csparse/linear_solver_csparse.h>
-
-#include <g2o/core/robust_kernel.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
 
-using namespace std;
-using namespace g2o;
-
-/********************************************
- * 本节演示了RGBD上的半稠密直接法 
- ********************************************/
-
-// 一次测量的值，包括一个世界坐标系下三维点与一个灰度值
+// Save 3D world coordinate, grayscale
 struct Measurement
 {
     Measurement ( Eigen::Vector3d p, float g ) : pos_world ( p ), grayscale ( g ) {}
@@ -56,15 +40,15 @@ inline Eigen::Vector2d project3Dto2D ( float x, float y, float z, float fx, floa
     return Eigen::Vector2d ( u,v );
 }
 
-// 直接法估计位姿
-// 输入：测量值（空间点的灰度），新的灰度图，相机内参； 输出：相机位姿
-// 返回：true为成功，false失败
-bool poseEstimationDirect ( const vector<Measurement>& measurements, cv::Mat* gray, Eigen::Matrix3f& intrinsics, Eigen::Isometry3d& Tcw );
+// Direct Pose Estimation
+// 입력: 측정값(공간점의 그레이스케일), 새로운 그레이스케일, 카메라 내부파라미터
+// 출력: 카메라의 위치
+bool poseEstimationDirect ( const std::vector<Measurement>& measurements, cv::Mat* gray, Eigen::Matrix3f& intrinsics, Eigen::Isometry3d& Tcw );
 
 
 // project a 3d point into an image plane, the error is photometric error
 // an unary edge with one vertex SE3Expmap (the pose of camera)
-class EdgeSE3ProjectDirect: public BaseUnaryEdge< 1, double, VertexSE3Expmap>
+class EdgeSE3ProjectDirect: public g2o::BaseUnaryEdge< 1, double, g2o::VertexSE3Expmap>
 {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
@@ -77,12 +61,15 @@ public:
 
     virtual void computeError()
     {
-        const VertexSE3Expmap* v  =static_cast<const VertexSE3Expmap*> ( _vertices[0] );
+        const g2o::VertexSE3Expmap* v  = static_cast<const g2o::VertexSE3Expmap*> ( _vertices[0] );
         Eigen::Vector3d x_local = v->estimate().map ( x_world_ );
         float x = x_local[0]*fx_/x_local[2] + cx_;
         float y = x_local[1]*fy_/x_local[2] + cy_;
         // check x,y is in the image
-        if ( x-4<0 || ( x+4 ) >image_->cols || ( y-4 ) <0 || ( y+4 ) >image_->rows )
+        if (x-4 < 0 
+            || (x+4) > image_->cols 
+            || (y-4) < 0 
+            || (y+4) > image_->rows)
         {
             _error ( 0,0 ) = 0.0;
             this->setLevel ( 1 );
@@ -101,7 +88,7 @@ public:
             _jacobianOplusXi = Eigen::Matrix<double, 1, 6>::Zero();
             return;
         }
-        VertexSE3Expmap* vtx = static_cast<VertexSE3Expmap*> ( _vertices[0] );
+        g2o::VertexSE3Expmap* vtx = static_cast<g2o::VertexSE3Expmap*> ( _vertices[0] );
         Eigen::Vector3d xyz_trans = vtx->estimate().map ( x_world_ );   // q in book
 
         double x = xyz_trans[0];
@@ -139,8 +126,8 @@ public:
     }
 
     // dummy read and write functions because we don't care...
-    virtual bool read ( std::istream& in ) {}
-    virtual bool write ( std::ostream& out ) const {}
+    virtual bool read ( std::istream& in ) {return true;}
+    virtual bool write ( std::ostream& out ) const {return true;}
 
 protected:
     // get a gray scale value from reference image (bilinear interpolated)
@@ -165,15 +152,15 @@ public:
 int main ( int argc, char** argv )
 {
     srand ( ( unsigned int ) time ( 0 ) );
-    string path_to_dataset = "/home/cona/github/algorithm_ws/ROS_build/data";
-    string associate_file = path_to_dataset + "/associate.txt";
+    std::string path_to_dataset = "/home/cona/github/algorithm_ws/ROS_build/data";
+    std::string associate_file = path_to_dataset + "/associate.txt";
 
-    ifstream fin ( associate_file );
+    std::ifstream fin ( associate_file );
 
-    string rgb_file, depth_file, time_rgb, time_depth;
+    std::string rgb_file, depth_file, time_rgb, time_depth;
     cv::Mat color, depth, gray;
-    vector<Measurement> measurements;
-    // 相机内参
+    std::vector<Measurement> measurements;
+    // 카메라 내부변수
     float cx = 325.5;
     float cy = 253.5;
     float fx = 518.0;
@@ -185,27 +172,27 @@ int main ( int argc, char** argv )
     Eigen::Isometry3d Tcw = Eigen::Isometry3d::Identity();
 
     cv::Mat prev_color;
-    // 我们以第一个图像为参考，对后续图像和参考图像做直接法
-    for ( int index=0; index<10; index++ )
+    // 첫번째 영상을 참고하여, 다음 obervation 영상과 reference 영상을 처리했다.
+    for (int index = 0; index < 10; index++)
     {
-        cout<<"*********** loop "<<index<<" ************"<<endl;
-        fin>>time_rgb>>rgb_file>>time_depth>>depth_file;
-        color = cv::imread ( path_to_dataset+"/"+rgb_file );
-        depth = cv::imread ( path_to_dataset+"/"+depth_file, -1 );
-        if ( color.data==nullptr || depth.data==nullptr )
+        std::cout << "*********** loop "<<index<<" ************" << std::endl;
+        fin >> time_rgb >> rgb_file >> time_depth >> depth_file;
+        color = cv::imread(path_to_dataset + "/" + rgb_file);
+        depth = cv::imread(path_to_dataset + "/" + depth_file, -1);
+        if (color.data==nullptr || depth.data==nullptr)
             continue; 
-        cv::cvtColor ( color, gray, cv::COLOR_BGR2GRAY );
-        if ( index ==0 )
+        cv::cvtColor (color, gray, cv::COLOR_BGR2GRAY);
+        if (index ==0)
         {
             // select the pixels with high gradiants 
-            for ( int x=10; x<gray.cols-10; x++ )
-                for ( int y=10; y<gray.rows-10; y++ )
+            for (int x=10; x<gray.cols-10; x++)
+                for (int y=10; y<gray.rows-10; y++)
                 {
                     Eigen::Vector2d delta (
                         gray.ptr<uchar>(y)[x+1] - gray.ptr<uchar>(y)[x-1], 
                         gray.ptr<uchar>(y+1)[x] - gray.ptr<uchar>(y-1)[x]
                     );
-                    if ( delta.norm() < 50 )
+                    if (delta.norm() < 50)
                         continue;
                     ushort d = depth.ptr<ushort> (y)[x];
                     if ( d==0 )
@@ -215,16 +202,16 @@ int main ( int argc, char** argv )
                     measurements.push_back ( Measurement ( p3d, grayscale ) );
                 }
             prev_color = color.clone();
-            cout<<"add total "<<measurements.size()<<" measurements."<<endl;
+            std::cout << "add total " << measurements.size() << " measurements." << std::endl;
             continue;
         }
-        // 使用直接法计算相机运动
-        chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
-        poseEstimationDirect ( measurements, &gray, K, Tcw );
-        chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
-        chrono::duration<double> time_used = chrono::duration_cast<chrono::duration<double>> ( t2-t1 );
-        cout<<"direct method costs time: "<<time_used.count() <<" seconds."<<endl;
-        cout<<"Tcw="<<Tcw.matrix() <<endl;
+        // 카메라 움직임 계산하기
+        std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
+        poseEstimationDirect (measurements, &gray, K, Tcw);
+        std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+        std::chrono::duration<double> time_used = std::chrono::duration_cast<std::chrono::duration<double>> ( t2-t1 );
+        std::cout << "direct method costs time: " << time_used.count() << " seconds." << std::endl;
+        // std::cout << "Tcw="<<Tcw.matrix() << std::endl;
 
         // plot the feature points
         cv::Mat img_show ( color.rows*2, color.cols, CV_8UC3 );
@@ -232,7 +219,7 @@ int main ( int argc, char** argv )
         color.copyTo ( img_show ( cv::Rect ( 0,color.rows,color.cols, color.rows ) ) );
         for ( Measurement m:measurements )
         {
-            if ( rand() > RAND_MAX/5 )
+            if ( rand() > RAND_MAX / 5 )
                 continue;
             Eigen::Vector3d p = m.pos_world;
             Eigen::Vector2d pixel_prev = project3Dto2D ( p ( 0,0 ), p ( 1,0 ), p ( 2,0 ), fx, fy, cx, cy );
@@ -261,23 +248,13 @@ int main ( int argc, char** argv )
     return 0;
 }
 
-bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* gray, Eigen::Matrix3f& K, Eigen::Isometry3d& Tcw )
+bool poseEstimationDirect ( const std::vector< Measurement >& measurements, cv::Mat* gray, Eigen::Matrix3f& K, Eigen::Isometry3d& Tcw )
 {
     typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
     DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
     DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
-    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr));
-
-    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> Block;  // 求解的向量是6＊1的
-    // Block::LinearSolverType* linearSolver = new g2o::LinearSolverEigen<Block::PoseMatrixType>(); // 线性方程求解器
-    // Block* solver_ptr = new Block( unique_ptr<Block::LinearSolverType>(linearSolver) );      // 矩阵块求解器
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( unique_ptr<Block>(solver_ptr) );
-
-    // typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,3>> Block;  // 求解的向量是6＊1的
-    // std::unique_ptr<Block::LinearSolverType> linearSolver (new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
-    // std::unique_ptr<Block> solver_ptr (new Block(std::move(linearSolver)));
-    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::move(solver_ptr) );
-
+    // g2o::OptimizationAlgorithmGaussNewton* solver = new g2o::OptimizationAlgorithmGaussNewton( std::move(solver_ptr) ); // G-N
+    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr)); // L-M
 
     g2o::SparseOptimizer optimizer;
     optimizer.setAlgorithm ( solver );
@@ -302,11 +279,15 @@ bool poseEstimationDirect ( const vector< Measurement >& measurements, cv::Mat* 
         edge->setId ( id++ );
         optimizer.addEdge ( edge );
     }
-    cout<<"edges in graph: "<<optimizer.edges().size() <<endl;
+    std::cout << "edges in graph: "<<optimizer.edges().size() << std::endl;
     optimizer.initializeOptimization();
-    optimizer.optimize ( 30 );
+    optimizer.optimize ( 100 );
     Tcw = pose->estimate();
-
+    std::cout << "******************************" << std::endl;
+    std::cout << "Translation= \n" << Tcw.translation() << std::endl;
+    std::cout << "******************************" << std::endl;
+    std::cout << "Rotation= \n" << Tcw.rotation() << std::endl;
+    std::cout << "******************************" << std::endl;
     return true;
 }
 

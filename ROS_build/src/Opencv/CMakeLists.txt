@@ -15,7 +15,6 @@ set(CMAKE_BUILD_TYPE "Release")
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules )
-SET( G2O_ROOT /usr/local/include/g2o )
 
 find_package(catkin REQUIRED)
 find_package(OpenCV REQUIRED)
@@ -25,45 +24,24 @@ find_package(Pangolin REQUIRED)
 find_package(Boost REQUIRED)
 find_package(Sophus REQUIRED)
 
-# find_package(G2O REQUIRED)
-find_package(G2O REQUIRED)
-# link_directories(${G2O_LIBRARIES})
-# link_libraries(${G2O_LIBRARIES})
-
-
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
-
-## Uncomment this if the package has a setup.py. This macro ensures
-## modules and global scripts declared therein get installed
-## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
 
 ###################################
 ## catkin specific configuration ##
 ###################################
-## The catkin_package macro generates cmake config files for your package
-## Declare things to be passed to dependent projects
-## INCLUDE_DIRS: uncomment this if your package contains header files
-## LIBRARIES: libraries you create in this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES Opencv
   CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
-
+message("***********************************")
+message(STATUS "G2O_INCLUDE_DIR = ${g2o_LIBRARIES}")
+message("***********************************")
 ###########
 ## Build ##
 ###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-include_directories(${G2O_INCLUDE_DIRS})
-# include_directories(/usr/local/include/g2o)
 include_directories(
  include
  ${catkin_INCLUDE_DIRS}
@@ -78,9 +56,6 @@ include_directories(
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
 )
 
-# set( G2O_LIBRARIES 
-#     g2o_core g2o_types_sba g2o_solver_csparse g2o_stuff g2o_csparse_extension 
-# )
 set( g2o_LIBRARIES 
   g2o_core g2o_types_sba g2o_solver_csparse g2o_stuff g2o_csparse_extension 
 )
@@ -151,9 +126,10 @@ target_link_libraries(Sparse_direct_method
   ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
-  ${G2O_LIBRARIES}
+  # ${G2O_LIBRARIES}
   ${g2o_LIBRARIES}
 )
+
 #############
 ## Install ##
 #############
