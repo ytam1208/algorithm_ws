@@ -225,7 +225,7 @@ int main ( int argc, char** argv )
             Eigen::Vector2d pixel_prev = project3Dto2D ( p ( 0,0 ), p ( 1,0 ), p ( 2,0 ), fx, fy, cx, cy );
             Eigen::Vector3d p2 = Tcw*m.pos_world;
             Eigen::Vector2d pixel_now = project3Dto2D ( p2 ( 0,0 ), p2 ( 1,0 ), p2 ( 2,0 ), fx, fy, cx, cy );
-            if ( pixel_now(0,0)<0 || pixel_now(0,0)>=color.cols || pixel_now(1,0)<0 || pixel_now(1,0)>=color.rows )
+            if (pixel_now(0,0) < 0 || pixel_now(0,0) >= color.cols || pixel_now(1,0) <0 || pixel_now(1,0) >= color.rows)
                 continue;
 
             float b = 0;

@@ -73,7 +73,7 @@ set( g2o_LIBRARIES
 add_executable(Optical_flow src/Vision/Optical_flow.cpp)
 add_dependencies(Optical_flow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Optical_flow
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
@@ -83,7 +83,7 @@ target_link_libraries(Optical_flow
 add_executable(Stiching_image src/Vision/Stereo/Stiching_image.cpp)
 add_dependencies(Stiching_image ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Stiching_image
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
@@ -93,7 +93,7 @@ target_link_libraries(Stiching_image
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_disparity
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
@@ -103,7 +103,7 @@ target_link_libraries(Get_disparity
 add_executable(Get_epipolar src/Vision/Stereo/Get_epipolar.cpp)
 add_dependencies(Get_epipolar ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_epipolar
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
@@ -113,7 +113,7 @@ target_link_libraries(Get_epipolar
 add_executable(${PROJECT_NAME} src/Vision/stereo_vision.cpp)
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   ${Boost_LIBRARY}
@@ -123,13 +123,21 @@ target_link_libraries(${PROJECT_NAME}
 add_executable(Sparse_direct_method src/Vision/RGB-D/Sparse_direct_method.cpp)
 add_dependencies(Sparse_direct_method ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Sparse_direct_method
-  ${catkin_LIBRARIES}
+  # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
   # ${G2O_LIBRARIES}
   ${g2o_LIBRARIES}
 )
 
+add_executable(new_Sparse_DM src/Vision/RGB-D/new_Sparse_DM.cpp)
+add_dependencies(new_Sparse_DM ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(new_Sparse_DM
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${g2o_LIBRARIES}
+)
 #############
 ## Install ##
 #############
