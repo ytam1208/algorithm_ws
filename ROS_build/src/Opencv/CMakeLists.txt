@@ -129,15 +129,6 @@ target_link_libraries(Sparse_direct_method
   # ${G2O_LIBRARIES}
   ${g2o_LIBRARIES}
 )
-
-add_executable(new_Sparse_DM src/Vision/RGB-D/new_Sparse_DM.cpp)
-add_dependencies(new_Sparse_DM ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(new_Sparse_DM
-  ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  ${g2o_LIBRARIES}
-)
 #############
 ## Install ##
 #############

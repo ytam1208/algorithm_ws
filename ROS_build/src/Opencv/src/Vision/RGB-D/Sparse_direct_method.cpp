@@ -198,11 +198,12 @@ int main ( int argc, char** argv )
                     if ( d==0 )
                         continue;
                     Eigen::Vector3d p3d = project2Dto3D ( x, y, d, fx, fy, cx, cy, depth_scale );
+                    // std::cout << "[" << d << ", " << p3d << "]";
                     float grayscale = float ( gray.ptr<uchar> (y) [x] );
                     measurements.push_back ( Measurement ( p3d, grayscale ) );
                 }
             prev_color = color.clone();
-            std::cout << "add total " << measurements.size() << " measurements." << std::endl;
+            // std::cout << "add total " << measurements.size() << " measurements." << std::endl;
             continue;
         }
         // 카메라 움직임 계산하기
@@ -247,22 +248,32 @@ int main ( int argc, char** argv )
     }
     return 0;
 }
-
+//https://alida.tistory.com/16
 bool poseEstimationDirect ( const std::vector< Measurement >& measurements, cv::Mat* gray, Eigen::Matrix3f& K, Eigen::Isometry3d& Tcw )
 {
-    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  // 求解的向量是6＊1的
+    // LinearSolver는 Pose(6), Landmark(1)의 문제를 풀때 BlockSolver 설정
+    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,1>> DirectBlock;  
     DirectBlock::LinearSolverType* linearSolver = new g2o::LinearSolverDense< DirectBlock::PoseMatrixType > ();
     DirectBlock* solver_ptr = new DirectBlock ( linearSolver );
     // g2o::OptimizationAlgorithmGaussNewton* solver = new g2o::OptimizationAlgorithmGaussNewton( std::move(solver_ptr) ); // G-N
+    // Optimizer는 Levenberg-Marquardt 방법 사용, Lambda 초기값 설정
     g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg ( std::move(solver_ptr)); // L-M
 
     g2o::SparseOptimizer optimizer;
     optimizer.setAlgorithm ( solver );
+    // 최적화 과정을 프린트할지(verbose) 설정한다
     optimizer.setVerbose( true );
 
+    //g2o optimizer에 추가할 g2o::VertexSE3Expmap 노드를 생성한다
+    //보통 original pose의 벡터 크기만큼 루프를 돌면서 g2o optimizer에 추가할 g2o::VertexSE3Expmap 노드를 생성한다. 
     g2o::VertexSE3Expmap* pose = new g2o::VertexSE3Expmap();
-    pose->setEstimate ( g2o::SE3Quat ( Tcw.rotation(), Tcw.translation() ) );
-    pose->setId ( 0 );
+    // g2o::SE3Quat 자료구조에 초기 pose로 선언을 하며, Tcw 카메라 pose를 넣는다.
+    pose->setEstimate (g2o::SE3Quat(Tcw.rotation(), Tcw.translation()));
+    //이 예제에서는 1개의 Reference이기 때문에 0으로 하나만 셋팅
+    pose->setId (0);
+    // 첫번째 노드인 경우 해당 노드(또는 vertex)의 포즈를 고정시킨다.
+    // if(i==0)
+    //     pose->setFixed(true);
     optimizer.addVertex ( pose );
 
     // 添加边
