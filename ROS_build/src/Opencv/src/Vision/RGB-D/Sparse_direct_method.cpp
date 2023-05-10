@@ -17,6 +17,26 @@
 #include <g2o/solvers/dense/linear_solver_dense.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
 
+class Odom
+{
+public:
+    Eigen::Isometry3d Tcw;
+    double x,y,z,theta;
+    void addMotion(Eigen::Isometry3d& _Tcw){
+        Eigen::Quaterniond Rot(_Tcw.rotation());
+        Eigen::Isometry3d _Twr(Eigen::Quaterniond(Rot.w(), Rot.x(), Rot.y(), Rot.z()));
+        _Twr.pretranslate(Eigen::Vector3d(_Tcw.translation()(0), _Tcw.translation()(1), _Tcw.translation()(2)));
+        Tcw = Tcw * _Tcw;        
+    }
+    Odom(){
+        Eigen::Isometry3d _Twr(Eigen::Quaterniond(-0.3909, 0.8851, 0.2362, -0.0898));
+        _Twr.pretranslate(Eigen::Vector3d(1.3112, 0.8507, 1.5186));
+        Tcw = _Twr;
+    }
+    ~Odom(){}
+};
+
+
 // Save 3D world coordinate, grayscale
 struct Measurement
 {
@@ -148,7 +168,7 @@ public:
     float cx_=0, cy_=0, fx_=0, fy_=0; // Camera intrinsics
     cv::Mat* image_=nullptr;    // reference image
 };
-
+Odom om;
 int main ( int argc, char** argv )
 {
     srand ( ( unsigned int ) time ( 0 ) );
@@ -294,10 +314,11 @@ bool poseEstimationDirect ( const std::vector< Measurement >& measurements, cv::
     optimizer.initializeOptimization();
     optimizer.optimize ( 100 );
     Tcw = pose->estimate();
+    om.addMotion(Tcw);
     std::cout << "******************************" << std::endl;
-    std::cout << "Translation= \n" << Tcw.translation() << std::endl;
+    std::cout << "Translation= \n" << om.Tcw.translation() << std::endl;
     std::cout << "******************************" << std::endl;
-    std::cout << "Rotation= \n" << Tcw.rotation() << std::endl;
+    std::cout << "Rotation= \n" << om.Tcw.rotation() << std::endl;
     std::cout << "******************************" << std::endl;
     return true;
 }
