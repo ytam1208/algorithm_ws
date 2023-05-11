@@ -17,6 +17,30 @@
 #include <g2o/solvers/dense/linear_solver_dense.h>
 #include <g2o/types/sba/types_six_dof_expmap.h>
 
+class Odom
+{
+public:
+    Eigen::Isometry3d Tcw;
+    double x,y,z,theta;
+    inline Eigen::Isometry3d addMotion(Eigen::Isometry3d& _Tcw){
+        return (_Tcw * Tcw);        
+    }
+    void Get_relative_pose(Eigen::Isometry3d& _Tcw){
+        // Eigen::Quaterniond Rot(_Tcw.rotation());
+        // Eigen::Isometry3d _Twr(Eigen::Quaterniond(Rot.w(), Rot.x(), Rot.y(), Rot.z()));
+        // _Twr.pretranslate(Eigen::Vector3d(_Tcw.translation()(0), _Tcw.translation()(1), _Tcw.translation()(2)));
+        
+    }
+    Odom(){
+        // Eigen::Isometry3d _Twr(Eigen::Quaterniond(0.6078, -0.6810, -0.2887, 0.2888));
+        // _Twr.pretranslate(Eigen::Vector3d(-1.8476, 2.9446, 0.5268));
+        Eigen::Isometry3d _Twr(Eigen::Quaterniond(-0.3909, 0.8851, 0.2362, -0.0898));
+        _Twr.pretranslate(Eigen::Vector3d(1.3112, 0.8507, 1.5186));
+        Tcw = _Twr;
+    }
+    ~Odom(){}
+};
+
 // Save 3D world coordinate, grayscale
 struct Measurement
 {
@@ -149,10 +173,12 @@ public:
     cv::Mat* image_=nullptr;    // reference image
 };
 
+Odom om;
 int main ( int argc, char** argv )
 {
     srand ( ( unsigned int ) time ( 0 ) );
     std::string path_to_dataset = "/home/cona/github/algorithm_ws/ROS_build/data";
+    // std::string path_to_dataset = "/home/cona/rgbd_dataset_freiburg2_pioneer_slam3";
     std::string associate_file = path_to_dataset + "/associate.txt";
 
     std::ifstream fin ( associate_file );
@@ -160,17 +186,23 @@ int main ( int argc, char** argv )
     std::string rgb_file, depth_file, time_rgb, time_depth;
     cv::Mat color, depth, gray;
     std::vector<Measurement> measurements;
+    std::vector<Measurement> OB_measurements;
+    
     // 카메라 내부변수
     float cx = 325.5;
     float cy = 253.5;
     float fx = 518.0;
     float fy = 519.0;
+    // float cx = 319.5;
+    // float cy = 239.5;
+    // float fx = 525.0;
+    // float fy = 525.0;
     float depth_scale = 1000.0;
-    Eigen::Matrix3f K;
+    Eigen::Matrix3f K;  
     K<<fx,0.f,cx,0.f,fy,cy,0.f,0.f,1.0f;
 
-    Eigen::Isometry3d Tcw = Eigen::Isometry3d::Identity();
 
+    Eigen::Isometry3d Tcw = Eigen::Isometry3d::Identity();
     cv::Mat prev_color;
     // 첫번째 영상을 참고하여, 다음 obervation 영상과 reference 영상을 처리했다.
     for (int index = 0; index < 10; index++)
@@ -182,8 +214,10 @@ int main ( int argc, char** argv )
         if (color.data==nullptr || depth.data==nullptr)
             continue; 
         cv::cvtColor (color, gray, cv::COLOR_BGR2GRAY);
+        OB_measurements.clear();
         if (index ==0)
         {
+            measurements.clear();
             // select the pixels with high gradiants 
             for (int x=10; x<gray.cols-10; x++)
                 for (int y=10; y<gray.rows-10; y++)
@@ -206,6 +240,25 @@ int main ( int argc, char** argv )
             // std::cout << "add total " << measurements.size() << " measurements." << std::endl;
             continue;
         }
+
+        for (int x=10; x<gray.cols-10; x++)
+            for (int y=10; y<gray.rows-10; y++)
+            {
+                Eigen::Vector2d delta (
+                    gray.ptr<uchar>(y)[x+1] - gray.ptr<uchar>(y)[x-1], 
+                    gray.ptr<uchar>(y+1)[x] - gray.ptr<uchar>(y-1)[x]
+                );
+                if (delta.norm() < 50)
+                    continue;
+                ushort d = depth.ptr<ushort> (y)[x];
+                if ( d==0 )
+                    continue;
+                Eigen::Vector3d p3d = project2Dto3D ( x, y, d, fx, fy, cx, cy, depth_scale );
+                // std::cout << "[" << d << ", " << p3d << "]";
+                float grayscale = float ( gray.ptr<uchar> (y) [x] );
+                OB_measurements.push_back ( Measurement ( p3d, grayscale ) );
+            }
+
         // 카메라 움직임 계산하기
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
         poseEstimationDirect (measurements, &gray, K, Tcw);
@@ -218,10 +271,11 @@ int main ( int argc, char** argv )
         cv::Mat img_show ( color.rows*2, color.cols, CV_8UC3 );
         prev_color.copyTo ( img_show ( cv::Rect ( 0,0,color.cols, color.rows ) ) );
         color.copyTo ( img_show ( cv::Rect ( 0,color.rows,color.cols, color.rows ) ) );
+        
         for ( Measurement m:measurements )
         {
-            if ( rand() > RAND_MAX / 5 )
-                continue;
+            // if ( rand() > RAND_MAX / 5 )
+            //     continue;
             Eigen::Vector3d p = m.pos_world;
             Eigen::Vector2d pixel_prev = project3Dto2D ( p ( 0,0 ), p ( 1,0 ), p ( 2,0 ), fx, fy, cx, cy );
             Eigen::Vector3d p2 = Tcw*m.pos_world;
@@ -239,9 +293,52 @@ int main ( int argc, char** argv )
             img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3] = b;
             img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+1] = g;
             img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+2] = r;
-            cv::circle ( img_show, cv::Point2d ( pixel_prev ( 0,0 ), pixel_prev ( 1,0 ) ), 4, cv::Scalar ( b,g,r ), 2 );
-            cv::circle ( img_show, cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), 4, cv::Scalar ( b,g,r ), 2 );
+            cv::circle ( img_show, cv::Point2d ( pixel_prev ( 0,0 ), pixel_prev ( 1,0 ) ), 2, cv::Scalar ( b,g,r ), 2 );
+            cv::circle ( img_show, cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), 2, cv::Scalar ( 250,g,r ), 2 );
         }
+
+        for ( Measurement m:OB_measurements )
+        {
+            Eigen::Vector3d p2 = m.pos_world;
+            Eigen::Vector2d pixel_now = project3Dto2D ( p2 ( 0,0 ), p2 ( 1,0 ), p2 ( 2,0 ), fx, fy, cx, cy );
+            if (pixel_now(0,0) < 0 || pixel_now(0,0) >= color.cols || pixel_now(1,0) <0 || pixel_now(1,0) >= color.rows)
+                continue;
+
+            float b = 0;
+            float g = 250;
+            float r = 0;
+            
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3] = b;
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+1] = g;
+            img_show.ptr<uchar>( pixel_now(1,0)+color.rows )[int(pixel_now(0,0))*3+2] = r;
+            cv::circle ( img_show, cv::Point2d ( pixel_now ( 0,0 ), pixel_now ( 1,0 ) +color.rows ), 0.5, cv::Scalar ( b,0,255 ), 2 );
+        }
+        Eigen::Isometry3d Motion = Tcw.inverse();
+        Eigen::Quaterniond Rot_M(Motion.rotation());
+
+        std::cout << "******************************" << std::endl;
+        std::cout << "********inverse_First*********" << std::endl;
+        std::cout << "******************************" << std::endl;
+        std::cout << "T= \n" << Motion.translation()(0) << ", " << Motion.translation()(1) << ", " << Motion.translation()(2) << 
+        ", " << Rot_M.x() << ", " << Rot_M.y() << ", " << Rot_M.z() << ", " << Rot_M.w() << std::endl;
+
+        auto euler = Rot_M.toRotationMatrix().eulerAngles(0, 1, 2);
+        std::cout << "Roll= " << euler.x()*(M_PI / 180.0) << " Pitch= " << euler.y()*(M_PI / 180.0) << " yaw= " << euler.z()*(M_PI / 180.0) << std::endl;
+
+        Eigen::Isometry3d N_D = om.addMotion(Motion);
+        Eigen::Quaterniond Rot_M4(N_D.rotation());
+        std::cout << "******************************" << std::endl;
+        std::cout << "************Motion************" << std::endl;
+        std::cout << "******************************" << std::endl;
+        std::cout << "T= \n" << N_D.translation()(0) << ", " << N_D.translation()(1) << ", " << N_D.translation()(2) << 
+        ", " << Rot_M4.x() << ", " << Rot_M4.y() << ", " << Rot_M4.z() << ", " << Rot_M4.w() << std::endl;
+        
+        // auto euler2 = Rot_M.toRotationMatrix().eulerAngles(0, 1, 2);
+        // std::cout << "Roll= " << euler2.x()*(M_PI / 180.0) << " Pitch= " << euler2.y()*(M_PI / 180.0) << " yaw= " << euler2.z()*(M_PI / 180.0) << std::endl;
+       
+        // std::cout << "******************************" << std::endl;
+        // std::cout << "R= \n" << Rot_M.x() << ", " << Rot_M.y() << ", " << Rot_M.z() << ", " << Rot_M.w() << std::endl;
+
         cv::imshow ( "result", img_show );
         cv::waitKey ( 0 );
 
@@ -262,7 +359,7 @@ bool poseEstimationDirect ( const std::vector< Measurement >& measurements, cv::
     g2o::SparseOptimizer optimizer;
     optimizer.setAlgorithm ( solver );
     // 최적화 과정을 프린트할지(verbose) 설정한다
-    optimizer.setVerbose( true );
+    // optimizer.setVerbose( true );
 
     //g2o optimizer에 추가할 g2o::VertexSE3Expmap 노드를 생성한다
     //보통 original pose의 벡터 크기만큼 루프를 돌면서 g2o optimizer에 추가할 g2o::VertexSE3Expmap 노드를 생성한다. 
@@ -290,15 +387,22 @@ bool poseEstimationDirect ( const std::vector< Measurement >& measurements, cv::
         edge->setId ( id++ );
         optimizer.addEdge ( edge );
     }
-    std::cout << "edges in graph: "<<optimizer.edges().size() << std::endl;
+    // std::cout << "edges in graph: "<< optimizer.edges().size() << std::endl;
     optimizer.initializeOptimization();
-    optimizer.optimize ( 100 );
+    optimizer.optimize (100);
     Tcw = pose->estimate();
-    std::cout << "******************************" << std::endl;
-    std::cout << "Translation= \n" << Tcw.translation() << std::endl;
-    std::cout << "******************************" << std::endl;
-    std::cout << "Rotation= \n" << Tcw.rotation() << std::endl;
-    std::cout << "******************************" << std::endl;
     return true;
 }
 
+/*
+1305031453.3595 1.3112 0.8507 1.5186 0.8851 0.2362 -0.0898 -0.3909
+
+1305031453.3995 1.3212 0.8419 1.5212 0.8885 0.2232 -0.0896 -0.3908
+1305031453.4295 1.3291 0.8350 1.5236 0.8889 0.2134 -0.0896 -0.3955
+1305031453.4595 1.3370 0.8274 1.5265 0.8893 0.2037 -0.0885 -0.3998
+1305031453.4995 1.3480 0.8158 1.5311 0.8900 0.1906 -0.0879 -0.4048
+1305031453.5295 1.3555 0.8063 1.5349 0.8886 0.1824 -0.0894 -0.4112
+1305031453.5595 1.3627 0.7957 1.5391 0.8865 0.1763 -0.0915 -0.4180
+1305031453.5995 1.3712 0.7805 1.5448 0.8838 0.1699 -0.0932 -0.4258
+1305031453.6295 1.3762 0.7680 1.5488 0.8813 0.1690 -0.0962 -0.4308
+*/
