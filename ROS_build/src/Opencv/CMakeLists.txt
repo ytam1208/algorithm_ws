@@ -70,26 +70,6 @@ set( g2o_LIBRARIES
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(Optical_flow src/Vision/Optical_flow.cpp)
-add_dependencies(Optical_flow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(Optical_flow
-  # ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  ${Boost_LIBRARY}
-  ${Pangolin_LIBRARIES}
-)
-
-add_executable(Stiching_image src/Vision/Stereo/Stiching_image.cpp)
-add_dependencies(Stiching_image ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(Stiching_image
-  # ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  ${Boost_LIBRARY}
-  ${Pangolin_LIBRARIES}
-)
-
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_disparity
@@ -100,9 +80,9 @@ target_link_libraries(Get_disparity
   ${Pangolin_LIBRARIES}
 )
 
-add_executable(Get_epipolar src/Vision/Stereo/Get_epipolar.cpp)
-add_dependencies(Get_epipolar ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(Get_epipolar
+add_executable(plotTrajectory src/Vision/plotTrajectory.cpp)
+add_dependencies(plotTrajectory ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(plotTrajectory
   # ${catkin_LIBRARIES}
   ${OpenCV_LIBRARIES}
   ${Eigen3_LIBRARIES} 
@@ -110,25 +90,6 @@ target_link_libraries(Get_epipolar
   ${Pangolin_LIBRARIES}
 )
 
-add_executable(${PROJECT_NAME} src/Vision/stereo_vision.cpp)
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME}
-  # ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  ${Boost_LIBRARY}
-  ${Pangolin_LIBRARIES}
-)
-
-add_executable(Sparse_direct_method src/Vision/RGB-D/Sparse_direct_method.cpp)
-add_dependencies(Sparse_direct_method ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(Sparse_direct_method
-  # ${catkin_LIBRARIES}
-  ${OpenCV_LIBRARIES}
-  ${Eigen3_LIBRARIES} 
-  # ${G2O_LIBRARIES}
-  ${g2o_LIBRARIES}
-)
 #############
 ## Install ##
 #############

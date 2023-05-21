@@ -1,5 +1,11 @@
 #include <iostream>
 #include <Opencv/Opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/ximgproc.hpp>
+
 #include <Eigen/Core>
 #include <pangolin/pangolin.h>
 #include <unistd.h>
@@ -15,12 +21,33 @@ std::string right_file = "/home/cona/github/algorithm_ws/ROS_build/color/right.p
 
 cv::Mat compare_OpenCV(cv::Mat *base, cv::Mat *target)
 {
+    cv::Mat disparity_sgbm, disparity, wls_disparity, filtered_disparity, showFilteredDisparity;
+
     cv::Ptr<cv::StereoSGBM> sgbm = cv::StereoSGBM::create(
         0, 96, 9, 8 * 9 * 9, 32 * 9 * 9, 1, 63, 10, 100, 32);    //매개변수
-    cv::Mat disparity_sgbm, disparity;
+
+    cv::Ptr<cv::ximgproc::DisparityWLSFilter> wls_filter;
+    wls_filter = cv::ximgproc::createDisparityWLSFilter(sgbm);
+    cv::Ptr<cv::StereoMatcher> sm = cv::ximgproc::createRightMatcher(sgbm);
+    double lambda = 8000.0;
+    double sigma = 1.5;
+
     sgbm->compute(*base, *target, disparity_sgbm);
-    disparity_sgbm.convertTo(disparity, CV_32F, 1.0 / 16.0f);
-    return disparity;
+    cv::normalize(disparity_sgbm, disparity, 0, 255, 32, CV_8U);
+
+    sm->compute(*target, *base, wls_disparity);
+    wls_filter->setLambda(lambda);
+    wls_filter->setSigmaColor(sigma);
+    wls_filter->filter(disparity_sgbm, *base, filtered_disparity, wls_disparity);
+
+    filtered_disparity.convertTo(showFilteredDisparity, CV_8U, 255 / (96*16.));
+    // cv::imshow("L", *base);
+    // cv::imshow("R", *target);
+    // cv::imshow("SGBM_disparity", disparity);
+    // cv::imshow("filtered_disparity", showFilteredDisparity);
+    // cv::waitKey(0);
+    
+    return showFilteredDisparity;
 }
 
 //Sum_of_Squared_Difference
@@ -130,7 +157,6 @@ void comput_3D_point(cv::Mat* base, cv::Mat* depth)
         
     // showPointCloud(pointcloud);
 }
-
 
 int main(int argc, char** argv)
 {
