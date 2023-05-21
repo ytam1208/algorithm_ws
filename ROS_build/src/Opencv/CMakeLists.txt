@@ -70,6 +70,7 @@ set( g2o_LIBRARIES
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
+<<<<<<< HEAD
 add_executable(Get_disparity src/Vision/Stereo/Get_disparity.cpp)
 add_dependencies(Get_disparity ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(Get_disparity
@@ -80,6 +81,8 @@ target_link_libraries(Get_disparity
   ${Pangolin_LIBRARIES}
 )
 
+=======
+>>>>>>> 556708ded7d6624d40d0e2799f8decf7f23d1632
 add_executable(plotTrajectory src/Vision/plotTrajectory.cpp)
 add_dependencies(plotTrajectory ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(plotTrajectory
@@ -90,6 +93,18 @@ target_link_libraries(plotTrajectory
   ${Pangolin_LIBRARIES}
 )
 
+<<<<<<< HEAD
+=======
+add_executable(Sparse_direct_method src/Vision/RGB-D/Sparse_direct_method.cpp)
+add_dependencies(Sparse_direct_method ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Sparse_direct_method
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${Eigen3_LIBRARIES} 
+  ${g2o_LIBRARIES}
+  ${Pangolin_LIBRARIES}
+)
+>>>>>>> 556708ded7d6624d40d0e2799f8decf7f23d1632
 #############
 ## Install ##
 #############
