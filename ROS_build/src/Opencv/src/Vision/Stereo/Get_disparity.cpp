@@ -21,7 +21,7 @@ std::string right_file = "/home/cona/github/algorithm_ws/ROS_build/color/right.p
 
 cv::Mat compare_OpenCV(cv::Mat *base, cv::Mat *target)
 {
-    cv::Mat disparity_sgbm, disparity, wls_disparity, filtered_disparity, showFilteredDisparity;
+    cv::Mat left_disparity, disparity, right_disparity, filtered_disparity, showFilteredDisparity;
 
     cv::Ptr<cv::StereoSGBM> sgbm = cv::StereoSGBM::create(
         0, 96, 9, 8 * 9 * 9, 32 * 9 * 9, 1, 63, 10, 100, 32);    //매개변수
@@ -32,21 +32,25 @@ cv::Mat compare_OpenCV(cv::Mat *base, cv::Mat *target)
     double lambda = 8000.0;
     double sigma = 1.5;
 
-    sgbm->compute(*base, *target, disparity_sgbm);
-    cv::normalize(disparity_sgbm, disparity, 0, 255, 32, CV_8U);
+    sgbm->compute(*base, *target, left_disparity);
+    cv::normalize(left_disparity, disparity, 0, 255, 32, CV_8U);
 
-    sm->compute(*target, *base, wls_disparity);
+    sm->compute(*target, *base, right_disparity);
     wls_filter->setLambda(lambda);
     wls_filter->setSigmaColor(sigma);
-    wls_filter->filter(disparity_sgbm, *base, filtered_disparity, wls_disparity);
+
+    // double filtering_time = (double)cv::getTickCount();
+    wls_filter->filter(left_disparity, *base, filtered_disparity, right_disparity);
+    // filtering_time = ((double)cv::getTickCount() - filtering_time)/cv::getTickFrequency();
+    // std::cout << "Process Time = " << filtering_time << std::endl;
 
     filtered_disparity.convertTo(showFilteredDisparity, CV_8U, 255 / (96*16.));
     // cv::imshow("L", *base);
     // cv::imshow("R", *target);
-    // cv::imshow("SGBM_disparity", disparity);
-    // cv::imshow("filtered_disparity", showFilteredDisparity);
-    // cv::waitKey(0);
-    
+    cv::imshow("SGBM_disparity", disparity);
+    cv::imshow("filtered_disparity", showFilteredDisparity);
+    cv::waitKey(0);
+
     return showFilteredDisparity;
 }
 
@@ -168,7 +172,7 @@ int main(int argc, char** argv)
     comput_3D_point(&left, &SSD_depth);
     cv::normalize(SSD_depth, SSD_depth, 0, 255, cv::NORM_MINMAX, -1, cv::Mat());    
 
-    cv::imshow("OpenCV_Disparity", OpenCV_depth/96); 
+    cv::imshow("OpenCV_Disparity", OpenCV_depth); 
     cv::imshow("My_SSD_Disparity", SSD_depth);
     cv::imshow("left", left);
     cv::imshow("right", right);
