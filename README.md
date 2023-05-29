@@ -18,7 +18,7 @@ cmake .. && make
 3. [shared_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/shared_ptr.cpp)
 4. [unique_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unique_ptr.cpp)
 5. [using_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/using_function_pointer.cpp)
-6. [std::bind])(https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/bind.cpp)
+6. [std::bind](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/bind.cpp)
 7. [std::function](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/function.cpp)
 
 ---
