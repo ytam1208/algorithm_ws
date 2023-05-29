@@ -4,26 +4,17 @@
 |18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
 |||c++14|Apple Silicon M1||16G|2021MAC-Pro 14|
 ---
-## CMAKE_build
-### Run command ###
+## CMAKE Build & Run command ###
 ```
 cd ~/algorithm_ws/cmake_build
 mkdir build
 cd build
 cmake .. && make
 ```
-0. [virtual_class](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/virtual_class.cpp)
-1. [class_new](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/class_new.cpp)
-2. [inline](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/inline.cpp)
-3. [shared_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/shared_ptr.cpp)
-4. [unique_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unique_ptr.cpp)
-5. [using_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/using_function_pointer.cpp)
-6. [std::bind](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/bind.cpp)
-7. [std::function](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/function.cpp)
 
 ---
 ## ROS_build 
-### Algorithm 
+### 1. Algorithm 
 * [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
 
 * [Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
@@ -32,15 +23,74 @@ cmake .. && make
 
 * [Gauss Newton Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Gauss-Newton_Method.cpp)
 
-### Stereo Vision
-* [Disparity Map Method](https://opalescent-potato-6fd.notion.site/1-Stereo-Matching-1d3b920783f6471babbde3edcd2c70d9)
-  
-* [Disparity Map Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_disparity.cpp)
-  
-* [Stereo Image Stiching Method](https://opalescent-potato-6fd.notion.site/Image-Stiching-Panorama-566abf7c1049442795eb5fd55da847b0)
-  
-* [Stereo Image Stiching Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Stiching_image.cpp)
+### 2. Vision
+* [Get_Fundamental_Matrix](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_fundamental.cpp)
 
+  #### 2-1. Stereo
+  * [Disparity Map Method](https://opalescent-potato-6fd.notion.site/1-Stereo-Matching-1d3b920783f6471babbde3edcd2c70d9)
+  
+  * [Disparity Map Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_disparity.cpp)
+  
+  * [Stereo Image Stiching Method](https://opalescent-potato-6fd.notion.site/Image-Stiching-Panorama-566abf7c1049442795eb5fd55da847b0)
+  
+  * [Stereo Image Stiching Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Stiching_image.cpp)
+
+  #### 2-2. RGB-D
+  * [Sparse direct method](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/RGB-D/Sparse_direct_method.cpp)
+
+---
+### __Opencv__ [Computer vision(Algorithms)]
+1. [histogram](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/histogram.cpp)
+2. [canny_edge](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/canny_edge.cpp)
+3. [k-means](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/k-means.cpp)
+4. [otsu](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/otsu.cpp)
+5. [RANSAC](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/RANSAC.cpp)
+6. [calibration](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/calibration.cpp)
+7. [harris_corner](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/harris_corner.cpp)
+8. [Gaussian](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/Gaussian.cpp)
+9. [meanshift](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/meanshift.cpp)
+10. [morphology](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/morphology.cpp)
+11. [PerspetiveTopview](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/PerspectiveTopview.cpp)
+12. [QRcode](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/QRcode.cpp)
+13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/Linear-LSM.cpp)
+###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
+---
+
+### **C_function** [Study]
+1. [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
+2. [virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/virtual_function.cpp)
+3. [pthread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thread_ex.cpp)
+4. [templete](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/templete.cpp)
+5. [auto](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/auto.cpp)
+6. [break_event](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/break_event.cpp)
+7. [for_loop](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/for_loop.cpp)
+8. [function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/function_pointer.cpp)
+9. [map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/map.cpp)
+10. [multi_map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_map.cpp)
+11. [multi_thread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_thread.cpp)
+12. [multi_virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_virtual_function.cpp)
+13. [Overloading](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Overloading.cpp)
+14. [thisClass](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thisClass.cpp)
+15. [TryCatch](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/TryCatch.cpp)
+16. [typdef_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/typedef_pointer.cpp)
+17. [using](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/using.cpp)
+18. [virtual_class](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/virtual_class.cpp)
+19. [class_new](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/class_new.cpp)
+20. [inline](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/inline.cpp)
+21. [shared_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/shared_ptr.cpp)
+22. [unique_ptr](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unique_ptr.cpp)
+23. [using_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/using_function_pointer.cpp)
+24. [std::bind](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/bind.cpp)
+25. [std::function](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/function.cpp)
+26. [std::list](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/list.cpp)
+27. [std::unordered_map](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unordered_map.cpp)
+
+---
+### Ros_Python [Basic Python Study]
+0. ROS_msg [talker]
+1. variable
+2. String...[slide, replace, strip..]
+---
 
 ---
 ### Backjun
@@ -49,46 +99,3 @@ cmake .. && make
 #### Dynamic Programing 
 [1463]
 ###### Study web https://www.acmicpc.net/problemset
----
-### __Opencv__ [Computer vision(Algorithms)]
-1. histogram
-2. canny_edge
-3. k-means
-4. Otsu
-5. RANSAC
-6. calibration
-7. harris_corner
-8. Gaussian
-9. meanshift
-10. morphology
-11. PerspetiveTopview
-12. QRcode
-13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/Linear-LSM.cpp)
-###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
----
-
-### **C_function** [Study]
-* [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
-* [virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/virtual_function.cpp)
-* [pthread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thread_ex.cpp)
-* [templete](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/templete.cpp)
-* [auto](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/auto.cpp)
-* [break_event](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/break_event.cpp)
-* [for_loop](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/for_loop.cpp)
-* [function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/function_pointer.cpp)
-* [map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/map.cpp)
-* [multi_map](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_map.cpp)
-* [multi_thread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_thread.cpp)
-* [multi_virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/multi_virtual_function.cpp)
-* [Overloading](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Overloading.cpp)
-* [thisClass](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thisClass.cpp)
-* [TryCatch](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/TryCatch.cpp)
-* [typdef_function_pointer](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/typedef_pointer.cpp)
-* [using](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/using.cpp)
----
-### Ros_Python [Basic Python Study]
-0. ROS_msg [talker]
-1. variable
-2. String...[slide, replace, strip..]
----
-
