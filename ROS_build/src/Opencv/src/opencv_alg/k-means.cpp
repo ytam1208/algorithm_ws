@@ -239,7 +239,7 @@ public:
     }
     void initvalue(K_means *k_means)
     {
-        k_means->src = cv::imread("/home/cona/algorithm_ws/src/Opencv/data/home.jpg");
+        k_means->src = cv::imread("/home/cona/github/algorithm_ws/ROS_build/src/Opencv/data/home.jpg");
         width = src.rows;
         height = src.cols;
         pixel_size = width * height;
