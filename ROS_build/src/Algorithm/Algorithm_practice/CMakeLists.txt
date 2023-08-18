@@ -158,6 +158,13 @@ target_link_libraries(ceres_curve_Gauss-Newton_node
   ${CERES_LIBRARIES}
 )
 
+add_executable(Hash_node src/Hash.cpp)
+add_dependencies(Hash_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(Hash_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+  ${CERES_LIBRARIES}
+)
 # add_executable(LSM_Gradient_descent src/LSM_Gradient_descent.cpp)
 # add_dependencies(LSM_Gradient_descent ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # target_link_libraries(LSM_Gradient_descent

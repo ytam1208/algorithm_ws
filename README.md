@@ -84,13 +84,24 @@ cmake .. && make
 25. [std::function](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/function.cpp)
 26. [std::list](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/list.cpp)
 27. [std::unordered_map](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unordered_map.cpp)
+---
+### **C++ Design Pattern** [Study]
 
+1. Singleton
+```
+This example implements single tone, dynamic single tone, and local single tone.
+```
+  * [Navie_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Naive_Singleton.cpp)
+  * [SmartPointer_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Smart_Singleton.cpp)
+  
+
+
+  
 ---
 ### Ros_Python [Basic Python Study]
 0. ROS_msg [talker]
 1. variable
 2. String...[slide, replace, strip..]
----
 
 ---
 ### Backjun
