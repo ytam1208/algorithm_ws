@@ -15,6 +15,7 @@ cmake .. && make
 ---
 ## ROS_build 
 ### 1. Algorithm 
+##### [Optimize]
 * [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
 
 * [Newton Rapshon Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Newton_Rapshon_Method.cpp)
@@ -22,6 +23,9 @@ cmake .. && make
 * [Gauss Newton Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Gauss-Newton_Method.md)
 
 * [Gauss Newton Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Gauss-Newton_Method.cpp)
+
+##### [Data structure]
+* [Hash](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Hash.cpp)
 
 ### 2. Vision
 * [Get_Fundamental_Matrix](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_fundamental.cpp)
@@ -86,10 +90,9 @@ cmake .. && make
 27. [std::unordered_map](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unordered_map.cpp)
 ---
 ### **C++ Design Pattern** [Study]
-
 1. Singleton
 ```
-This example implements single tone, dynamic single tone, and local single tone.
+This example implements single tone, dynamic single tone and local single tone.
 ```
   * [Navie_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Naive_Singleton.cpp)
   * [SmartPointer_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Smart_Singleton.cpp)
