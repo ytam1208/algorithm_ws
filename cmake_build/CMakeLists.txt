@@ -39,5 +39,8 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 # add_executable(unordered_map src/unordered_map.cpp)
 
-add_executable(Naive_Singleton src/Morden_Design/Naive_Singleton.cpp)
-add_executable(Smart_Singleton src/Morden_Design/Smart_Singleton.cpp)
+# add_executable(Naive_Singleton src/Morden_Design/Naive_Singleton.cpp)
+
+# add_executable(Smart_Singleton src/Morden_Design/Smart_Singleton.cpp)
+
+add_executable(union src/union.cpp)
