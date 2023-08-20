@@ -1,19 +1,7 @@
 # algorithm_ws
-|Ubuntu|ROS.ver|Compiler|Cpu|Gpu|Memory|Device|
-|------|---|---|---|---|---|---|
-|18.04|Melodic|c++11|i9-9980HK|GeForce GTX-1650|32G|Dell-XPS-9570|
-|||c++14|Apple Silicon M1||16G|2021MAC-Pro 14|
----
-## CMAKE Build & Run command ###
 ```
-cd ~/algorithm_ws/cmake_build
-mkdir build
-cd build
-cmake .. && make
+The workspace is divided into two categories: g++(CMKAE) and ROS.
 ```
-
----
-## ROS_build 
 ### 1. Algorithm 
 ##### [Optimize]
 * [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
@@ -25,7 +13,7 @@ cmake .. && make
 * [Gauss Newton Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Gauss-Newton_Method.cpp)
 
 ##### [Data structure]
-* [Hash](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Hash.cpp)
+* [Hash Code](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Algorithm/Algorithm_practice/src/Hash.cpp)
 
 ### 2. Vision
 * [Get_Fundamental_Matrix](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/Stereo/Get_fundamental.cpp)
@@ -42,8 +30,7 @@ cmake .. && make
   #### 2-2. RGB-D
   * [Sparse direct method](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/Vision/RGB-D/Sparse_direct_method.cpp)
 
----
-### __Opencv__ [Computer vision(Algorithms)]
+### 3. __Opencv__ [Computer vision(Algorithms)]
 1. [histogram](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/histogram.cpp)
 2. [canny_edge](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/canny_edge.cpp)
 3. [k-means](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/k-means.cpp)
@@ -58,9 +45,8 @@ cmake .. && make
 12. [QRcode](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/QRcode.cpp)
 13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/Linear-LSM.cpp)
 ###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
----
 
-### **C_function** [Study]
+### 4. **C_function** [Study]
 1. [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
 2. [virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/virtual_function.cpp)
 3. [pthread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thread_ex.cpp)
@@ -90,16 +76,13 @@ cmake .. && make
 27. [std::unordered_map](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/unordered_map.cpp)
 28. [union](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/union.cpp)
 ---
-### **C++ Design Pattern** [Study]
+### 5. **C++ Design Pattern** [Study]
 1. Singleton
 ```
 This example implements single tone, dynamic single tone and local single tone.
 ```
   * [Navie_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Naive_Singleton.cpp)
   * [SmartPointer_Singleton](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Morden_Design/Smart_Singleton.cpp)
-  
-
-
   
 ---
 ### Ros_Python [Basic Python Study]
@@ -114,3 +97,26 @@ This example implements single tone, dynamic single tone and local single tone.
 #### Dynamic Programing 
 [1463]
 ###### Study web https://www.acmicpc.net/problemset
+
+# Build & Run command
+### CMAKE
+```
+cd ~/algorithm_ws/cmake_build
+mkdir build
+cd build
+cmake .. && make
+```
+### ROS
+```
+cd ~/algorithm_ws/ROS_build
+catkin_make
+cd ~/algorithm_ws/ROS_build/devel/lib/
+```
+
+# Hardware 
+---
+|Docker|OS|ROS.ver|Compiler|Cpu|Gpu|Memory|Device|
+|------|------|---|---|---|---|---|---|
+|O|Windows|Noetic|c++11|i7-12700H|GeForce RTX 3050|16G|Dell-XPS|
+|O|Ventura|Noetic||Apple Silicon M1||16G|2021MAC-Pro 14|
+---
