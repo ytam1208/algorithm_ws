@@ -43,4 +43,8 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 # add_executable(Smart_Singleton src/Morden_Design/Smart_Singleton.cpp)
 
-add_executable(union src/union.cpp)
+# add_executable(union src/union.cpp)
+
+add_executable(move src/move.cpp)
+
+add_executable(forward src/forward.cpp)
