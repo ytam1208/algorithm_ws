@@ -77,6 +77,8 @@ The workspace is divided into two categories: g++(CMKAE) and ROS.
 28. [union](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/union.cpp)
 29. [std::move](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/move.cpp)
 30. [std::forward](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/forward.cpp)
+31. [std::array](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/array.cpp)
+32. [lambda functor](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/lambda.cpp)
 ---
 ### 5. **C++ Design Pattern** [Study]
 1. Singleton
