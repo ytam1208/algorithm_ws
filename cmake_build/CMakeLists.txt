@@ -52,3 +52,5 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 add_executable(lambda src/lambda.cpp)
 
 add_executable(array src/array.cpp)
+
+add_executable(binary_search src/binary_search.cpp)
