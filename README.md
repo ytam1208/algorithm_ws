@@ -46,7 +46,7 @@ The workspace is divided into two categories: g++(CMKAE) and ROS.
 13. [LSM](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Opencv/src/opencv_alg/Linear-LSM.cpp)
 ###### Reference Book(https://www.hanbit.co.kr/store/books/look.php?p_code=B4536726709)
 
-### 4. **C_function** [Study]
+### 4. **C++**
 1. [enum](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/enum.cpp)
 2. [virtual_function](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/virtual_function.cpp)
 3. [pthread](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/thread_ex.cpp)
@@ -79,6 +79,8 @@ The workspace is divided into two categories: g++(CMKAE) and ROS.
 30. [std::forward](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/forward.cpp)
 31. [std::array](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/array.cpp)
 32. [lambda functor](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/lambda.cpp)
+#### 4. **C++_algorithm_function**
+1. [std::binary_search](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/binary_search.cpp)
 ---
 ### 5. **C++ Design Pattern** [Study]
 1. Singleton
