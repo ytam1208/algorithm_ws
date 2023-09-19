@@ -31,6 +31,7 @@ public:
     {
         dst = std::bind(&A::mulAndPrint, this, std::placeholders::_1, std::placeholders::_2);
     }
+    void Hello(void){std::cout << "hello" << std::endl;}
     void bindFunction3(std::function<int(int, int)>& dst)
     {
         // dst = std::bind(&A::mulAndPrint, this, std::placeholders::_1, std::placeholders::_2);
