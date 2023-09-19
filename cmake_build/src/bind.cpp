@@ -38,6 +38,7 @@ public:
         dst = std::bind(&A::mulAndPrint, this, std::placeholders::_2, 100);
         // dst = std::bind(&A::mulAndPrint, this, std::placeholders::_3, 100); compile error
     }
+    void Hello(void){std::cout << "hello" << std::endl;}
 };
 
 int main(int argc, char** argv)
