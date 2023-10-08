@@ -49,8 +49,12 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 # add_executable(forward src/forward.cpp)
 
-add_executable(lambda src/lambda.cpp)
+# add_executable(lambda src/lambda.cpp)
 
-add_executable(array src/array.cpp)
+# add_executable(array src/array.cpp)
 
-add_executable(binary_search src/binary_search.cpp)
+# add_executable(binary_search src/binary_search.cpp)
+
+add_executable(DiscreteBayesFilter src/SLAM/DiscreteBayesFilter.cpp)
+
+add_executable(Dummy_HeatMap src/SLAM/Dummy_HeatMap.cpp)
