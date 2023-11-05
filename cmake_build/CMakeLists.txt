@@ -8,6 +8,7 @@ include_directories(
 
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+include_directories( "/usr/include/eigen3" )
 
 # add_executable(test src/main.cpp)
 
@@ -58,3 +59,6 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 add_executable(DiscreteBayesFilter src/SLAM/DiscreteBayesFilter.cpp)
 
 add_executable(Dummy_HeatMap src/SLAM/Dummy_HeatMap.cpp)
+
+add_executable(eigendecomposition src/linear_algebra/eigendecomposition.cpp)
+
