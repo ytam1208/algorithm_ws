@@ -2,6 +2,12 @@
 ```
 The workspace is divided into two categories: g++(CMKAE) and ROS.
 ```
+### 0. Linear algebra
+* [Eigendecomposition Code](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/linear_algebra/eigendecomposition.cpp)
+  
+* [Eigendecomposition Method](https://yeonblog.tistory.com/25)
+  
+  
 ### 1. Algorithm 
 ##### [Optimize]
 * [Newton Rapshon Method](https://github.com/ytam1208/algorithm_ws/blob/master/README_dir/Newton_Rapshon_Method.md)
