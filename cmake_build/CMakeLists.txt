@@ -3,8 +3,10 @@ project(code_test)
 
 include_directories(
  include
+ ${OpenCV_INCLUDE_DIRS}
 #  ${CERES_INCLUDE_DIRS}
 )
+find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
@@ -58,3 +60,8 @@ SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 add_executable(DiscreteBayesFilter src/SLAM/DiscreteBayesFilter.cpp)
 
 add_executable(Dummy_HeatMap src/SLAM/Dummy_HeatMap.cpp)
+
+add_executable(pca src/SLAM/PCA.cpp)
+target_link_libraries(pca
+  ${OpenCV_LIBRARIES}
+)
