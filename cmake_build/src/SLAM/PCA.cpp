@@ -175,7 +175,7 @@ public:
   Plot(Point_Generator &pts){
     output = cv::Mat(500,500,CV_8UC3, cv::Scalar(0,0,0));
     projection(pts.points_);
-    imshow(0);
+    imshow();
   };
   ~Plot()=default;  
   void operator()(cv::Point2d query_data){

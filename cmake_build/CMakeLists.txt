@@ -68,3 +68,8 @@ add_executable(pca src/SLAM/PCA.cpp)
 target_link_libraries(pca
   ${OpenCV_LIBRARIES}
 )
+
+add_executable(normalvector src/SLAM/Get_normalVector.cpp)
+target_link_libraries(pca
+  ${Eigen_LIBRARIES}
+)
