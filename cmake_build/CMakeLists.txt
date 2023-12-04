@@ -58,13 +58,18 @@ include_directories( "/usr/include/eigen3" )
 
 # add_executable(binary_search src/binary_search.cpp)
 
-add_executable(DiscreteBayesFilter src/SLAM/DiscreteBayesFilter.cpp)
+# add_executable(DiscreteBayesFilter src/SLAM/DiscreteBayesFilter.cpp)
 
-add_executable(Dummy_HeatMap src/SLAM/Dummy_HeatMap.cpp)
+# add_executable(Dummy_HeatMap src/SLAM/Dummy_HeatMap.cpp)
 
-add_executable(eigendecomposition src/linear_algebra/eigendecomposition.cpp)
+# add_executable(eigendecomposition src/linear_algebra/eigendecomposition.cpp)
 
 add_executable(pca src/SLAM/PCA.cpp)
 target_link_libraries(pca
+  ${OpenCV_LIBRARIES}
+)
+
+add_executable(orthogonal_least_square src/linear_algebra/orthogonal_least_square.cpp)
+target_link_libraries(orthogonal_least_square
   ${OpenCV_LIBRARIES}
 )
