@@ -69,7 +69,14 @@ target_link_libraries(pca
   ${OpenCV_LIBRARIES}
 )
 
+<<<<<<< HEAD
 add_executable(orthogonal_least_square src/linear_algebra/orthogonal_least_square.cpp)
 target_link_libraries(orthogonal_least_square
   ${OpenCV_LIBRARIES}
 )
+=======
+add_executable(normalvector src/SLAM/Get_normalVector.cpp)
+target_link_libraries(pca
+  ${Eigen_LIBRARIES}
+)
+>>>>>>> a041ab47256ab2017f427178e28509f0c4ffcb97
