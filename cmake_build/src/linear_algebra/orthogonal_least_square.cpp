@@ -81,5 +81,52 @@ int main()
         distance = sqrt(pow(delta_pt.x, 2)+pow(delta_pt.y, 2));
         std::cout << "Dis = " << distance << std::endl;
     }
+    
+    cv::Point2f End_point1;
+    End_point1.x = (pow(b,2)*data_stream[0].x - a*b*data_stream[0].y - a*c) / (pow(a,2)+pow(b,2));
+    End_point1.y = (pow(a,2)*data_stream[0].y - a*b*data_stream[0].x - b*c) / (pow(a,2)+pow(b,2));
+
+    cv::Point2f End_point2;
+    End_point2.x = (pow(b,2)*data_stream[data_stream.size()-1].x - a*b*data_stream[data_stream.size()-1].y - a*c) / (pow(a,2)+pow(b,2));
+    End_point2.y = (pow(a,2)*data_stream[data_stream.size()-1].y - a*b*data_stream[data_stream.size()-1].x - b*c) / (pow(a,2)+pow(b,2));
+
+    std::cout << "EndPoint1 = [" << End_point1.x << ", " << End_point1.y << "]" << std::endl;
+    std::cout << "EndPoint2 = [" << End_point2.x << ", " << End_point2.y << "]" << std::endl;
+
+    cv::Mat Grid(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));	
+    cv::Point2d grid_pt, data;
+    int cnt=0;
+    std::for_each(data_stream.begin(), data_stream.end(), [&](cv::Point2d& pt){
+
+        data.x = (pt.x - mid1/size) * 200.0;
+        data.y = (pt.y - mid2/size) * 200.0;
+
+        grid_pt.x = 250.0 - data.y;
+        grid_pt.y = 250.0 - data.x;
+
+        if(cnt==0)
+            cv::circle(Grid, grid_pt, 2, cv::Scalar(0, 0, 255), -1);
+        else if(cnt==size-1)
+            cv::circle(Grid, grid_pt, 2, cv::Scalar(0, 255, 0), -1);
+        else
+            cv::circle(Grid, grid_pt, 2, cv::Scalar(0, 0, 0), -1);
+
+        data.x = (End_point1.x - mid1/size) * 200.0;
+        data.y = (End_point1.y - mid2/size) * 200.0;
+        grid_pt.x = 250.0 - data.y;
+        grid_pt.y = 250.0 - data.x;
+        cv::circle(Grid, grid_pt, 2, cv::Scalar(0, 255, 255), -1);
+
+        data.x = (End_point2.x - mid1/size) * 200.0;
+        data.y = (End_point2.y - mid2/size) * 200.0;
+        grid_pt.x = 250.0 - data.y;
+        grid_pt.y = 250.0 - data.x;
+        cv::circle(Grid, grid_pt, 2, cv::Scalar(0, 255, 255), -1);
+
+        cnt++;
+    });
+
+    cv::imshow("Dummy", Grid);
+    cv::waitKey(0);
     return 0;
 }
