@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="slam_toolbox" type="sync_slam_toolbox_node" name="slam_toolbox" output="screen">
+    <rosparam command="load" file="$(find slam_toolbox)/config/mapper_params_offline.yaml" />
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find slam_toolbox)/launch/demo.rviz"/>
+</launch>
