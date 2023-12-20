@@ -566,11 +566,24 @@ namespace karto
 
     // 2. get size of grid
     Rectangle2<kt_int32s> roi = m_pCorrelationGrid->GetROI();
+    // std::cout << std::endl;
+    // std::cout << std::endl;
+    // std::cout << "ROI = " << roi.GetWidth() << ", " << roi.GetHeight() << std::endl;
+    // std::cout << std::endl;
+    // std::cout << std::endl;
 
     // 3. compute offset (in meters - lower left corner)
     Vector2<kt_double> offset;
     offset.SetX(scanPose.GetX() - (0.5 * (roi.GetWidth() - 1) * m_pCorrelationGrid->GetResolution()));
     offset.SetY(scanPose.GetY() - (0.5 * (roi.GetHeight() - 1) * m_pCorrelationGrid->GetResolution()));
+    // std::cout << std::endl;
+    // std::cout << std::endl;
+    // std::cout << "Offset = " << (0.5 * (roi.GetWidth() - 1) * m_pCorrelationGrid->GetResolution()) << ", " << (0.5 * (roi.GetHeight() - 1) * m_pCorrelationGrid->GetResolution()) << std::endl;
+    // std::cout << "Resolution = " << m_pCorrelationGrid->GetResolution() << std::endl;
+    // std::cout << "scanPose = " << scanPose.GetX() << ", " << scanPose.GetY() << std::endl;
+    // std::cout << "offset = " << offset.GetX() << ", " << offset.GetY() << std::endl;
+    // std::cout << std::endl;
+    // std::cout << std::endl;
 
     // 4. set offset
     m_pCorrelationGrid->GetCoordinateConverter()->SetOffset(offset);
@@ -579,7 +592,6 @@ namespace karto
 
     // set up correlation grid
     AddScans(rBaseScans, scanPose.GetPosition());
-
     // compute how far to search in each direction
     Vector2<kt_double> searchDimensions(m_pSearchSpaceProbs->GetWidth(), m_pSearchSpaceProbs->GetHeight());
     Vector2<kt_double> coarseSearchOffset(0.5 * (searchDimensions.GetX() - 1) * m_pCorrelationGrid->GetResolution(),
@@ -591,8 +603,8 @@ namespace karto
 
     // actual scan-matching
     kt_double bestResponse = CorrelateScan(pScan, scanPose, coarseSearchOffset, coarseSearchResolution,
-                                           m_pMapper->m_pCoarseSearchAngleOffset->GetValue(),
-                                           m_pMapper->m_pCoarseAngleResolution->GetValue(),
+                                           m_pMapper->m_pCoarseSearchAngleOffset->GetValue(), //20
+                                           m_pMapper->m_pCoarseAngleResolution->GetValue(),   //2
                                            doPenalize, rMean, rCovariance, false);
 
     if (m_pMapper->m_pUseResponseExpansion->GetValue() == true)
@@ -636,16 +648,12 @@ namespace karto
                                    m_pMapper->m_pFineSearchAngleOffset->GetValue(),
                                    doPenalize, rMean, rCovariance, true);
     }
-  std::cout << std::endl;
-  std::cout << std::endl;
-  std::cout << "  BEST POSE = " << rMean << " BEST RESPONSE = " << bestResponse << ",  VARIANCE = "
-            << rCovariance(0, 0) << ", " << rCovariance(1, 1) << ", " << rCovariance(2, 2) << std::endl;
-  std::cout << std::endl;
-  std::cout << std::endl;
+  // std::cout << "  BEST POSE = " << rMean << " BEST RESPONSE = " << bestResponse << ",  VARIANCE = "
+  //           << rCovariance(0, 0) << ", " << rCovariance(1, 1) << ", " << rCovariance(2, 2) << std::endl;
 
 #ifdef KARTO_DEBUG
-    std::cout << "  BEST POSE = " << rMean << " BEST RESPONSE = " << bestResponse << ",  VARIANCE = "
-              << rCovariance(0, 0) << ", " << rCovariance(1, 1) << std::endl;
+    // std::cout << "  BEST POSE = " << rMean << " BEST RESPONSE = " << bestResponse << ",  VARIANCE = "
+    //           << rCovariance(0, 0) << ", " << rCovariance(1, 1) << std::endl;
 #endif
     assert(math::InRange(rMean.GetHeading(), -KT_PI, KT_PI));
 
@@ -657,7 +665,6 @@ namespace karto
     kt_int32u poseResponseCounter;
     kt_int32u x_pose;
     kt_int32u y_pose = std::find(m_yPoses.begin(), m_yPoses.end(), y) - m_yPoses.begin();
-
     const kt_int32u size_x = m_xPoses.size();
 
     kt_double newPositionY = m_rSearchCenter.GetY() + y;
@@ -668,6 +675,7 @@ namespace karto
       x_pose = std::distance(m_xPoses.begin(), xIter);
       kt_double x = *xIter;
       kt_double newPositionX = m_rSearchCenter.GetX() + x;
+
       kt_double squareX = math::Square(x);
 
       Vector2<kt_int32s> gridPoint = m_pCorrelationGrid->WorldToGrid(Vector2<kt_double>(newPositionX, newPositionY));
@@ -676,11 +684,17 @@ namespace karto
 
       kt_double angle = 0.0;
       kt_double startAngle = m_rSearchCenter.GetHeading() - m_searchAngleOffset;
+
       for (kt_int32u angleIndex = 0; angleIndex < m_nAngles; angleIndex++)
       {
         angle = startAngle + angleIndex * m_searchAngleResolution;
 
         kt_double response = GetResponse(angleIndex, gridIndex);
+
+        // printf("DistanceVariancePenalty %lf \n", m_pMapper->m_pDistanceVariancePenalty->GetValue());  //0.25
+        // printf("MinimumDistancePenalty %lf \n", m_pMapper->m_pMinimumDistancePenalty->GetValue());    //0.5
+        // printf("AngleVariancePenalty %lf \n", m_pMapper->m_pAngleVariancePenalty->GetValue());        //1.0
+        // printf("MinimumAnglePenalty %lf \n", m_pMapper->m_pMinimumAnglePenalty->GetValue());          //0.9
         if (m_doPenalize && (math::DoubleEqual(response, 0.0) == false))
         {
           // simple model (approximate Gaussian) to take odometry into account
@@ -693,8 +707,8 @@ namespace karto
           kt_double anglePenalty = 1.0 - (ANGLE_PENALTY_GAIN *
                                           squaredAngleDistance / m_pMapper->m_pAngleVariancePenalty->GetValue());
           anglePenalty = math::Maximum(anglePenalty, m_pMapper->m_pMinimumAnglePenalty->GetValue());
-
           response *= (distancePenalty * anglePenalty);
+          // printf("[%lf](%lf, %lf) ", response, newPositionX, newPositionY);
         }
 
         // store response and pose
@@ -703,6 +717,7 @@ namespace karto
                                                                          math::NormalizeAngle(angle)));
       }
     }
+
     return;
   }
 
@@ -722,14 +737,13 @@ namespace karto
    * @param doingFineMatch whether to do a finer search after coarse search
    * @return strength of response
    */
-  kt_double ScanMatcher::CorrelateScan(LocalizedRangeScan* pScan, const Pose2& rSearchCenter,
-                                       const Vector2<kt_double>& rSearchSpaceOffset,
-                                       const Vector2<kt_double>& rSearchSpaceResolution,
-                                       kt_double searchAngleOffset, kt_double searchAngleResolution,
+  kt_double ScanMatcher::CorrelateScan(LocalizedRangeScan* pScan, const Pose2& rSearchCenter,         //scan_pose
+                                       const Vector2<kt_double>& rSearchSpaceOffset,                  //0.25 0.25
+                                       const Vector2<kt_double>& rSearchSpaceResolution,              //0.02
+                                       kt_double searchAngleOffset, kt_double searchAngleResolution,  //Set param 20, 2
                                        kt_bool doPenalize, Pose2& rMean, Matrix3& rCovariance, kt_bool doingFineMatch)
   {
     assert(searchAngleResolution != 0.0);
-
     // setup lookup arrays
     m_pGridLookup->ComputeOffsets(pScan, rSearchCenter.GetHeading(), searchAngleOffset, searchAngleResolution);
 
@@ -744,7 +758,7 @@ namespace karto
     }
 
     // calculate position arrays
-
+    // x,y -0.25 ~ 0.25까지 rSearchSpaceResolution 만큼 Position array 생성
     m_xPoses.clear();
     kt_int32u nX = static_cast<kt_int32u>(math::Round(rSearchSpaceOffset.GetX() *
                                           2.0 / rSearchSpaceResolution.GetX()) + 1);
@@ -765,6 +779,7 @@ namespace karto
     }
     assert(math::DoubleEqual(m_yPoses.back(), -startY));
 
+
     // calculate pose response array size
     kt_int32u nAngles = static_cast<kt_int32u>(math::Round(searchAngleOffset * 2.0 / searchAngleResolution) + 1);
 
@@ -782,8 +797,10 @@ namespace karto
     m_nAngles = nAngles;
     m_searchAngleResolution = searchAngleResolution;
     m_doPenalize = doPenalize;
+
     tbb::parallel_do(m_yPoses, (*this) );
 
+    // printf("Base = %lf, %lf \n", rSearchCenter.GetX(), rSearchCenter.GetY());
     // find value of best response (in [0; 1])
     kt_double bestResponse = -1;
     for (kt_int32u i = 0; i < poseResponseSize; i++)
@@ -1063,7 +1080,7 @@ namespace karto
   void ScanMatcher::AddScans(const LocalizedRangeScanVector& rScans, Vector2<kt_double> viewPoint)
   {
     m_pCorrelationGrid->Clear();
-
+  
     // add all scans to grid
     const_forEach(LocalizedRangeScanVector, &rScans)
     {
@@ -1233,7 +1250,6 @@ namespace karto
       {
         continue;
       }
-
       // uses index offsets to efficiently find location of point in the grid
       response += pByte[pAngleIndexPointer[i]];
     }
@@ -1549,6 +1565,7 @@ namespace karto
 
   kt_bool MapperGraph::TryCloseLoop(LocalizedRangeScan* pScan, const Name& rSensorName)
   {
+    printf("Try Loop Closure... \n");
     kt_bool loopClosed = false;
 
     kt_int32u scanIndex = 0;  
@@ -1582,7 +1599,7 @@ namespace karto
         tmpScan.SetSensorPose(bestPose);  // This also updates OdometricPose.
         kt_double fineResponse = m_pMapper->m_pSequentialScanMatcher->MatchScan(&tmpScan, candidateChain,
                                                                                 bestPose, covariance, false);
-
+        printf("Loop Closure...\n");
         std::stringstream stream1;
         stream1 << "FINE RESPONSE: " << fineResponse << " (>"
                 << m_pMapper->m_pLoopMatchMinimumResponseFine->GetValue() << ")" << std::endl;
@@ -1603,9 +1620,12 @@ namespace karto
 
           m_pMapper->FireEndLoopClosure("Loop closed!");
           std::cout << "Loop closed" << std::endl;
-
+          printf("Loop Closure!!!!!!!!!!\n");
           loopClosed = true;
         }
+      }
+      else{
+        printf("No chain candidate\n");
       }
 
       candidateChain = FindPossibleLoopClosure(pScan, rSensorName, scanIndex);
@@ -2000,14 +2020,15 @@ namespace karto
     LocalizedRangeScanVector chain;  // return value
 
     Pose2 pose = pScan->GetReferencePose(m_pMapper->m_pUseScanBarycenter->GetValue());
-
+    printf("UseScanBarycenter %d", m_pMapper->m_pUseScanBarycenter->GetValue());
+    // printf("LoopClose Pose %lf, %lf \n", pose.GetX(), pose.GetY()); // ????? scanPose 인가...
     // possible loop closure chain should not include close scans that have a
     // path of links to the scan of interest
     const LocalizedRangeScanVector nearLinkedScans =
           FindNearLinkedScans(pScan, m_pMapper->m_pLoopSearchMaximumDistance->GetValue());
 
     kt_int32u nScans = static_cast<kt_int32u>(m_pMapper->m_pMapperSensorManager->GetScans(rSensorName).size());
-    for (; rStartNum < nScans; rStartNum++)
+    for (; rStartNum < nScans; rStartNum++) //rSensorName의 scan size만큼 nScans라고 정의
     {
       LocalizedRangeScan* pCandidateScan = m_pMapper->m_pMapperSensorManager->GetScan(rSensorName, rStartNum);
 
@@ -2026,12 +2047,10 @@ namespace karto
         // a linked scan cannot be in the chain
         if (find(nearLinkedScans.begin(), nearLinkedScans.end(), pCandidateScan) != nearLinkedScans.end())
         {
-          std::cout << "Nope" << std::endl;
           chain.clear();
         }
         else
         {
-          std::cout << "Push" << std::endl;
           chain.push_back(pCandidateScan);
         }
       }
@@ -2776,6 +2795,7 @@ namespace karto
 			  if (covariance) {
 				  *covariance = cov;
 			  }
+        // printf("bestPose %lf, %lf", bestPose.GetX(), bestPose.GetY());
 		  }
 
 		  // add scan to buffer and assign id
