@@ -110,7 +110,7 @@ Matrix F의 x에 대한 1차 미분은 다음과 같이 jacobian으로 표현할
  \begin{pmatrix}
   \frac{a-x_1}{\sqrt{(x_1-a)^2+(y_1-b)^2}} & \frac{b-y_1}{\sqrt{(x_1-a)^2+(y_1-b)^2}} & -1 \\
   \vdots & \vdots & \vdots \\
-  \frac{a-x_i}{\sqrt{(x_i-a)^2+(y_i-b)^2}} & \frac{b-y_i}{\sqrt{(x_1-a)^2+(y_1-b)^2}} & -1 \\
+  \frac{a-x_i}{\sqrt{(x_i-a)^2+(y_i-b)^2}} & \frac{b-y_i}{\sqrt{(x_i-a)^2+(y_i-b)^2}} & -1 \\
  \end{pmatrix}$$
  
 </br>
