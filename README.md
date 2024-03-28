@@ -6,7 +6,8 @@ The workspace is divided into two categories: g++(CMKAE) and ROS.
 * [Eigendecomposition Code](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/linear_algebra/eigendecomposition.cpp)
   
 * [Eigendecomposition Method](https://yeonblog.tistory.com/25)
-  
+
+* [Eigen_compute_Relative](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/linear_algebra/relative_pose.cpp)
   
 ### 1. Algorithm 
 ##### [Optimize]
