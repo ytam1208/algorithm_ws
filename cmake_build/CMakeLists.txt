@@ -64,12 +64,14 @@ include_directories( "/usr/include/eigen3" )
 
 # add_executable(eigendecomposition src/linear_algebra/eigendecomposition.cpp)
 
-add_executable(pca src/SLAM/PCA.cpp)
-target_link_libraries(pca
-  ${OpenCV_LIBRARIES}
-)
+# add_executable(pca src/SLAM/PCA.cpp)
+# target_link_libraries(pca
+#   ${OpenCV_LIBRARIES}
+# )
 
-add_executable(orthogonal_least_square src/linear_algebra/orthogonal_least_square.cpp)
-target_link_libraries(orthogonal_least_square
-  ${OpenCV_LIBRARIES}
-)
+# add_executable(orthogonal_least_square src/linear_algebra/orthogonal_least_square.cpp)
+# target_link_libraries(orthogonal_least_square
+#   ${OpenCV_LIBRARIES}
+# )
+
+add_executable(relative_pose src/linear_algebra/relative_pose.cpp)

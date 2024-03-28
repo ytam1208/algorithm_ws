@@ -96,7 +96,8 @@
         "shared_mutex": "cpp",
         "cfenv": "cpp",
         "any": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "core": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "python.autoComplete.extraPaths": [
