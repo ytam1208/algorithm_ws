@@ -74,4 +74,9 @@ include_directories( "/usr/include/eigen3" )
 #   ${OpenCV_LIBRARIES}
 # )
 
+add_executable(Point_to_line_eigen src/linear_algebra/Point_to_line_eigen.cpp)
+target_link_libraries(Point_to_line_eigen
+  ${OpenCV_LIBRARIES}
+)
+
 add_executable(relative_pose src/linear_algebra/relative_pose.cpp)
