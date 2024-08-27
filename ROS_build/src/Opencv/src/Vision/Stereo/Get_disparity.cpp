@@ -16,8 +16,8 @@ https://github.com/luosch/stereo-matching/blob/master/StereoMatching.hpp
 
 // std::string left_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/left.png";
 // std::string right_file = "/Users/yeontaemin/github/algorithm_ws/ROS_build/color/right.png";
-std::string left_file = "/home/cona/github/algorithm_ws/ROS_build/color/left.png";
-std::string right_file = "/home/cona/github/algorithm_ws/ROS_build/color/right.png";
+std::string left_file = "/home/cona/git/algorithm_ws/ROS_build/color/left.png";
+std::string right_file = "/home/cona/git/algorithm_ws/ROS_build/color/right.png";
 
 cv::Mat compare_OpenCV(cv::Mat *base, cv::Mat *target)
 {
@@ -71,7 +71,9 @@ cv::Mat SSD(cv::Mat *base, cv::Mat *target)
     for(int off = 0; off <= adjust; off++){
         // std::cout << "off " << off << std::endl;
         for(int row = 0; row < height; row++)
-            for(int col = 0; col < width; col++){
+        {
+            for(int col = 0; col < width; col++)
+            {
                 int start_x = std::max(0, col - kernal_size);
                 int start_y = std::max(0, row - kernal_size);
                 int end_x = std::min(width-1, col + kernal_size);
@@ -79,18 +81,26 @@ cv::Mat SSD(cv::Mat *base, cv::Mat *target)
                 int sum_sd = 0;
 
                 for(int i = start_y; i <= end_y; i++)
+                {
                     for(int j = start_x; j <= end_x; j++){
                         int delta = abs(base->at<uchar>(i,j) - target->at<uchar>(i,j-off));   //left img 기준으로 right img의 disparity map을 구할 경우
                         //int delta = abs(base->at<uchar>(i,j) - target->at<uchar>(i,j+off)); //right img 기준으로 left img의 disparity map을 구할 경우
-              
                         sum_sd += delta * delta;
                     }
-                if(sum_sd <= min_ssd[row][col]){
+                }
+
+                // smaller SSD value found
+                if(sum_sd < min_ssd[row][col]){
                     min_ssd[row][col] = sum_sd;
+
                     // depth.at<uchar>(row, col) = (uchar)off;
-                    depth.at<uchar>(row, col) = (uchar)(off * (255/adjust));
+                    // depth.at<uchar>(row, col) = (uchar)(off * (255/adjust));
+
+                    // for better visualization
+                    depth.at<uchar>(row, col) = (uchar)(off * 3);                    
                 }
             }
+        }
     }
     return depth;
 }

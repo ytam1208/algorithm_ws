@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 include_directories( "/usr/include/eigen3" )
 
-# add_executable(test src/main.cpp)
+add_executable(test src/main.cpp)
 
 # add_executable(inline src/inline.cpp)
 

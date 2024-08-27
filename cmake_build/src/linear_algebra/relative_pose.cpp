@@ -29,7 +29,6 @@ int main(int argc, char** argv)
     // std::cout << "i T matrix = \n" << i.matrix() << std::endl;   
     // std::cout << "T matrix = \n" << i.translation() << std::endl;
     // std::cout << "R matrix = \n" << i.rotation() << std::endl;
-
     std::cout << "------------------------------------" << std::endl;
 
     Eigen::Affine3d j = Eigen::Affine3d::Identity();
@@ -43,7 +42,6 @@ int main(int argc, char** argv)
     j.linear() = rot;
     Get_XYZ("j_", j.translation());
     Get_RPY("j_", j.rotation());
-
     std::cout << "------------------------------------" << std::endl;
 
     Eigen::Affine3d inv = i.inverse();

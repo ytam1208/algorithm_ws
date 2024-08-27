@@ -22,7 +22,7 @@ find_package(Eigen3 REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(Boost REQUIRED)
-find_package(Sophus REQUIRED)
+# find_package(Sophus REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -36,9 +36,7 @@ catkin_package(
   CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
-message("***********************************")
-message(STATUS "G2O_INCLUDE_DIR = ${g2o_LIBRARIES}")
-message("***********************************")
+
 ###########
 ## Build ##
 ###########
@@ -50,7 +48,7 @@ include_directories(
  ${GLEW_INCLUDE_DIRS}
  ${Pangolin_INCLUDE_DIRS}
  ${Boost_INCLUDE_DIRS}
- ${Sophus_INCLUDE_DIRS}
+#  ${Sophus_INCLUDE_DIRS}
  ${CSPARSE_INCLUDE_DIRS}
  ${G2O_INCLUDE_DIRS}
  ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
