@@ -94,6 +94,8 @@ The workspace is divided into two categories: g++(CMKAE) and ROS.
 36. [std::condition_variable](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/Multi_thread/condition_variable.cpp)
 37. [std::insert](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Modern_Cplusplus/insert.cpp)
 38. [std::transform](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Modern_Cplusplus/transform.cpp)
+39. [std::accumulate.cpp](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Modern_Cplusplus/accumulate.cpp)
+40. [std::all_of, std::any_of, std::none_of](https://github.com/ytam1208/algorithm_ws/blob/master/ROS_build/src/Practice/C_function/src/Modern_Cplusplus/of.cpp)
     
 ### 5. **C++_algorithm_function**
 1. [std::binary_search](https://github.com/ytam1208/algorithm_ws/blob/master/cmake_build/src/binary_search.cpp)
