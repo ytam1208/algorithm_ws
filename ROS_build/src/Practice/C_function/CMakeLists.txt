@@ -28,7 +28,7 @@ include_directories(
  ${PROJECT_SOURCE_DIR}/include/
 )
 
-add_executable(${PROJECT_NAME} src/Modern_Cplusplus/transform.cpp)
+add_executable(${PROJECT_NAME} src/Modern_Cplusplus/of.cpp)
 
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
