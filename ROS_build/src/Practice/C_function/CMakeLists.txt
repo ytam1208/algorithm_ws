@@ -4,7 +4,7 @@ project(C_function)
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 set(CMAKE_BUILD_TYPE Release)
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++14)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -28,7 +28,7 @@ include_directories(
  ${PROJECT_SOURCE_DIR}/include/
 )
 
-add_executable(${PROJECT_NAME} src/templete_parameter_pack.cpp)
+add_executable(${PROJECT_NAME} src/Modern_Cplusplus/transform.cpp)
 
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
