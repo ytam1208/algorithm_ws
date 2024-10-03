@@ -7,6 +7,7 @@ include_directories(
 #  ${CERES_INCLUDE_DIRS}
 )
 find_package(OpenCV REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
@@ -81,4 +82,24 @@ add_executable(test src/main.cpp)
 
 # add_executable(relative_pose src/linear_algebra/relative_pose.cpp)
 
-add_executable(condition_variable src/Multi_thread/condition_variable.cpp)
+# add_executable(condition_variable src/Multi_thread/condition_variable.cpp)
+
+# add_executable(1D-kalmanFilter src/SLAM/kalmanFilter/1D_example.cpp)
+# target_link_libraries(1D-kalmanFilter
+#   ${Eigen3_LIBS}
+# )
+
+# add_executable(Kalman_example1 src/SLAM/kalmanFilter/example/Kalman_example1.cpp)
+# target_link_libraries(Kalman_example1
+#   ${Eigen3_LIBS}
+# )
+
+# add_executable(EKF_example1 src/SLAM/kalmanFilter/example/EKF_example1.cpp)
+# target_link_libraries(EKF_example1
+#   ${Eigen3_LIBS}
+# )
+
+add_executable(EKF_example2 src/SLAM/kalmanFilter/example/EKF_example2.cpp)
+target_link_libraries(EKF_example2
+  ${Eigen3_LIBS}
+)
