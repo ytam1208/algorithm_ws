@@ -1,19 +1,48 @@
 cmake_minimum_required(VERSION 3.10)
 project(code_test)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+
+include_directories("/usr/include/eigen3")
 include_directories(
  include
  ${OpenCV_INCLUDE_DIRS}
-#  ${CERES_INCLUDE_DIRS}
-)
+ ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}/
+ #  ${CERES_INCLUDE_DIRS}
+ )
+
 find_package(OpenCV REQUIRED)
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 REQUIRED) 
 
-set(CMAKE_CXX_STANDARD 17)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-include_directories( "/usr/include/eigen3" )
+# add_subdirectory(abseil-cpp)
+# add_executable(log src/abseil/log.cpp)  
+# target_link_libraries(log
+#   ${Eigen3_LIBS}
+#   ${OpenCV_LIBRARIES}
+#   absl::log
+#   absl::strings
+# )
 
-add_executable(test src/main.cpp)
+# add_executable(flat_hash_set src/abseil/flat_hash_set.cpp)
+# target_link_libraries(flat_hash_set
+#   ${Eigen3_LIBS}
+#   ${OpenCV_LIBRARIES}
+#   absl::log
+#   absl::strings
+#   absl::flat_hash_set
+# )
+
+# add_executable(flat_hash_map src/abseil/flat_hash_map.cpp)
+# target_link_libraries(flat_hash_map
+#   ${Eigen3_LIBS}
+#   ${OpenCV_LIBRARIES}
+#   absl::log
+#   absl::strings
+#   absl::flat_hash_map
+# )
+
+# add_executable(test src/main.cpp)
 
 # add_executable(inline src/inline.cpp)
 
