@@ -1,0 +1,65 @@
+[0.037s] Invoking command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/experiments/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[0.076s] -- The C compiler identification is GNU 11.4.0
+[0.132s] -- The CXX compiler identification is GNU 11.4.0
+[0.139s] -- Detecting C compiler ABI info
+[0.199s] -- Detecting C compiler ABI info - done
+[0.206s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.207s] -- Detecting C compile features
+[0.207s] -- Detecting C compile features - done
+[0.210s] -- Detecting CXX compiler ABI info
+[0.281s] -- Detecting CXX compiler ABI info - done
+[0.287s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.287s] -- Detecting CXX compile features
+[0.288s] -- Detecting CXX compile features - done
+[0.290s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.428s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.485s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.510s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.544s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.548s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.554s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.565s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.578s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.617s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.619s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.700s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.724s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.768s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.777s] -- Looking for pthread.h
+[0.836s] -- Looking for pthread.h - found
+[0.836s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.896s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.896s] -- Found Threads: TRUE  
+[0.942s] -- Found rclcpp_components: 16.0.12 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.034s] -- Configuring done
+[1.046s] -- Generating done
+[1.049s] -- Build files have been written to: /root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[1.058s] Invoked command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /root/experiments/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[1.059s] Invoking command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j12 -l12
+[1.097s] [ 50%] [32mBuilding CXX object CMakeFiles/dummy_subscriber.dir/src/dummy_subscriber_component.cpp.o[0m
+[8.505s] [100%] [32m[1mLinking CXX shared library libdummy_subscriber.so[0m
+[8.799s] [100%] Built target dummy_subscriber
+[8.808s] Invoked command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j12 -l12
+[8.810s] Invoking command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[8.814s] -- Install configuration: ""
+[8.815s] -- Execute custom install script
+[8.816s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/libdummy_subscriber.so
+[8.823s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/include/dummy_subscriber_component/dummy_subscriber_component.hpp
+[8.829s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/dummy_subscriber.launch.py
+[8.838s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/package_run_dependencies/dummy_subscriber_component
+[8.844s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/parent_prefix_path/dummy_subscriber_component
+[8.852s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/ament_prefix_path.sh
+[8.861s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/ament_prefix_path.dsv
+[8.868s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/path.sh
+[8.875s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/path.dsv
+[8.882s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.bash
+[8.889s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.sh
+[8.897s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.zsh
+[8.905s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.dsv
+[8.912s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.dsv
+[8.921s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/packages/dummy_subscriber_component
+[8.929s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/rclcpp_components/dummy_subscriber_component
+[8.937s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/cmake/dummy_subscriber_componentConfig.cmake
+[8.944s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/cmake/dummy_subscriber_componentConfig-version.cmake
+[8.951s] -- Symlinking: /root/experiments/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.xml
+[8.959s] Invoked command in '/root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /root/experiments/algorithm_ws/ROS2_build/build/dummy_subscriber_component

@@ -8,4 +8,7 @@ ROS_build/build/
 cmake_build/build/*
 cmake_build/bin/
 
-.vscode
+*.vscode
+*.catkin_workspace
+*.DS_Store
+*.github
