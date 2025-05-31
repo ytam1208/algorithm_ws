@@ -1,0 +1,67 @@
+[0.030s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[0.202s] -- The C compiler identification is GNU 11.4.0
+[0.325s] -- The CXX compiler identification is GNU 11.4.0
+[0.346s] -- Detecting C compiler ABI info
+[0.553s] -- Detecting C compiler ABI info - done
+[0.584s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.584s] -- Detecting C compile features
+[0.585s] -- Detecting C compile features - done
+[0.592s] -- Detecting CXX compiler ABI info
+[0.850s] -- Detecting CXX compiler ABI info - done
+[0.877s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.877s] -- Detecting CXX compile features
+[0.878s] -- Detecting CXX compile features - done
+[0.886s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.167s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.325s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[1.389s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.396s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.414s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.436s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.462s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.543s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.548s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.900s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.967s] -- Found FastRTPS: /opt/ros/humble/include  
+[2.068s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.081s] -- Looking for pthread.h
+[2.349s] -- Looking for pthread.h - found
+[2.349s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.606s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.611s] -- Found Threads: TRUE  
+[2.709s] -- Found rclcpp_components: 16.0.12 (/opt/ros/humble/share/rclcpp_components/cmake)
+[2.889s] -- Configuring done
+[2.906s] -- Generating done
+[2.913s] -- Build files have been written to: /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[2.928s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[2.929s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j4 -l4
+[3.075s] [ 50%] [32mBuilding CXX object CMakeFiles/dummy_subscriber.dir/src/dummy_subscriber_component.cpp.o[0m
+[17.299s] [100%] [32m[1mLinking CXX shared library libdummy_subscriber.so[0m
+[17.789s] [100%] Built target dummy_subscriber
+[17.805s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j4 -l4
+[17.807s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[17.821s] -- Install configuration: ""
+[17.821s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/libdummy_subscriber.so
+[17.828s] -- Set runtime path of "/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/libdummy_subscriber.so" to ""
+[17.828s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/include
+[17.828s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/include/dummy_subscriber_component
+[17.828s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/include/dummy_subscriber_component/dummy_subscriber_component.hpp
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/dummy_subscriber.launch.py
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/package_run_dependencies/dummy_subscriber_component
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/parent_prefix_path/dummy_subscriber_component
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/ament_prefix_path.sh
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/ament_prefix_path.dsv
+[17.829s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/path.sh
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/environment/path.dsv
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.bash
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.sh
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.zsh
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/local_setup.dsv
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.dsv
+[17.830s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/packages/dummy_subscriber_component
+[17.831s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/ament_index/resource_index/rclcpp_components/dummy_subscriber_component
+[17.831s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/cmake/dummy_subscriber_componentConfig.cmake
+[17.831s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/cmake/dummy_subscriber_componentConfig-version.cmake
+[17.831s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.xml
+[17.834s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component

@@ -1,0 +1,85 @@
+[0.013s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment
+[0.178s] -- The C compiler identification is GNU 11.4.0
+[0.271s] -- The CXX compiler identification is GNU 11.4.0
+[0.285s] -- Detecting C compiler ABI info
+[0.406s] -- Detecting C compiler ABI info - done
+[0.421s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.421s] -- Detecting C compile features
+[0.423s] -- Detecting C compile features - done
+[0.427s] -- Detecting CXX compiler ABI info
+[0.584s] -- Detecting CXX compiler ABI info - done
+[0.611s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.611s] -- Detecting CXX compile features
+[0.611s] -- Detecting CXX compile features - done
+[0.616s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.833s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.941s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[0.985s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.991s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.999s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.016s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.035s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.087s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.090s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.266s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.304s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.365s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.376s] -- Looking for pthread.h
+[1.517s] -- Looking for pthread.h - found
+[1.517s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.643s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.645s] -- Found Threads: TRUE  
+[1.733s] -- Found CXSparse: /usr/include/suitesparse (found suitable version "3.2.0", minimum required is "3.2.0") 
+[2.582s] -- Found AMD headers in: /usr/include/suitesparse
+[2.582s] -- Found AMD library: /usr/lib/x86_64-linux-gnu/libamd.so
+[2.582s] -- Found CAMD headers in: /usr/include/suitesparse
+[2.584s] -- Found CAMD library: /usr/lib/x86_64-linux-gnu/libcamd.so
+[2.585s] -- Found CCOLAMD headers in: /usr/include/suitesparse
+[2.587s] -- Found CCOLAMD library: /usr/lib/x86_64-linux-gnu/libccolamd.so
+[2.587s] -- Found CHOLMOD headers in: /usr/include/suitesparse
+[2.589s] -- Found CHOLMOD library: /usr/lib/x86_64-linux-gnu/libcholmod.so
+[2.590s] -- Found COLAMD headers in: /usr/include/suitesparse
+[2.591s] -- Found COLAMD library: /usr/lib/x86_64-linux-gnu/libcolamd.so
+[2.592s] -- Found SPQR headers in: /usr/include/suitesparse
+[2.594s] -- Found SPQR library: /usr/lib/x86_64-linux-gnu/libspqr.so
+[2.594s] -- Found Config headers in: /usr/include/suitesparse
+[2.596s] -- Found Config library: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
+[2.601s] -- Found Intel Thread Building Blocks (TBB) library (2021.5 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+[2.601s] -- Looking for shm_open in rt
+[2.734s] -- Looking for shm_open in rt - found
+[2.734s] -- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+[2.739s] -- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+[2.742s] -- Found SuiteSparse: /usr/include/suitesparse (found suitable version "5.10.1", minimum required is "5.10.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+[2.750s] -- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+[2.757s] -- Found required Ceres dependency: glog
+[2.758s] -- Found required Ceres dependency: gflags
+[2.758s] -- Found Ceres version: 2.1.0 installed in: /usr/local with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, CXSparse, SchurSpecializations, Multithreading]
+[2.837s] -- Configuring done
+[2.850s] -- Generating done
+[2.856s] -- Build files have been written to: /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment
+[2.869s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment
+[2.871s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment -- -j4 -l4
+[2.963s] [ 50%] [32mBuilding CXX object CMakeFiles/local_bundle_adjustment.dir/src/local_bundle_adjustment.cpp.o[0m
+[8.006s] [100%] [32m[1mLinking CXX executable local_bundle_adjustment[0m
+[8.321s] [100%] Built target local_bundle_adjustment
+[8.337s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment -- -j4 -l4
+[8.339s] Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment
+[8.349s] -- Install configuration: ""
+[8.350s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/local_bundle_adjustment/local_bundle_adjustment
+[8.354s] -- Set runtime path of "/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/local_bundle_adjustment/local_bundle_adjustment" to ""
+[8.354s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/ament_index/resource_index/package_run_dependencies/local_bundle_adjustment
+[8.354s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/ament_index/resource_index/parent_prefix_path/local_bundle_adjustment
+[8.354s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/environment/ament_prefix_path.sh
+[8.355s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/environment/ament_prefix_path.dsv
+[8.355s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/environment/path.sh
+[8.355s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/environment/path.dsv
+[8.355s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/local_setup.bash
+[8.355s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/local_setup.sh
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/local_setup.zsh
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/local_setup.dsv
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.dsv
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/ament_index/resource_index/packages/local_bundle_adjustment
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/cmake/local_bundle_adjustmentConfig.cmake
+[8.356s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/cmake/local_bundle_adjustmentConfig-version.cmake
+[8.357s] -- Installing: /home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.xml
+[8.359s] Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment

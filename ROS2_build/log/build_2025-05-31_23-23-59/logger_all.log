@@ -1,0 +1,461 @@
+[0.109s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.109s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7bb1a9c19780>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7bb1a9d8ee30>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7bb1a9d8ee30>>, mixin_verb=('build',))
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.262s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.262s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tm/experiement/algorithm_ws/ROS2_build'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.262s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.263s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.273s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['ignore', 'ignore_ament_install']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'ignore'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'ignore_ament_install'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['colcon_pkg']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'colcon_pkg'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['colcon_meta']
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'colcon_meta'
+[0.274s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['ros']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'ros'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['cmake', 'python']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'cmake'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'python'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extensions ['python_setup_py']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer) by extension 'python_setup_py'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extensions ['ignore', 'ignore_ament_install']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extension 'ignore'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extension 'ignore_ament_install'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extensions ['colcon_pkg']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extension 'colcon_pkg'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extensions ['colcon_meta']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extension 'colcon_meta'
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extensions ['ros']
+[0.275s] Level 1:colcon.colcon_core.package_identification:_identify(src/optimizer/local_bundle_adjustment) by extension 'ros'
+[0.278s] DEBUG:colcon.colcon_core.package_identification:Package 'src/optimizer/local_bundle_adjustment' with type 'ros.ament_cmake' and name 'local_bundle_adjustment'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['ignore', 'ignore_ament_install']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'ignore'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'ignore_ament_install'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['colcon_pkg']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'colcon_pkg'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['colcon_meta']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'colcon_meta'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['ros']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'ros'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['cmake', 'python']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'cmake'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'python'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extensions ['python_setup_py']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic) by extension 'python_setup_py'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extensions ['ignore', 'ignore_ament_install']
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extension 'ignore'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extension 'ignore_ament_install'
+[0.278s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extensions ['colcon_pkg']
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extension 'colcon_pkg'
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extensions ['colcon_meta']
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extension 'colcon_meta'
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extensions ['ros']
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_component) by extension 'ros'
+[0.279s] DEBUG:colcon.colcon_core.package_identification:Package 'src/topic/dummy_publisher_component' with type 'ros.ament_cmake' and name 'dummy_publisher_component'
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extensions ['ignore', 'ignore_ament_install']
+[0.279s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extension 'ignore'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extension 'ignore_ament_install'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extensions ['colcon_pkg']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extension 'colcon_pkg'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extensions ['colcon_meta']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extension 'colcon_meta'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extensions ['ros']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_publisher_node) by extension 'ros'
+[0.280s] DEBUG:colcon.colcon_core.package_identification:Package 'src/topic/dummy_publisher_node' with type 'ros.ament_cmake' and name 'dummy_publisher_node'
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extensions ['ignore', 'ignore_ament_install']
+[0.280s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extension 'ignore'
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extension 'ignore_ament_install'
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extensions ['colcon_pkg']
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extension 'colcon_pkg'
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extensions ['colcon_meta']
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extension 'colcon_meta'
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extensions ['ros']
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_component) by extension 'ros'
+[0.281s] DEBUG:colcon.colcon_core.package_identification:Package 'src/topic/dummy_subscriber_component' with type 'ros.ament_cmake' and name 'dummy_subscriber_component'
+[0.281s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extensions ['ignore', 'ignore_ament_install']
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extension 'ignore'
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extension 'ignore_ament_install'
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extensions ['colcon_pkg']
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extension 'colcon_pkg'
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extensions ['colcon_meta']
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extension 'colcon_meta'
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extensions ['ros']
+[0.282s] Level 1:colcon.colcon_core.package_identification:_identify(src/topic/dummy_subscriber_node) by extension 'ros'
+[0.282s] DEBUG:colcon.colcon_core.package_identification:Package 'src/topic/dummy_subscriber_node' with type 'ros.ament_cmake' and name 'dummy_subscriber_node'
+[0.282s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.282s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.283s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.312s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.313s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/tm/experiement/algorithm_ws/ROS2_build/install
+[0.315s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 271 installed packages in /opt/ros/humble
+[0.318s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_target' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_clean_cache' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_clean_first' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'cmake_force_configure' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'ament_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'catkin_cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_component' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.360s] DEBUG:colcon.colcon_core.verb:Building package 'dummy_publisher_component' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component', 'merge_install': False, 'path': '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_component', 'symlink_install': False, 'test_result_base': None}
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_args' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_target' from command line to 'None'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.360s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_publisher_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.361s] DEBUG:colcon.colcon_core.verb:Building package 'dummy_publisher_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node', 'merge_install': False, 'path': '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_node', 'symlink_install': False, 'test_result_base': None}
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_target' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_clean_cache' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_clean_first' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'cmake_force_configure' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'ament_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'catkin_cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_component' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.361s] DEBUG:colcon.colcon_core.verb:Building package 'dummy_subscriber_component' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component', 'merge_install': False, 'path': '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component', 'symlink_install': False, 'test_result_base': None}
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_args' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_target' from command line to 'None'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.361s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'dummy_subscriber_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.362s] DEBUG:colcon.colcon_core.verb:Building package 'dummy_subscriber_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node', 'merge_install': False, 'path': '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_node', 'symlink_install': False, 'test_result_base': None}
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_target' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_clean_cache' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_clean_first' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'cmake_force_configure' from command line to 'False'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'ament_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'catkin_cmake_args' from command line to 'None'
+[0.362s] Level 5:colcon.colcon_core.verb:set package 'local_bundle_adjustment' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.362s] DEBUG:colcon.colcon_core.verb:Building package 'local_bundle_adjustment' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment', 'merge_install': False, 'path': '/home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment', 'symlink_install': False, 'test_result_base': None}
+[0.362s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.363s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.363s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_component' with build type 'ament_cmake'
+[0.363s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_component'
+[0.366s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.366s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.366s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.370s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_node' with build type 'ament_cmake'
+[0.370s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_node'
+[0.371s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.371s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.375s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component' with build type 'ament_cmake'
+[0.376s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component'
+[0.376s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.376s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.382s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_node' with build type 'ament_cmake'
+[0.383s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_node'
+[0.383s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.383s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.398s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component
+[0.402s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_node -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node
+[0.407s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[0.415s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_node -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node
+[3.157s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component
+[3.162s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component -- -j4 -l4
+[3.196s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_node -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node
+[3.198s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node -- -j4 -l4
+[3.213s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_publisher_node -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node
+[3.214s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node -- -j4 -l4
+[3.305s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/topic/dummy_subscriber_component -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component
+[3.306s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j4 -l4
+[11.463s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component -- -j4 -l4
+[11.482s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component
+[11.511s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_publisher_component)
+[11.512s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_component
+[11.515s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' for CMake module files
+[11.516s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' for CMake config files
+[11.516s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_component', 'cmake_prefix_path')
+[11.517s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.ps1'
+[11.518s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.dsv'
+[11.518s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.sh'
+[11.520s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib'
+[11.520s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_component', 'ld_library_path_lib')
+[11.520s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.ps1'
+[11.521s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.dsv'
+[11.522s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.sh'
+[11.522s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/bin'
+[11.522s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib/pkgconfig/dummy_publisher_component.pc'
+[11.523s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib/python3.10/site-packages'
+[11.523s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/bin'
+[11.524s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.ps1'
+[11.525s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.dsv'
+[11.526s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.sh'
+[11.527s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.bash'
+[11.529s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.zsh'
+[11.530s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/colcon-core/packages/dummy_publisher_component)
+[11.532s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_publisher_component)
+[11.532s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' for CMake module files
+[11.535s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component' for CMake config files
+[11.535s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_component', 'cmake_prefix_path')
+[11.535s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.ps1'
+[11.536s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.dsv'
+[11.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/cmake_prefix_path.sh'
+[11.537s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib'
+[11.537s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_component', 'ld_library_path_lib')
+[11.539s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.ps1'
+[11.543s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.dsv'
+[11.543s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/hook/ld_library_path_lib.sh'
+[11.544s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/bin'
+[11.544s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib/pkgconfig/dummy_publisher_component.pc'
+[11.544s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/lib/python3.10/site-packages'
+[11.545s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/bin'
+[11.545s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.ps1'
+[11.546s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.dsv'
+[11.547s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.sh'
+[11.548s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.bash'
+[11.549s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/dummy_publisher_component/package.zsh'
+[11.549s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_component/share/colcon-core/packages/dummy_publisher_component)
+[11.551s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment' with build type 'ament_cmake'
+[11.552s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment'
+[11.552s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.552s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.569s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment
+[11.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node -- -j4 -l4
+[11.640s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node
+[11.682s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_publisher_node)
+[11.683s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_publisher_node
+[11.683s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' for CMake module files
+[11.685s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' for CMake config files
+[11.685s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_node', 'cmake_prefix_path')
+[11.687s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.ps1'
+[11.688s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.dsv'
+[11.689s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.sh'
+[11.689s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib'
+[11.690s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/bin'
+[11.690s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib/pkgconfig/dummy_publisher_node.pc'
+[11.690s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib/python3.10/site-packages'
+[11.691s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/bin'
+[11.691s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.ps1'
+[11.692s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.dsv'
+[11.692s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.sh'
+[11.693s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.bash'
+[11.694s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.zsh'
+[11.694s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/colcon-core/packages/dummy_publisher_node)
+[11.695s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_publisher_node)
+[11.696s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' for CMake module files
+[11.696s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node' for CMake config files
+[11.697s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_publisher_node', 'cmake_prefix_path')
+[11.697s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.ps1'
+[11.698s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.dsv'
+[11.702s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/hook/cmake_prefix_path.sh'
+[11.704s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib'
+[11.704s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/bin'
+[11.704s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib/pkgconfig/dummy_publisher_node.pc'
+[11.705s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/lib/python3.10/site-packages'
+[11.705s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/bin'
+[11.706s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.ps1'
+[11.707s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.dsv'
+[11.708s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.sh'
+[11.708s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.bash'
+[11.709s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/dummy_publisher_node/package.zsh'
+[11.710s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_publisher_node/share/colcon-core/packages/dummy_publisher_node)
+[14.425s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/tm/experiement/algorithm_ws/ROS2_build/src/optimizer/local_bundle_adjustment -DCMAKE_INSTALL_PREFIX=/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment
+[14.427s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment -- -j4 -l4
+[16.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node -- -j4 -l4
+[16.480s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node
+[16.500s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_subscriber_node)
+[16.500s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' for CMake module files
+[16.501s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_node
+[16.502s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' for CMake config files
+[16.502s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_node', 'cmake_prefix_path')
+[16.503s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.ps1'
+[16.503s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.dsv'
+[16.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.sh'
+[16.504s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib'
+[16.504s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/bin'
+[16.504s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib/pkgconfig/dummy_subscriber_node.pc'
+[16.505s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib/python3.10/site-packages'
+[16.505s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/bin'
+[16.506s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.ps1'
+[16.506s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.dsv'
+[16.546s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.sh'
+[16.546s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.bash'
+[16.547s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.zsh'
+[16.547s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/colcon-core/packages/dummy_subscriber_node)
+[16.548s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_subscriber_node)
+[16.548s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' for CMake module files
+[16.548s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node' for CMake config files
+[16.549s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_node', 'cmake_prefix_path')
+[16.549s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.ps1'
+[16.564s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.dsv'
+[16.709s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/hook/cmake_prefix_path.sh'
+[16.710s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib'
+[16.710s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/bin'
+[16.710s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib/pkgconfig/dummy_subscriber_node.pc'
+[16.710s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/lib/python3.10/site-packages'
+[16.711s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/bin'
+[16.711s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.ps1'
+[16.988s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.dsv'
+[16.989s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.sh'
+[16.990s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.bash'
+[16.991s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/dummy_subscriber_node/package.zsh'
+[16.991s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_node/share/colcon-core/packages/dummy_subscriber_node)
+[18.182s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component -- -j4 -l4
+[18.184s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[18.209s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_subscriber_component)
+[18.209s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' for CMake module files
+[18.210s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/dummy_subscriber_component
+[18.211s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' for CMake config files
+[18.211s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_component', 'cmake_prefix_path')
+[18.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.ps1'
+[18.212s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.dsv'
+[18.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.sh'
+[18.214s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib'
+[18.214s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_component', 'ld_library_path_lib')
+[18.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.ps1'
+[18.215s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.dsv'
+[18.215s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.sh'
+[18.216s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/bin'
+[18.216s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/pkgconfig/dummy_subscriber_component.pc'
+[18.216s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/python3.10/site-packages'
+[18.216s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/bin'
+[18.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.ps1'
+[18.217s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.dsv'
+[18.218s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.sh'
+[18.218s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.bash'
+[18.219s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.zsh'
+[18.219s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/colcon-core/packages/dummy_subscriber_component)
+[18.220s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(dummy_subscriber_component)
+[18.220s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' for CMake module files
+[18.220s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component' for CMake config files
+[18.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_component', 'cmake_prefix_path')
+[18.221s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.ps1'
+[18.221s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.dsv'
+[18.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/cmake_prefix_path.sh'
+[18.222s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib'
+[18.223s] Level 1:colcon.colcon_core.shell:create_environment_hook('dummy_subscriber_component', 'ld_library_path_lib')
+[18.223s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.ps1'
+[18.223s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.dsv'
+[18.224s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/hook/ld_library_path_lib.sh'
+[18.224s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/bin'
+[18.224s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/pkgconfig/dummy_subscriber_component.pc'
+[18.225s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/lib/python3.10/site-packages'
+[18.225s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/bin'
+[18.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.ps1'
+[18.227s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.dsv'
+[18.227s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.sh'
+[18.228s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.bash'
+[18.228s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/dummy_subscriber_component/package.zsh'
+[18.229s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/dummy_subscriber_component/share/colcon-core/packages/dummy_subscriber_component)
+[19.893s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment -- -j4 -l4
+[19.895s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment
+[19.914s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(local_bundle_adjustment)
+[19.914s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' for CMake module files
+[19.915s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/tm/experiement/algorithm_ws/ROS2_build/build/local_bundle_adjustment
+[19.915s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' for CMake config files
+[19.916s] Level 1:colcon.colcon_core.shell:create_environment_hook('local_bundle_adjustment', 'cmake_prefix_path')
+[19.916s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.ps1'
+[19.917s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.dsv'
+[19.917s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.sh'
+[19.918s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib'
+[19.918s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/bin'
+[19.918s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/pkgconfig/local_bundle_adjustment.pc'
+[19.918s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/python3.10/site-packages'
+[19.918s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/bin'
+[19.919s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.ps1'
+[19.919s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.dsv'
+[19.919s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.sh'
+[19.920s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.bash'
+[19.920s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.zsh'
+[19.920s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/colcon-core/packages/local_bundle_adjustment)
+[19.921s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(local_bundle_adjustment)
+[19.921s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' for CMake module files
+[19.922s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment' for CMake config files
+[19.922s] Level 1:colcon.colcon_core.shell:create_environment_hook('local_bundle_adjustment', 'cmake_prefix_path')
+[19.922s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.ps1'
+[19.922s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.dsv'
+[19.923s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/hook/cmake_prefix_path.sh'
+[19.923s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib'
+[19.923s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/bin'
+[19.923s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/pkgconfig/local_bundle_adjustment.pc'
+[19.923s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/lib/python3.10/site-packages'
+[19.924s] Level 1:colcon.colcon_core.environment:checking '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/bin'
+[19.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.ps1'
+[19.924s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.dsv'
+[19.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.sh'
+[19.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.bash'
+[19.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/local_bundle_adjustment/package.zsh'
+[19.926s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tm/experiement/algorithm_ws/ROS2_build/install/local_bundle_adjustment/share/colcon-core/packages/local_bundle_adjustment)
+[19.926s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[19.926s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[19.926s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[19.927s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[19.933s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[19.933s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[19.933s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[19.947s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[19.947s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_setup.ps1'
+[19.949s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tm/experiement/algorithm_ws/ROS2_build/install/_local_setup_util_ps1.py'
+[19.950s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tm/experiement/algorithm_ws/ROS2_build/install/setup.ps1'
+[19.952s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_setup.sh'
+[19.952s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tm/experiement/algorithm_ws/ROS2_build/install/_local_setup_util_sh.py'
+[19.953s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tm/experiement/algorithm_ws/ROS2_build/install/setup.sh'
+[19.954s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_setup.bash'
+[19.954s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tm/experiement/algorithm_ws/ROS2_build/install/setup.bash'
+[19.955s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tm/experiement/algorithm_ws/ROS2_build/install/local_setup.zsh'
+[19.956s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tm/experiement/algorithm_ws/ROS2_build/install/setup.zsh'
